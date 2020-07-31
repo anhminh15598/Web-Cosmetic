@@ -11,7 +11,6 @@ import { ChiTietSanPhamComponent } from './pages/chi-tiet-san-pham/chi-tiet-san-
 import { LienHeComponent } from './pages/lien-he/lien-he.component';
 import { GioiThieuCongTyComponent } from './pages/gioi-thieu-cong-ty/gioi-thieu-cong-ty.component';
 import { LayoutComponent } from './core/layout/layout.component';
-import { HomeModule } from './pages/home/home.module';
 
 @NgModule({
   declarations: [
@@ -25,7 +24,7 @@ import { HomeModule } from './pages/home/home.module';
     GioiThieuCongTyComponent,
     LayoutComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule,HomeModule],
+  imports: [BrowserModule, AppRoutingModule],
   providers: [],
   bootstrap: [AppComponent],
 })
