@@ -7,8 +7,6 @@ import { HeaderComponent } from './core/header/header.component';
 import { FooterComponent } from './core/footer/footer.component';
 import { SidenavComponent } from './core/sidenav/sidenav.component';
 import { HomeComponent } from './pages/home/home.component';
-import { DangNhapComponent } from './pages/dang-nhap/dang-nhap.component';
-import { SanPhamComponent } from './pages/san-pham/san-pham.component';
 import { ChiTietSanPhamComponent } from './pages/chi-tiet-san-pham/chi-tiet-san-pham.component';
 import { LienHeComponent } from './pages/lien-he/lien-he.component';
 import { GioiThieuCongTyComponent } from './pages/gioi-thieu-cong-ty/gioi-thieu-cong-ty.component';
@@ -22,14 +20,12 @@ import { HomeModule } from './pages/home/home.module';
     FooterComponent,
     SidenavComponent,
     HomeComponent,
-    DangNhapComponent,
-    SanPhamComponent,
     ChiTietSanPhamComponent,
     LienHeComponent,
     GioiThieuCongTyComponent,
     LayoutComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule],
+  imports: [BrowserModule, AppRoutingModule,HomeModule],
   providers: [],
   bootstrap: [AppComponent],
 })
