@@ -4,6 +4,9 @@ import { LayoutComponent } from './core/layout/layout.component';
 import { HomeComponent } from './pages/home/home.component';
 import { LienHeComponent } from './pages/lien-he/lien-he.component';
 import { GioiThieuCongTyComponent } from './pages/gioi-thieu-cong-ty/gioi-thieu-cong-ty.component';
+import { DangNhapComponent } from './admin-pages/dang-nhap/dang-nhap.component';
+import { SanPhamAdminComponent } from './admin-pages/san-pham-admin/san-pham-admin.component';
+import { AdminLayoutComponent } from './admin-pages/admin-core/admin-layout/admin-layout.component';
 
 const routes: Routes = [
   {
@@ -25,9 +28,23 @@ const routes: Routes = [
       {
         path: 'gioi-thieu-cong-ty',
         component: GioiThieuCongTyComponent,
-      },
+      }
     ]
   },
+    {
+      path: 'dang-nhap',
+      component: DangNhapComponent,
+    },
+    {
+      path: 'admin',
+      component: AdminLayoutComponent,
+      children:[
+        {
+          path: '',
+          component: SanPhamAdminComponent,
+        }
+      ]
+    },
 ];
 
 @NgModule({

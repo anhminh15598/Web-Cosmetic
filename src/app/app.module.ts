@@ -11,6 +11,9 @@ import { ChiTietSanPhamComponent } from './pages/chi-tiet-san-pham/chi-tiet-san-
 import { LienHeComponent } from './pages/lien-he/lien-he.component';
 import { GioiThieuCongTyComponent } from './pages/gioi-thieu-cong-ty/gioi-thieu-cong-ty.component';
 import { LayoutComponent } from './core/layout/layout.component';
+import { AdminFooterComponent } from './admin-pages/admin-core/admin-footer/admin-footer.component';
+import { AdminHeaderComponent } from './admin-pages/admin-core/admin-header/admin-header.component';
+import { AdminLayoutComponent } from './admin-pages/admin-core/admin-layout/admin-layout.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +26,7 @@ import { LayoutComponent } from './core/layout/layout.component';
     LienHeComponent,
     GioiThieuCongTyComponent,
     LayoutComponent,
+    AdminFooterComponent,AdminHeaderComponent,AdminLayoutComponent
   ],
   imports: [BrowserModule, AppRoutingModule],
   providers: [],
