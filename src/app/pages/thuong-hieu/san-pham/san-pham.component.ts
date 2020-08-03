@@ -3,7 +3,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'app-san-pham',
   templateUrl: './san-pham.component.html',
-  styleUrls: ['./san-pham.component.css']
+  styleUrls: ['./san-pham.component.scss']
 })
 export class SanPhamComponent implements OnInit {
   ten:any;
