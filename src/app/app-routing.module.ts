@@ -1,7 +1,6 @@
 import { NgModule, Component } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { LayoutComponent } from './core/layout/layout.component';
-import { HomeComponent } from './pages/home/home.component';
 import { LienHeComponent } from './pages/lien-he/lien-he.component';
 import { GioiThieuCongTyComponent } from './pages/gioi-thieu-cong-ty/gioi-thieu-cong-ty.component';
 import { DangNhapComponent } from './admin-pages/dang-nhap/dang-nhap.component';
@@ -12,14 +11,18 @@ const routes: Routes = [
   {
     path: '',
     component: LayoutComponent,
-    children:[
+    children: [
       {
         path: '',
-        loadChildren: () => import('./pages/home/home.module').then(m => m.HomeModule),
+        loadChildren: () =>
+          import('./pages/home/home.module').then((m) => m.HomeModule),
       },
       {
         path: 'thuong-hieu/:tenThuongHieu',
-        loadChildren: () => import('./pages/thuong-hieu/thuong-hieu.module').then(m => m.ThuongHieuModule),
+        loadChildren: () =>
+          import('./pages/thuong-hieu/thuong-hieu.module').then(
+            (m) => m.ThuongHieuModule
+          ),
       },
       {
         path: 'lien-he',
@@ -28,23 +31,23 @@ const routes: Routes = [
       {
         path: 'gioi-thieu-cong-ty',
         component: GioiThieuCongTyComponent,
-      }
-    ]
+      },
+    ],
   },
-    {
-      path: 'dang-nhap',
-      component: DangNhapComponent,
-    },
-    {
-      path: 'admin',
-      component: AdminLayoutComponent,
-      children:[
-        {
-          path: '',
-          component: SanPhamAdminComponent,
-        }
-      ]
-    },
+  {
+    path: 'dang-nhap',
+    component: DangNhapComponent,
+  },
+  {
+    path: 'admin',
+    component: AdminLayoutComponent,
+    children: [
+      {
+        path: '',
+        component: SanPhamAdminComponent,
+      },
+    ],
+  },
 ];
 
 @NgModule({
