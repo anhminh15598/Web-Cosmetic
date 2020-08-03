@@ -2,13 +2,13 @@
   <div class="header_logo">
     <a [routerLink]="['']"><span>US</span>Beauty</a>
   </div>
-  <div class="menu_search">
+  <div [ngClass]="{ menu_search_1: x === true }" class="menu_search">
     <input class="header_search_input" type="text" placeholder="Tìm kiếm" />
     <button class="header_search_button" type="submit">
       <i class="fa fa-search"></i>
     </button>
   </div>
-  <div class="header_menu">
+  <div [ngClass]="{ header_menu_1: x === true }" class="header_menu">
     <ul>
       <li>
         <a [routerLink]="['']">Trang chủ</a>
@@ -35,11 +35,16 @@
       </li>
     </ul>
   </div>
-
   <div class="header_search">
     <input class="header_search_input" type="text" placeholder="Tìm kiếm" />
     <button class="header_search_button" type="submit">
       <i class="fa fa-search"></i>
     </button>
   </div>
+  <div class="header_bars">
+    <a href="javascript:void(0);" class="icon" (click)="onClickMe()">
+      <i class="fa fa-bars"></i>
+    </a>
+  </div>
 </header>
+<script></script>

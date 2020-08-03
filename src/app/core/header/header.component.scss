@@ -45,6 +45,7 @@ header {
       }
     }
   }
+
   //end-logo
   .menu_search {
     display: none;
@@ -76,8 +77,11 @@ header {
       font-size: 12px;
     }
   }
-  .header_menu {
+  .header_menu_1 {
     display: flex;
+  }
+  .header_menu {
+    // display: flex;
     justify-content: center;
     align-items: center;
     ul {
@@ -167,6 +171,7 @@ header {
     display: flex;
     justify-content: center;
     align-items: center;
+
     .header_search_input {
       width: 100%;
       border-bottom: 2px solid #085aa0;
@@ -191,6 +196,15 @@ header {
       border-radius: 5px 5px 5px 0;
       cursor: pointer;
       font-size: 12px;
+    }
+  }
+  .header_bars {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    a {
+      font-size: 25px;
+      color: #085aa0;
     }
   }
 }
@@ -235,9 +249,11 @@ header {
     }
   }
 }
-@media screen and (max-width: 425px) {
+
+@media screen and (max-width: 768px) {
   header {
     flex-direction: column;
+    // padding-bottom: 30px;
     .header_logo {
       margin: 0 auto;
     }
@@ -255,6 +271,53 @@ header {
       }
     }
     .header_menu {
+      margin: auto;
+      ul {
+        padding-right: 20px;
+        li {
+          padding: 0;
+          a {
+            padding-bottom: 30px;
+          }
+        }
+      }
+      .menu_search {
+        display: flex;
+      }
+    }
+    .header_search {
+      display: none;
+    }
+  }
+}
+
+@media screen and (max-width: 425px) {
+  header {
+    flex-direction: column;
+    .header_logo {
+      margin: 0 auto;
+    }
+    .menu_search_1 {
+      display: none;
+    }
+    .menu_search {
+      // display: flex;
+      padding-bottom: 20px;
+      margin: 0 15%;
+      .header_search_input {
+        border: 2px solid #085aa0;
+        border-radius: 5px 0 0 5px;
+      }
+      .header_search_button {
+        height: 32px;
+        border-radius: 0 5px 5px 0;
+      }
+    }
+    .header_menu_1 {
+      display: none;
+    }
+    .header_menu {
+      // display: none;
       ul {
         li {
           padding: 0;
@@ -271,15 +334,20 @@ header {
           }
         }
       }
-      .menu_search {
-        display: flex;
-      }
     }
     .header_search {
       display: none;
     }
+    .header_bars {
+      position: absolute;
+      right: 20px;
+      top: 25px;
+      display: block;
+      transition: all 0.7s;
+    }
   }
 }
+
 @media screen and (max-width: 375px) {
   header {
     flex-direction: column;
@@ -299,6 +367,9 @@ header {
         border-radius: 0 5px 5px 0;
       }
     }
+    .header_menu_1 {
+      display: none;
+    }
     .header_menu {
       ul {
         li {
@@ -316,12 +387,15 @@ header {
           }
         }
       }
+      .menu_search_1 {
+        display: none;
+      }
       .menu_search {
         display: flex;
       }
     }
     .header_search {
-      display: none;
+      display: flex;
     }
   }
 }
