@@ -1,6 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './core/header/header.component';
@@ -14,11 +13,13 @@ import { LayoutComponent } from './core/layout/layout.component';
 import { AdminFooterComponent } from './admin-pages/admin-core/admin-footer/admin-footer.component';
 import { AdminHeaderComponent } from './admin-pages/admin-core/admin-header/admin-header.component';
 import { AdminLayoutComponent } from './admin-pages/admin-core/admin-layout/admin-layout.component';
+import { SliderComponent } from './core/slider/slider.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
+    SliderComponent,
     FooterComponent,
     SidenavComponent,
     HomeComponent,
@@ -26,7 +27,9 @@ import { AdminLayoutComponent } from './admin-pages/admin-core/admin-layout/admi
     LienHeComponent,
     GioiThieuCongTyComponent,
     LayoutComponent,
-    AdminFooterComponent,AdminHeaderComponent,AdminLayoutComponent
+    AdminFooterComponent,
+    AdminHeaderComponent,
+    AdminLayoutComponent,
   ],
   imports: [BrowserModule, AppRoutingModule],
   providers: [],
