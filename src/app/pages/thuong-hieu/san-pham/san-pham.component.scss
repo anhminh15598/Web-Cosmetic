@@ -11,6 +11,7 @@
 .col-2{
     flex-basis: 50%;
     min-width: 300px;
+    max-width: 100%;
 }
 .col-2 img{
     max-width: 100%;
@@ -35,10 +36,18 @@
 }
 .btn{
     display: inline-block;
-    background-color: #ff532b;
+    background-color: #085aa0;
     color: #fff;
-    padding: 30px 0 80px;
+    padding: 8px 30px;
+    margin: 30px 0;
     border-radius: 30px;
+    transition: background 0.5s;
+}
+.btn:hover{
+    background: #053c6d;
+}
+p {
+    text-align: justify;
 }
 .title{
     text-align: center;
@@ -75,6 +84,9 @@ h4{
     justify-content: space-between;
     margin: 100px auto 50px;
 }
+#view-more{
+    margin-top: 1rem;
+}
 select{
     border: 1px solid #085aa0;
     padding: 5px;
@@ -99,6 +111,53 @@ select:focus{
     background:#085aa0;
     color: #fff;
 }
+.single-product{
+    margin-top: 80px;
+}
+.single-product .col-2 img{
+    padding: 0;
+}
+.single-product .col-2{
+    padding: 20px;
+}
+.single-product h4{
+    margin: 20px;
+    font-size: 22px;
+    font-weight: bold;
+}
+.single-product select{
+    display: block;
+    padding: 10px;
+    margin-top: 20px;
+}
+.single-product input{
+    width: 50px;
+    height: 40px;
+    padding-left: 10px;
+    font-size: 20px;
+    margin-right: 10px;
+    border:1px solid #085aa0;
+}
+input:focus{
+    outline: none;
+}
+.single-product .fa-indent{
+    color: #085aa0;
+    margin-left: 10px;
+}
+.small-img-row{
+    display: flex;
+    justify-content: space-between;
+}
+.small-img-col{
+    flex-basis: 24%;
+    cursor: pointer;
+    
+}
+.small-img-col img{
+    padding-top: 5px !important ;
+    height: 125px;
+}
 // media query for less than 600 screen size
 @media only screen and (max-width: 600px){
     .row{
@@ -108,5 +167,15 @@ select:focus{
     .col-4{
         flex-basis: 100%;   
         min-width: 320px;
+    }
+    .single-product .row{
+        text-align: left;
+    }
+    .single-product .col-2{
+        padding: 20px 0;
+        line-height: 22px;
+    }
+    .small-img-col img {
+        height: 90px;
     }
 }
