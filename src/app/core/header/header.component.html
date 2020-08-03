@@ -62,27 +62,26 @@
     <ul>
       <li>
         <a [routerLink]="['']">Trang chủ</a>
-        <!-- <hr class="header_menu_border" /> -->
       </li>
       <li class="">
         <a href="#">Thương hiệu</a>
-        <!-- <hr class="header_menu_border" /> -->
 
         <div class="sub-menu">
-          <a
-            *ngFor="let item of listThuongHieu"
-            (click)="onSelectList(item.id)"
-            >{{ item.tenThuongHieu }}</a
-          >
+          <ul>
+            <li
+              *ngFor="let item of listThuongHieu"
+              (click)="onSelectList(item.id)"
+            >
+              <a>{{ item.tenThuongHieu }}</a>
+            </li>
+          </ul>
         </div>
       </li>
       <li>
         <a [routerLink]="['gioi-thieu-cong-ty']">Công ty</a>
-        <!-- <hr class="header_menu_border" /> -->
       </li>
       <li>
         <a [routerLink]="['lien-he']">Liên hệ</a>
-        <!-- <hr class="header_menu_border" /> -->
       </li>
     </ul>
   </div>
