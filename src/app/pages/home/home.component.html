@@ -1,1 +1,22 @@
-<p>home works!</p>
+<app-slider></app-slider>
+<!-- You can now use your library component in app.component.html -->
+<div class="home_carousel">
+  <div class="home_text">
+    <h1>
+      <div>
+        Lorem Ipsum
+      </div>
+    </h1>
+  </div>
+  <ngx-slick-carousel
+    class="carousel"
+    #slickModal="slick-carousel"
+    [config]="slideConfig"
+  >
+    <div ngxSlickItem *ngFor="let slide of slides" class="slide" style="">
+      <a href="#"
+        ><img src="{{ slide.img }}" alt="" width="100%" style="padding: 0 20%;"
+      /></a>
+    </div>
+  </ngx-slick-carousel>
+</div>
