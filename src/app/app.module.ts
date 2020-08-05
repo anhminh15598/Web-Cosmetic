@@ -16,6 +16,8 @@ import { AdminLayoutComponent } from './admin-pages/admin-core/admin-layout/admi
 import { SliderComponent } from './core/slider/slider.component';
 import { SlickCarouselModule } from 'ngx-slick-carousel';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
+import { AdminSidebarComponent } from './admin-pages/admin-core/admin-sidebar/admin-sidebar.component';
+import { SanPhamAdminModule } from './admin-pages/san-pham-admin/san-pham-admin.module';
 
 @NgModule({
   declarations: [
@@ -33,8 +35,14 @@ import { NotFoundComponent } from './pages/not-found/not-found.component';
     AdminHeaderComponent,
     AdminLayoutComponent,
     NotFoundComponent,
+    AdminSidebarComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, SlickCarouselModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    SanPhamAdminModule,
+    SlickCarouselModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })

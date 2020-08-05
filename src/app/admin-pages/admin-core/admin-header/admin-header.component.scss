@@ -1,0 +1,22 @@
+$sidebar-border-color: transparent;
+$sidebar-bg-color: #2e2f33;
+$sidebar-font-color: #dadada;
+$sidebar-hover-bg-color: #444;
+
+.top-nav {
+  background-color: $sidebar-bg-color;
+  height: 50px;
+  border-bottom: 1px solid $sidebar-border-color;
+  display: flex;
+  color: $sidebar-font-color;
+  justify-content: flex-end;
+}
+.top-nav-item {
+  padding: 10px;
+  color: $sidebar-font-color;
+  &:hover {
+    background-color: $sidebar-hover-bg-color;
+    text-decoration: none;
+    color: $sidebar-font-color;
+  }
+}
