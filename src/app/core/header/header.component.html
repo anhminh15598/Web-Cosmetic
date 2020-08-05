@@ -1,53 +1,3 @@
-<!-- <header>
-  <div class="header_logo">
-    <a [routerLink]="['']"><span>US</span>Beauty</a>
-  </div>
-  <div [ngClass]="{ menu_search_1: x === true }" class="menu_search">
-    <input class="header_search_input" type="text" placeholder="Tìm kiếm" />
-    <button class="header_search_button" type="submit">
-      <i class="fa fa-search"></i>
-    </button>
-  </div>
-  <div [ngClass]="{ header_menu_1: x === true }" class="header_menu">
-    <ul>
-      <li>
-        <a [routerLink]="['']">Trang chủ</a>
-      </li>
-      <li class="">
-        <a href="#">Thương hiệu</a>
-
-        <div class="sub-menu">
-          <ul>
-            <li
-              *ngFor="let item of listThuongHieu"
-              (click)="onSelectList(item.id)"
-            >
-              <a>{{ item.tenThuongHieu }}</a>
-            </li>
-          </ul>
-        </div>
-      </li>
-      <li>
-        <a [routerLink]="['gioi-thieu-cong-ty']">Công ty</a>
-      </li>
-      <li>
-        <a [routerLink]="['lien-he']">Liên hệ</a>
-      </li>
-    </ul>
-  </div>
-  <div class="header_search">
-    <input class="header_search_input" type="text" placeholder="Tìm kiếm" />
-    <button class="header_search_button" type="submit">
-      <i class="fa fa-search"></i>
-    </button>
-  </div>
-  <div class="header_bars">
-    <a href="javascript:void(0);" class="icon" (click)="onClickMe()">
-      <i class="fa fa-bars"></i>
-    </a>
-  </div>
-</header>
-<script></script> -->
 <nav class="menu">
   <div class="menu_logo">
     <a [routerLink]="['']"><span>US</span>Beauty</a>
@@ -55,7 +5,7 @@
   <ol>
     <li class="menu-item"><a [routerLink]="['']">TRANG CHỦ</a></li>
     <li class="menu-item">
-      <a [routerLink]="['thuong-hieu']">THƯƠNG HIỆU</a>
+      <a>THƯƠNG HIỆU</a>
       <ol class="sub-menu">
         <li
           *ngFor="let item of listThuongHieu"
@@ -71,10 +21,7 @@
     </li>
     <li class="menu-item"><a [routerLink]="['lien-he']">LIÊN HỆ</a></li>
   </ol>
-  <!-- <div class="menu_search">
-    <input class="menu_search_input" type="text" placeholder="Tìm kiếm" />
-    <button class="menu_search_button" type="submit">
-      <i class="fa fa-search"></i>
-    </button>
-  </div> -->
+  <ol>
+    <li></li>
+  </ol>
 </nav>
