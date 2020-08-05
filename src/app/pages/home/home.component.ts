@@ -6,49 +6,49 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit {
-  slides = [
-    { img: '../../../assets/img/logo_cosmedica.png' },
-    { img: '../../../assets/img/logo_cosmedica.png' },
-    { img: '../../../assets/img/logo_cosmedica.png' },
-    { img: '../../../assets/img/logo_cosmedica.png' },
-    { img: '../../../assets/img/logo_cosmedica.png' },
-    { img: '../../../assets/img/logo_cosmedica.png' },
-    { img: '../../../assets/img/logo_cosmedica.png' },
-    { img: '../../../assets/img/logo_cosmedica.png' },
-  ];
-  slideConfig = {
-    slidesToShow: 4,
-    slidesToScroll: 1,
-    arrows: false,
-    swipeToSlide: true,
-    infinite: false,
-    responsive: [
-      {
-        breakpoint: 1024,
-        settings: {
-          slidesToShow: 3,
-        },
-      },
-      {
-        breakpoint: 600,
-        settings: {
-          slidesToShow: 2,
-        },
-      },
-      {
-        breakpoint: 480,
-        settings: {
-          slidesToShow: 2,
-        },
-      },
-      {
-        breakpoint: 375,
-        settings: {
-          slidesToShow: 1,
-        },
-      },
-    ],
-  };
+  // slides = [
+  //   { img: '../../../assets/img/logo_cosmedica.png' },
+  //   { img: '../../../assets/img/logo_cosmedica.png' },
+  //   { img: '../../../assets/img/logo_cosmedica.png' },
+  //   { img: '../../../assets/img/logo_cosmedica.png' },
+  //   { img: '../../../assets/img/logo_cosmedica.png' },
+  //   { img: '../../../assets/img/logo_cosmedica.png' },
+  //   { img: '../../../assets/img/logo_cosmedica.png' },
+  //   { img: '../../../assets/img/logo_cosmedica.png' },
+  // ];
+  // slideConfig = {
+  //   slidesToShow: 4,
+  //   slidesToScroll: 1,
+  //   arrows: false,
+  //   swipeToSlide: true,
+  //   infinite: false,
+  //   responsive: [
+  //     {
+  //       breakpoint: 1024,
+  //       settings: {
+  //         slidesToShow: 3,
+  //       },
+  //     },
+  //     {
+  //       breakpoint: 600,
+  //       settings: {
+  //         slidesToShow: 2,
+  //       },
+  //     },
+  //     {
+  //       breakpoint: 480,
+  //       settings: {
+  //         slidesToShow: 2,
+  //       },
+  //     },
+  //     {
+  //       breakpoint: 375,
+  //       settings: {
+  //         slidesToShow: 1,
+  //       },
+  //     },
+  //   ],
+  // };
   // addSlide() {
   //   this.slides.push({ img: 'http://placehold.it/350x150/777777' });
   // }
