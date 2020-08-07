@@ -3,7 +3,14 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  apiUrl : "api.usbeauty.vn",
+  apiList : {
+    ThuongHieu: "/api/ThuongHieux",
+    DsThuongHieu: "/api/ThuongHieux",
+    DsSanPham: "/api/ThuongHieux/getDetailSanPham",
+    TaiKhoan: "/api/TaiKhoans",
+  }
 };
 
 /*
