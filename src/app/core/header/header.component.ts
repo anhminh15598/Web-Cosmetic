@@ -3,16 +3,23 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.scss']
+  styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent implements OnInit {
-  listThuongHieu = [{id:"1", tenThuongHieu:'thuongHieu1'},{id:"2", tenThuongHieu:'thuongHieu2'}];
-  constructor(private router: Router) { }
+  listThuongHieu = [
+    { id: '1', tenThuongHieu: 'thuongHieu1' },
+    { id: '2', tenThuongHieu: 'thuongHieu2' },
+  ];
+  constructor(private router: Router) {}
+  x = false;
 
-  ngOnInit(): void {
-
+  onClickMe() {
+    this.x = !this.x;
+    console.log(this.x);
   }
-  onSelectList(id){
-    this.router.navigate(['/thuong-hieu/'+id]);
+
+  ngOnInit(): void {}
+  onSelectList(id) {
+    this.router.navigate(['/thuong-hieu/' + id]);
   }
 }

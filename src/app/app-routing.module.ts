@@ -2,10 +2,11 @@ import { NgModule, Component } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { LayoutComponent } from './core/layout/layout.component';
 import { LienHeComponent } from './pages/lien-he/lien-he.component';
-import { GioiThieuCongTyComponent } from './pages/gioi-thieu-cong-ty/gioi-thieu-cong-ty.component';
 import { DangNhapComponent } from './admin-pages/dang-nhap/dang-nhap.component';
 import { SanPhamAdminComponent } from './admin-pages/san-pham-admin/san-pham-admin.component';
 import { AdminLayoutComponent } from './admin-pages/admin-core/admin-layout/admin-layout.component';
+import { NotFoundComponent } from './pages/not-found/not-found.component';
+import { GioiThieuCongTyComponent } from './pages/gioi-thieu-cong-ty/gioi-thieu-cong-ty.component';
 
 const routes: Routes = [
   {
@@ -25,12 +26,12 @@ const routes: Routes = [
           ),
       },
       {
-        path: 'lien-he',
-        component: LienHeComponent,
-      },
-      {
         path: 'gioi-thieu-cong-ty',
         component: GioiThieuCongTyComponent,
+      },
+      {
+        path: 'lien-he',
+        component: LienHeComponent,
       },
     ],
   },
@@ -47,6 +48,10 @@ const routes: Routes = [
         component: SanPhamAdminComponent,
       },
     ],
+  },
+  {
+    path: '**',
+    component: NotFoundComponent,
   },
 ];
 

@@ -1,45 +1,27 @@
-<header>
-  <div class="header_logo">
+<nav class="menu">
+  <div class="menu_logo">
     <a [routerLink]="['']"><span>US</span>Beauty</a>
   </div>
-  <div class="menu_search">
-    <input class="header_search_input" type="text" placeholder="Tìm kiếm" />
-    <button class="header_search_button" type="submit">
-      <i class="fa fa-search"></i>
-    </button>
-  </div>
-  <div class="header_menu">
-    <ul>
-      <li>
-        <a [routerLink]="['']">Trang chủ</a>
-      </li>
-      <li class="">
-        <a href="#">Thương hiệu</a>
-
-        <div class="sub-menu">
-          <ul>
-            <li
-              *ngFor="let item of listThuongHieu"
-              (click)="onSelectList(item.id)"
-            >
-              <a>{{ item.tenThuongHieu }}</a>
-            </li>
-          </ul>
-        </div>
-      </li>
-      <li>
-        <a [routerLink]="['gioi-thieu-cong-ty']">Công ty</a>
-      </li>
-      <li>
-        <a [routerLink]="['lien-he']">Liên hệ</a>
-      </li>
-    </ul>
-  </div>
-
-  <div class="header_search">
-    <input class="header_search_input" type="text" placeholder="Tìm kiếm" />
-    <button class="header_search_button" type="submit">
-      <i class="fa fa-search"></i>
-    </button>
-  </div>
-</header>
+  <ol>
+    <li class="menu-item"><a [routerLink]="['']">TRANG CHỦ</a></li>
+    <li class="menu-item">
+      <a>THƯƠNG HIỆU</a>
+      <ol class="sub-menu">
+        <li
+          *ngFor="let item of listThuongHieu"
+          (click)="onSelectList(item.id)"
+          class="menu-item"
+        >
+          <a>{{ item.tenThuongHieu }}</a>
+        </li>
+      </ol>
+    </li>
+    <li class="menu-item">
+      <a [routerLink]="['gioi-thieu-cong-ty']">CÔNG TY</a>
+    </li>
+    <li class="menu-item"><a [routerLink]="['lien-he']">LIÊN HỆ</a></li>
+  </ol>
+  <ol>
+    <li></li>
+  </ol>
+</nav>
