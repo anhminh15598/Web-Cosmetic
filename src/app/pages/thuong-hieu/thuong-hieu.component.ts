@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import {
   HttpClient,
@@ -43,9 +43,7 @@ export class ThuongHieuComponent implements OnInit {
       );
   }
 
-  ngOnInit(): void {
-    this.getSanPham();
-  }
+  ngOnInit() {}
   ngDoCheck() {
     this.ten = this.route.snapshot.paramMap.get('tenThuongHieu');
   }

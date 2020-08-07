@@ -23,10 +23,11 @@ export class HeaderComponent implements OnInit {
     public http: HttpClient,
     public errorService: ErrorService
   ) {}
+  x = false;
   thuongHieux: any = [];
   getThuongHieu() {
     this.http
-      .get('https://api.usbeauty.vn/api/thuongHieux', {
+      .get('https://localhost:44380/api/ThuongHieux/', {
         headers: new HttpHeaders({
           'Content-Type': 'application/json',
         }),
@@ -41,6 +42,10 @@ export class HeaderComponent implements OnInit {
           this.errorService.showError(error);
         }
       );
+  }
+  onClickMe() {
+    this.x = !this.x;
+    console.log(this.x);
   }
 
   ngOnInit(): void {
