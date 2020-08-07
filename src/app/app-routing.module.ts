@@ -19,7 +19,7 @@ const routes: Routes = [
           import('./pages/home/home.module').then((m) => m.HomeModule),
       },
       {
-        path: 'thuong-hieu/:tenThuongHieu',
+        path: 'thuong-hieu/:id',
         loadChildren: () =>
           import('./pages/thuong-hieu/thuong-hieu.module').then(
             (m) => m.ThuongHieuModule

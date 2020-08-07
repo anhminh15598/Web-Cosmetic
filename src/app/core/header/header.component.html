@@ -9,10 +9,10 @@
       <ol class="sub-menu">
         <li
           *ngFor="let item of thuongHieux"
-          (click)="onSelectList(item.id)"
+          [routerLink]="['/thuong-hieu',item.id]" routerLinkActive="router-link-active" 
           class="menu-item"
         >
-          <a>{{ item.id }}</a>
+          <a>{{ item.tenThuongHieu }}</a>
         </li>
       </ol>
     </li>

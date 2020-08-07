@@ -21,13 +21,14 @@ export class HeaderComponent implements OnInit {
     x = false;
     thuongHieux:any = [];
     getThuongHieu(){
-      this.http.get("https://localhost:44380/api/ThuongHieux/2",{
+      this.http.get("https://localhost:44380/api/ThuongHieux/",{
         headers: new HttpHeaders({
           'Content-Type': 'application/json'
         })
       }).subscribe(data =>{
-        this.thuongHieux = data;
         
+        this.thuongHieux = data
+
         console.log(data);
       },
       error  => {
