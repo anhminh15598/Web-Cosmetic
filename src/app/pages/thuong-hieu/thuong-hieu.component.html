@@ -3,139 +3,142 @@
   <!-- <div class="row">
     <div class="col-10"></div>
     <div class="col"> -->
-      <div class="row row-2">
-        <h2>All Product</h2>
-        <select>
-          <option value="">Default shoping</option>
-          <option value="">Short by price</option>
-          <option value="">Short by popularity</option>
-          <option value="">Short by rating</option>
-          <option value="">Short by sale</option>
-        </select>
+  <div class="row row-2">
+    <h2>All Product</h2>
+    <select>
+      <option value="">Default shoping</option>
+      <option value="">Short by price</option>
+      <option value="">Short by popularity</option>
+      <option value="">Short by rating</option>
+      <option value="">Short by sale</option>
+    </select>
+  </div>
+  <div class="row">
+    <div class="col-4">
+      <img
+        [routerLink]="['san-pham', 1]"
+        routerLinkActive="router-link-active"
+        src="../../../assets/img/sp1.png"
+        alt=""
+      />
+      <h4>
+        Red Printed T-shirt
+      </h4>
+      <div class="rating">
+        <i class="fa fa-star" aria-hidden="true"></i>
+        <i class="fa fa-star" aria-hidden="true"></i>
+        <i class="fa fa-star" aria-hidden="true"></i>
+        <i class="fa fa-star" aria-hidden="true"></i>
+        <i class="fa fa-star-o" aria-hidden="true"></i>
       </div>
-      <div class="row">
-        <div class="col-4">
-          <img [routerLink]="['san-pham',1]" routerLinkActive="router-link-active"  src="../../../assets/img/sp1.png" alt="">
-          <h4>
-            Red Printed T-shirt
-          </h4>
-          <div class="rating">
-            <i class="fa fa-star" aria-hidden="true"></i>
-            <i class="fa fa-star" aria-hidden="true"></i>
-            <i class="fa fa-star" aria-hidden="true"></i>
-            <i class="fa fa-star" aria-hidden="true"></i>
-            <i class="fa fa-star-o" aria-hidden="true"></i>
-          </div>
-          <p>$50.00</p>
-        </div>
-        <div class="col-4" [routerLink]="['san-pham',1]">
-          <img src="../../../assets/img/sp1.png" alt="">
-          <h4>
-            Red Printed T-shirt
-          </h4>
-          <div class="rating">
-            <i class="fa fa-star" aria-hidden="true"></i>
-            <i class="fa fa-star" aria-hidden="true"></i>
-            <i class="fa fa-star" aria-hidden="true"></i>
-            <i class="fa fa-star" aria-hidden="true"></i>
-            <i class="fa fa-star-o" aria-hidden="true"></i>
-          </div>
-          <p>$50.00</p>
-        </div>
-        <div class="col-4" [routerLink]="['san-pham',1]">
-          <img src="../../../assets/img/sp3.png" alt="">
-          <h4>
-            Red Printed T-shirt
-          </h4>
-          <div class="rating">
-            <i class="fa fa-star" aria-hidden="true"></i>
-            <i class="fa fa-star" aria-hidden="true"></i>
-            <i class="fa fa-star" aria-hidden="true"></i>
-            <i class="fa fa-star" aria-hidden="true"></i>
-            <i class="fa fa-star-o" aria-hidden="true"></i>
-          </div>
-          <p>$50.00</p>
-        </div>
-        <div class="col-4" [routerLink]="['san-pham',1]">
-          <img src="../../../assets/img/sp2.png" alt="">
-          <h4>
-            Red Printed T-shirt
-          </h4>
-          <div class="rating">
-            <i class="fa fa-star" aria-hidden="true"></i>
-            <i class="fa fa-star" aria-hidden="true"></i>
-            <i class="fa fa-star" aria-hidden="true"></i>
-            <i class="fa fa-star" aria-hidden="true"></i>
-            <i class="fa fa-star-o" aria-hidden="true"></i>
-          </div>
-          <p>$50.00</p>
-        </div>
-        <div class="col-4" [routerLink]="['san-pham',1]">
-          <img src="../../../assets/img/sp3.png" alt="">
-          <h4>
-            Red Printed T-shirt
-          </h4>
-          <div class="rating">
-            <i class="fa fa-star" aria-hidden="true"></i>
-            <i class="fa fa-star" aria-hidden="true"></i>
-            <i class="fa fa-star" aria-hidden="true"></i>
-            <i class="fa fa-star" aria-hidden="true"></i>
-            <i class="fa fa-star-o" aria-hidden="true"></i>
-          </div>
-          <p>$50.00</p>
-        </div>
-        <div class="col-4" [routerLink]="['san-pham',1]">
-          <img src="../../../assets/img/sp3.png" alt="">
-          <h4>
-            Red Printed T-shirt
-          </h4>
-          <div class="rating">
-            <i class="fa fa-star" aria-hidden="true"></i>
-            <i class="fa fa-star" aria-hidden="true"></i>
-            <i class="fa fa-star" aria-hidden="true"></i>
-            <i class="fa fa-star" aria-hidden="true"></i>
-            <i class="fa fa-star-o" aria-hidden="true"></i>
-          </div>
-          <p>$50.00</p>
-        </div>
-        <div class="col-4" [routerLink]="['san-pham',1]">
-          <img src="../../../assets/img/sp3.png" alt="">
-          <h4>
-            Red Printed T-shirt
-          </h4>
-          <div class="rating">
-            <i class="fa fa-star" aria-hidden="true"></i>
-            <i class="fa fa-star" aria-hidden="true"></i>
-            <i class="fa fa-star" aria-hidden="true"></i>
-            <i class="fa fa-star" aria-hidden="true"></i>
-            <i class="fa fa-star-o" aria-hidden="true"></i>
-          </div>
-          <p>$50.00</p>
-        </div>
-        <div class="col-4" [routerLink]="['san-pham',1]">
-          <img src="../../../assets/img/sp3.png" alt="">
-          <h4>
-            Red Printed T-shirt
-          </h4>
-          <div class="rating">
-            <i class="fa fa-star" aria-hidden="true"></i>
-            <i class="fa fa-star" aria-hidden="true"></i>
-            <i class="fa fa-star" aria-hidden="true"></i>
-            <i class="fa fa-star" aria-hidden="true"></i>
-            <i class="fa fa-star-o" aria-hidden="true"></i>
-          </div>
-          <p>$50.00</p>
-        </div>
+      <p>$50.00</p>
+    </div>
+    <div class="col-4" [routerLink]="['san-pham', 1]">
+      <img src="../../../assets/img/sp1.png" alt="" />
+      <h4>
+        Red Printed T-shirt
+      </h4>
+      <div class="rating">
+        <i class="fa fa-star" aria-hidden="true"></i>
+        <i class="fa fa-star" aria-hidden="true"></i>
+        <i class="fa fa-star" aria-hidden="true"></i>
+        <i class="fa fa-star" aria-hidden="true"></i>
+        <i class="fa fa-star-o" aria-hidden="true"></i>
       </div>
-      <div class="page-btn">
-        <span>1</span>
-        <span>2</span>
-        <span>3</span>
-        <span>4</span>
-        <span>&#8594;</span>
+      <p>$50.00</p>
+    </div>
+    <div class="col-4" [routerLink]="['san-pham', 1]">
+      <img src="../../../assets/img/sp3.png" alt="" />
+      <h4>
+        Red Printed T-shirt
+      </h4>
+      <div class="rating">
+        <i class="fa fa-star" aria-hidden="true"></i>
+        <i class="fa fa-star" aria-hidden="true"></i>
+        <i class="fa fa-star" aria-hidden="true"></i>
+        <i class="fa fa-star" aria-hidden="true"></i>
+        <i class="fa fa-star-o" aria-hidden="true"></i>
       </div>
-    <!-- </div>
+      <p>$50.00</p>
+    </div>
+    <div class="col-4" [routerLink]="['san-pham', 1]">
+      <img src="../../../assets/img/sp2.png" alt="" />
+      <h4>
+        Red Printed T-shirt
+      </h4>
+      <div class="rating">
+        <i class="fa fa-star" aria-hidden="true"></i>
+        <i class="fa fa-star" aria-hidden="true"></i>
+        <i class="fa fa-star" aria-hidden="true"></i>
+        <i class="fa fa-star" aria-hidden="true"></i>
+        <i class="fa fa-star-o" aria-hidden="true"></i>
+      </div>
+      <p>$50.00</p>
+    </div>
+    <div class="col-4" [routerLink]="['san-pham', 1]">
+      <img src="../../../assets/img/sp3.png" alt="" />
+      <h4>
+        Red Printed T-shirt
+      </h4>
+      <div class="rating">
+        <i class="fa fa-star" aria-hidden="true"></i>
+        <i class="fa fa-star" aria-hidden="true"></i>
+        <i class="fa fa-star" aria-hidden="true"></i>
+        <i class="fa fa-star" aria-hidden="true"></i>
+        <i class="fa fa-star-o" aria-hidden="true"></i>
+      </div>
+      <p>$50.00</p>
+    </div>
+    <div class="col-4" [routerLink]="['san-pham', 1]">
+      <img src="../../../assets/img/sp3.png" alt="" />
+      <h4>
+        Red Printed T-shirt
+      </h4>
+      <div class="rating">
+        <i class="fa fa-star" aria-hidden="true"></i>
+        <i class="fa fa-star" aria-hidden="true"></i>
+        <i class="fa fa-star" aria-hidden="true"></i>
+        <i class="fa fa-star" aria-hidden="true"></i>
+        <i class="fa fa-star-o" aria-hidden="true"></i>
+      </div>
+      <p>$50.00</p>
+    </div>
+    <div class="col-4" [routerLink]="['san-pham', 1]">
+      <img src="../../../assets/img/sp3.png" alt="" />
+      <h4>
+        Red Printed T-shirt
+      </h4>
+      <div class="rating">
+        <i class="fa fa-star" aria-hidden="true"></i>
+        <i class="fa fa-star" aria-hidden="true"></i>
+        <i class="fa fa-star" aria-hidden="true"></i>
+        <i class="fa fa-star" aria-hidden="true"></i>
+        <i class="fa fa-star-o" aria-hidden="true"></i>
+      </div>
+      <p>$50.00</p>
+    </div>
+    <div class="col-4" [routerLink]="['san-pham', 1]">
+      <img src="../../../assets/img/sp3.png" alt="" />
+      <h4>
+        Red Printed T-shirt
+      </h4>
+      <div class="rating">
+        <i class="fa fa-star" aria-hidden="true"></i>
+        <i class="fa fa-star" aria-hidden="true"></i>
+        <i class="fa fa-star" aria-hidden="true"></i>
+        <i class="fa fa-star" aria-hidden="true"></i>
+        <i class="fa fa-star-o" aria-hidden="true"></i>
+      </div>
+      <p>$50.00</p>
+    </div>
+  </div>
+  <div class="page-btn">
+    <span>1</span>
+    <span>2</span>
+    <span>3</span>
+    <span>4</span>
+    <span>&#8594;</span>
+  </div>
+  <!-- </div>
   </div> -->
-  
 </div>
-

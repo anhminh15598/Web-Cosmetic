@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  apiUrl : "api.usbeauty.vn",
+  apiUrl : "http://api.usbeauty.vn",
   apiList : {
     ThuongHieu: "/api/ThuongHieux",
     DsThuongHieu: "/api/ThuongHieux",
