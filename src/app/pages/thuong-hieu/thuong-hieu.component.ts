@@ -25,17 +25,5 @@ export class ThuongHieuComponent implements OnInit {
     this.ten = this.route.snapshot.paramMap.get("tenThuongHieu");
   }
   
-  getThuongHieu(){
-    this.http.get(environment.apiUrl+environment.apiList.ThuongHieu, {
-      headers: new HttpHeaders({
-        "Content-Type": "application/json",
-      })
-    }).subscribe(data =>{
-      this.thuongHieux = data;
-      console.log(this.thuongHieux);
-    },
-    error  => {
-      this.errorService.showError(error);
-    });
-  }
+  
 }

@@ -18,6 +18,7 @@ import { SlickCarouselModule } from 'ngx-slick-carousel';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { AdminSidebarComponent } from './admin-pages/admin-core/admin-sidebar/admin-sidebar.component';
 import { SanPhamAdminModule } from './admin-pages/san-pham-admin/san-pham-admin.module';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -42,6 +43,7 @@ import { SanPhamAdminModule } from './admin-pages/san-pham-admin/san-pham-admin.
     AppRoutingModule,
     SanPhamAdminModule,
     SlickCarouselModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent],
