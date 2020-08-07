@@ -7,6 +7,8 @@ import { SanPhamAdminComponent } from './admin-pages/san-pham-admin/san-pham-adm
 import { AdminLayoutComponent } from './admin-pages/admin-core/admin-layout/admin-layout.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { GioiThieuCongTyComponent } from './pages/gioi-thieu-cong-ty/gioi-thieu-cong-ty.component';
+import { SigninComponent } from './authentication/signin/signin.component';
+import { AdminGuard } from 'src/guards/admin.guard';
 
 const routes: Routes = [
   {
@@ -37,11 +39,12 @@ const routes: Routes = [
   },
   {
     path: 'dang-nhap',
-    component: DangNhapComponent,
+    component: SigninComponent,
   },
   {
     path: 'admin',
     component: AdminLayoutComponent,
+    canActivate:[AdminGuard],
     children: [
       {
         path: '',
