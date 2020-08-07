@@ -11,12 +11,6 @@ export class HeaderComponent implements OnInit {
     { id: '2', tenThuongHieu: 'thuongHieu2' },
   ];
   constructor(private router: Router) {}
-  x = false;
-
-  onClickMe() {
-    this.x = !this.x;
-    console.log(this.x);
-  }
 
   ngOnInit(): void {}
   onSelectList(id) {

@@ -14,7 +14,6 @@ import { AdminFooterComponent } from './admin-pages/admin-core/admin-footer/admi
 import { AdminHeaderComponent } from './admin-pages/admin-core/admin-header/admin-header.component';
 import { AdminLayoutComponent } from './admin-pages/admin-core/admin-layout/admin-layout.component';
 import { SliderComponent } from './core/slider/slider.component';
-import { SlickCarouselModule } from 'ngx-slick-carousel';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { AdminSidebarComponent } from './admin-pages/admin-core/admin-sidebar/admin-sidebar.component';
 import { SanPhamAdminModule } from './admin-pages/san-pham-admin/san-pham-admin.module';
@@ -37,12 +36,7 @@ import { SanPhamAdminModule } from './admin-pages/san-pham-admin/san-pham-admin.
     NotFoundComponent,
     AdminSidebarComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    SanPhamAdminModule,
-    SlickCarouselModule,
-  ],
+  imports: [BrowserModule, AppRoutingModule, SanPhamAdminModule],
   providers: [],
   bootstrap: [AppComponent],
 })
