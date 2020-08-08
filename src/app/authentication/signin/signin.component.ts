@@ -10,7 +10,7 @@ export class SigninComponent implements OnInit {
   signinForm: FormGroup;
   constructor(private auth: AuthenticationService) {
     this.signinForm = new FormGroup({
-      taiKhoan: new FormControl('', [Validators.required]),
+      tenTk: new FormControl('', [Validators.required]),
       matKhau: new FormControl('', [
         Validators.required,
         Validators.minLength(3),
@@ -30,10 +30,3 @@ export class SigninComponent implements OnInit {
     });
   }
 }
-
-
-
-
-
-
-

@@ -3,21 +3,20 @@
     <div class="col-sm-6 mx-auto">
       <form [formGroup]="signinForm" (ngSubmit)="dangNhap()">
         <div class="form-group">
-          <label for="taiKhoan">Tài khoản</label>
+          <label for="tenTk">Tài khoản</label>
           <input
             type="text"
-            id="taiKhoan"
+            id="tenTk"
             class="form-control"
-            formControlName="taiKhoan"
+            formControlName="tenTk"
           />
           <div
             *ngIf="
-              signinForm.get('taiKhoan').invalid &&
-              (signinForm.get('taiKhoan').touched ||
-                signinForm.get('taiKhoan').dirty)
+              signinForm.get('tenTk').invalid &&
+              (signinForm.get('tenTk').touched || signinForm.get('tenTk').dirty)
             "
           >
-            <div *ngIf="signinForm.get('taiKhoan').errors.required">
+            <div *ngIf="signinForm.get('tenTk').errors.required">
               Tài khoản không được để trống
             </div>
           </div>
@@ -31,7 +30,7 @@
             formControlName="matKhau"
           />
           <div
-          *ngIf="
+            *ngIf="
               signinForm.get('matKhau').invalid &&
               (signinForm.get('matKhau').touched ||
                 signinForm.get('matKhau').dirty)

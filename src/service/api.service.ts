@@ -7,7 +7,8 @@ import { catchError } from 'rxjs/operators';
   providedIn: 'root',
 })
 export class ApiService {
-  BASE_URL = 'http://movie0706.cybersoft.edu.vn/api';
+  BASE_URL = 'https://api.usbeauty.vn/api';
+  // BASE_URL = 'http://movie0706.cybersoft.edu.vn/api';
   constructor(private http: HttpClient) {}
 
   handleError(err: any) {

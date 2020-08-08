@@ -27,7 +27,7 @@ export class HeaderComponent implements OnInit {
   thuongHieux: any = [];
   getThuongHieu() {
     this.http
-      .get('https://localhost:44380/api/ThuongHieux/', {
+      .get('https://api.usbeauty.vn/api/ThuongHieux/', {
         headers: new HttpHeaders({
           'Content-Type': 'application/json',
         }),

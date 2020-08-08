@@ -4,18 +4,18 @@
     <div class="col-sm-6 mx-auto">
       <form #signinForm="ngForm" (ngSubmit)="dangKy(signinForm.value)">
         <div class="form-group">
-          <label for="taiKhoan">Tài khoản</label>
+          <label for="tenTk">Tài khoản</label>
           <input
             type="text"
-            name="taiKhoan"
-            id="taiKhoan"
+            name="tenTk"
+            id="tenTk"
             class="form-control"
             ngModel
-            #taiKhoan="ngModel"
+            #tenTk="ngModel"
             required
           />
-          <div *ngIf="taiKhoan.invalid && (taiKhoan.touched || taiKhoan.dirty)">
-            <div *ngIf="taiKhoan.errors.required">
+          <div *ngIf="tenTk.invalid && (tenTk.touched || tenTk.dirty)">
+            <div *ngIf="tenTk.errors.required">
               Tài khoản không được để trống
             </div>
           </div>

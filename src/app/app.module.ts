@@ -20,6 +20,8 @@ import { SanPhamAdminModule } from './admin-pages/san-pham-admin/san-pham-admin.
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptor } from 'src/Interceptors/auth.interceptor';
 import { AuthenticationModule } from './authentication/authentication.module';
+import { ThuongHieuAdminComponent } from './admin-pages/thuong-hieu-admin/thuong-hieu-admin.component';
+import { LoaiSanPhamAdminComponent } from './admin-pages/loai-san-pham-admin/loai-san-pham-admin.component';
 
 @NgModule({
   declarations: [
@@ -38,6 +40,8 @@ import { AuthenticationModule } from './authentication/authentication.module';
     AdminLayoutComponent,
     NotFoundComponent,
     AdminSidebarComponent,
+    ThuongHieuAdminComponent,
+    LoaiSanPhamAdminComponent,
   ],
   imports: [
     BrowserModule,

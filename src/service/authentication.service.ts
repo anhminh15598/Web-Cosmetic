@@ -25,18 +25,21 @@ export class AuthenticationService {
   }
 
   dangNhap(values): Observable<any> {
-    return this.api.post('QuanLyNguoiDung/DangNhap', values).pipe(
+    return this.api.post('taikhoans', values).pipe(
+      // return this.api.post('QuanLyNguoiDung/DangNhap', values).pipe(
       tap((result) => {
         this.userSubject.next(result);
         localStorage.setItem('userLogin', JSON.stringify(result));
+        this.router.navigate(['/admin']);
+
         // Sau khi đăng nhập thành công
         // redirect tới trang / hoặc /admin tuỳ theo
         // mã loại người dùng
-        if (result.maLoaiNguoiDung === 'QuanTri') {
-          this.router.navigate(['/admin']);
-        } else {
-          this.router.navigate(['/admin']);
-        }
+        // if (result.maLoaiNguoiDung === 'QuanTri') {
+        //   this.router.navigate(['/admin']);
+        // } else {
+        //   this.router.navigate(['/admin']);
+        // }
       })
     );
   }
