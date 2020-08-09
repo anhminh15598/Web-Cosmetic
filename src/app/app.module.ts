@@ -22,6 +22,7 @@ import { AuthInterceptor } from 'src/Interceptors/auth.interceptor';
 import { AuthenticationModule } from './authentication/authentication.module';
 import { ThuongHieuAdminComponent } from './admin-pages/thuong-hieu-admin/thuong-hieu-admin.component';
 import { LoaiSanPhamAdminComponent } from './admin-pages/loai-san-pham-admin/loai-san-pham-admin.component';
+import { HomeAdminComponent } from './admin-pages/home-admin/home-admin.component';
 
 @NgModule({
   declarations: [
@@ -42,6 +43,7 @@ import { LoaiSanPhamAdminComponent } from './admin-pages/loai-san-pham-admin/loa
     AdminSidebarComponent,
     ThuongHieuAdminComponent,
     LoaiSanPhamAdminComponent,
+    HomeAdminComponent,
   ],
   imports: [
     BrowserModule,

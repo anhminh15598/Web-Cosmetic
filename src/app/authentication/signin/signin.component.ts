@@ -24,9 +24,10 @@ export class SigninComponent implements OnInit {
   dangNhap() {
     this.signinForm.markAllAsTouched();
     if (this.signinForm.invalid) return;
-    console.log(this.signinForm.value);
+    // console.log(this.signinForm.value);
     this.auth.dangNhap(this.signinForm.value).subscribe({
-      next: (result) => console.log(result),
+      // next: (result) => console.log(result),
+      next: (result) => console.log(),
     });
   }
 }

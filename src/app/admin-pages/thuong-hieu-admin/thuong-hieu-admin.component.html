@@ -1,1 +1,52 @@
-<p>thuong-hieu-admin works!</p>
+<div class="sanPham">
+  <h3>
+    Danh sách thương hiệu
+  </h3>
+  <div class="sanPham_chucNang">
+    <button
+      type="button"
+      class="btn btn-success"
+      data-toggle="modal"
+      data-target="#exampleModalCenter"
+    >
+      Thêm thương hiệu
+    </button>
+    <div
+      class="modal fade"
+      id="exampleModalCenter"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="exampleModalCenterTitle"
+      aria-hidden="true"
+    >
+      <!-- <app-them-san-pham-admin></app-them-san-pham-admin> -->
+    </div>
+  </div>
+  <div class="sanPham_danhSach">
+    <div class="table-responsive">
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">STT</th>
+            <th scope="col">Tên thương hiệu</th>
+            <th scope="col">Mô tả</th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of thuongHieux; let i = index">
+            <th scope="row">{{ i + 1 }}</th>
+            <td>{{ item.tenThuongHieu }}</td>
+            <td>{{ item.moTa }}</td>
+            <th>
+              <button type="button" class="btn btn-danger mr-2">
+                Xóa
+              </button>
+              <button type="button" class="btn btn-primary">Sửa</button>
+            </th>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

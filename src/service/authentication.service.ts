@@ -25,21 +25,35 @@ export class AuthenticationService {
   }
 
   dangNhap(values): Observable<any> {
-    return this.api.post('taikhoans', values).pipe(
+    return this.api.get('taikhoans', values).pipe(
       // return this.api.post('QuanLyNguoiDung/DangNhap', values).pipe(
       tap((result) => {
         this.userSubject.next(result);
         localStorage.setItem('userLogin', JSON.stringify(result));
-        this.router.navigate(['/admin']);
+        // this.router.navigate(['/admin']);
+        // for (let i = 1; i < result.length; i++) {
+        //   console.log(result.length);
+        //   console.log(result[0].tenTk);
+        //   if (result[i].tenTk === values.tenTk) {
+        //     console.log('haha');
+        //     if (result[i].matKhau === values.matKhau) {
+        //       // this.router.navigate(['admin']);
+        //       console.log('dung');
+        //     }
+        //   }
+        // }
 
         // Sau khi đăng nhập thành công
         // redirect tới trang / hoặc /admin tuỳ theo
         // mã loại người dùng
-        // if (result.maLoaiNguoiDung === 'QuanTri') {
-        //   this.router.navigate(['/admin']);
-        // } else {
-        //   this.router.navigate(['/admin']);
-        // }
+
+        if (values.matKhau === result[0].matKhau) {
+          if (values.tenTk === result[0].matKhau) {
+            this.router.navigate(['/admin']);
+          }
+        } else {
+          localStorage.clear();
+        }
       })
     );
   }

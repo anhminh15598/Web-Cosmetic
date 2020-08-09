@@ -23,7 +23,6 @@ export class HeaderComponent implements OnInit {
     public http: HttpClient,
     public errorService: ErrorService
   ) {}
-  x = false;
   thuongHieux: any = [];
   getThuongHieu() {
     this.http
@@ -42,10 +41,6 @@ export class HeaderComponent implements OnInit {
           this.errorService.showError(error);
         }
       );
-  }
-  onClickMe() {
-    this.x = !this.x;
-    console.log(this.x);
   }
 
   ngOnInit(): void {

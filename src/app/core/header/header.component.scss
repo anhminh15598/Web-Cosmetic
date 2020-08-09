@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Alex+Brush&family=Mansalva&display=swap"');
-
+@import url("https://fonts.googleapis.com/css2?family=Sriracha&display=swap");
 ::placeholder {
   color: rgba(8, 89, 160, 0.473);
   font-family: "Karla", sans-serif;
@@ -32,7 +32,8 @@
   // background: #c6f1e1;
   height: 4rem;
   display: flex;
-  background-color: rgb(198, 241, 225);
+  background-color: #fff;
+  // background-color: rgb(198, 241, 225);
   justify-content: space-around;
   // .menu_search {
   //   .menu_search_input {
@@ -124,14 +125,15 @@
   line-height: 2.5rem;
   text-align: center;
   a {
-    font-size: 14px;
+    font-size: 17px;
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
     display: block;
-    color: #085aa0;
-    font-family: "Karla", sans-serif;
-    letter-spacing: 1.2px;
+    color: #62b8a3;
+    // font-family: "Karla", sans-serif;
+    font-family: "Sriracha", cursive;
+    letter-spacing: 1.3px;
     text-transform: uppercase;
   }
   &:hover {
@@ -226,7 +228,7 @@ a {
       right: 1rem;
       width: 30px;
       height: 4px;
-      background: #fff;
+      background: #62b8a3;
       box-shadow: 0 10px #fff, 0 -10px #fff;
     }
     > ol {

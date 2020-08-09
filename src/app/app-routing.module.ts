@@ -2,13 +2,15 @@ import { NgModule, Component } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { LayoutComponent } from './core/layout/layout.component';
 import { LienHeComponent } from './pages/lien-he/lien-he.component';
-import { DangNhapComponent } from './admin-pages/dang-nhap/dang-nhap.component';
 import { SanPhamAdminComponent } from './admin-pages/san-pham-admin/san-pham-admin.component';
 import { AdminLayoutComponent } from './admin-pages/admin-core/admin-layout/admin-layout.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { GioiThieuCongTyComponent } from './pages/gioi-thieu-cong-ty/gioi-thieu-cong-ty.component';
-import { SigninComponent } from './authentication/signin/signin.component';
 import { AdminGuard } from 'src/guards/admin.guard';
+import { SigninComponent } from './authentication/signin/signin.component';
+import { ThuongHieuAdminComponent } from './admin-pages/thuong-hieu-admin/thuong-hieu-admin.component';
+import { LoaiSanPhamAdminComponent } from './admin-pages/loai-san-pham-admin/loai-san-pham-admin.component';
+import { HomeAdminComponent } from './admin-pages/home-admin/home-admin.component';
 
 const routes: Routes = [
   {
@@ -44,11 +46,18 @@ const routes: Routes = [
   {
     path: 'admin',
     component: AdminLayoutComponent,
-    canActivate:[AdminGuard],
+    canActivate: [AdminGuard],
+
     children: [
+      { path: 'home', component: HomeAdminComponent },
+      { path: 'thuong-hieu-admin', component: ThuongHieuAdminComponent },
       {
-        path: '',
+        path: 'san-pham-admin',
         component: SanPhamAdminComponent,
+      },
+      {
+        path: 'loai-san-pham-admin',
+        component: LoaiSanPhamAdminComponent,
       },
     ],
   },

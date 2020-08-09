@@ -7,30 +7,26 @@
     class="sidebar-item no-hover"
     id="burger"
   >
-    <span class="sidebar-item-title">Quản lý US Beauty</span>
+    <a [routerLink]="['home']">
+      <span class="sidebar-item-title">Quản lý US Beauty</span>
+    </a>
   </div>
-  <div class="sidebar-item active">
-    <a href="#">
+  <div class="sidebar-item" routerLinkActive="active">
+    <a [routerLink]="['thuong-hieu-admin']">
       <i class="fa fa-code" aria-hidden="true"></i>
       <span class="sidebar-item-title">Quản lý thương hiệu</span>
     </a>
   </div>
-  <div class="sidebar-item">
-    <a href="#">
+  <div class="sidebar-item" routerLinkActive="active">
+    <a [routerLink]="['loai-san-pham-admin']">
       <i class="fa fa-code" aria-hidden="true"></i>
       <span class="sidebar-item-title">Quản lý loại sản phẩm</span>
     </a>
   </div>
-  <div class="sidebar-item">
-    <a href="#">
+  <div class="sidebar-item" routerLinkActive="active">
+    <a [routerLink]="['san-pham-admin']">
       <i class="fa fa-code" aria-hidden="true"></i>
       <span class="sidebar-item-title">Quản lý sản phẩm</span>
-    </a>
-  </div>
-  <div class="sidebar-item">
-    <a href="#">
-      <i class="fa fa-code" aria-hidden="true"></i>
-      <span class="sidebar-item-title">Chức năng 4</span>
     </a>
   </div>
 </div>
