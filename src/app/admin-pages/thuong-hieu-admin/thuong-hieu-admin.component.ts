@@ -15,7 +15,43 @@ export class ThuongHieuAdminComponent implements OnInit {
     public errorService: ErrorService
   ) {}
 
-  thuongHieux: any = [];
+  // tenThuongHieu: string = '1';
+  // moTa: string = '2';
+
+  postId;
+
+  onClick(tenThuongHieu, moTa) {
+    const themThuongHieu = { tenThuongHieu: tenThuongHieu, moTa: moTa };
+
+    // console.log(themThuongHieu);
+
+    this.http
+      .post<any>('https://api.usbeauty.vn/api/ThuongHieux/', themThuongHieu, {
+        headers: new HttpHeaders({
+          'Content-Type': 'application/json',
+        }),
+      })
+      .subscribe((data) => {
+        this.postId = data.id;
+      }),
+      (error) => {
+        this.errorService.showError(error);
+      };
+  }
+
+  xoaThuongHieu(id) {
+    console.log(id);
+    this.http
+      .delete('https://api.usbeauty.vn/api/thuongHieux/' + id)
+      .subscribe((s) => {
+        console.log(s);
+      }),
+      (error) => {
+        this.errorService.showError(error);
+      };
+  }
+
+  thuongHieu: any = [];
   getThuongHieu() {
     this.http
       .get('https://api.usbeauty.vn/api/ThuongHieux/', {
@@ -25,7 +61,7 @@ export class ThuongHieuAdminComponent implements OnInit {
       })
       .subscribe(
         (data) => {
-          this.thuongHieux = data;
+          this.thuongHieu = data;
 
           console.log(data);
         },
@@ -34,6 +70,7 @@ export class ThuongHieuAdminComponent implements OnInit {
         }
       );
   }
+
   ngOnInit(): void {
     this.getThuongHieu();
   }
