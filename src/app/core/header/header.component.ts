@@ -21,7 +21,7 @@ export class HeaderComponent implements OnInit {
     x = false;
     thuongHieux:any = [];
     getThuongHieu(){
-      this.http.get("https://localhost:44380/api/ThuongHieux/",{
+      this.http.get(environment.apiUrl + environment.apiList.ThuongHieu,{
         headers: new HttpHeaders({
           'Content-Type': 'application/json'
         })
