@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { HttpClient,HttpHeaders,HttpErrorResponse } from '@angular/common/http';
+import {
+  HttpClient,
+  HttpHeaders,
+  HttpErrorResponse,
+} from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { ErrorService } from 'src/service/error.service';
 
@@ -23,21 +27,19 @@ export class HeaderComponent implements OnInit {
     getThuongHieu(){
       this.http.get(environment.apiUrl + environment.apiList.ThuongHieu,{
         headers: new HttpHeaders({
-          'Content-Type': 'application/json'
-        })
-      }).subscribe(data =>{
-        
-        this.thuongHieux = data
+          'Content-Type': 'application/json',
+        }),
+      })
+      .subscribe(
+        (data) => {
+          this.thuongHieux = data;
 
-        console.log(data);
-      },
-      error  => {
-        this.errorService.showError(error);
-      });
-    }
-  onClickMe() {
-    this.x = !this.x;
-    console.log(this.x);
+          console.log(data);
+        },
+        (error) => {
+          this.errorService.showError(error);
+        }
+      );
   }
 
   ngOnInit(): void {

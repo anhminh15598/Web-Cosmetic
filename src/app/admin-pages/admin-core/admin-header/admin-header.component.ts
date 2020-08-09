@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-admin-header',
@@ -6,7 +7,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./admin-header.component.scss'],
 })
 export class AdminHeaderComponent implements OnInit {
-  constructor() {}
+  constructor(private router: Router) {}
+
+  dangXuat() {
+    let xacNhan = confirm('Bạn có muốn đăng xuất');
+
+    if (xacNhan == true) {
+      localStorage.clear();
+      this.router.navigate(['']);
+    }
+  }
 
   ngOnInit() {}
 }

@@ -14,11 +14,15 @@ import { AdminFooterComponent } from './admin-pages/admin-core/admin-footer/admi
 import { AdminHeaderComponent } from './admin-pages/admin-core/admin-header/admin-header.component';
 import { AdminLayoutComponent } from './admin-pages/admin-core/admin-layout/admin-layout.component';
 import { SliderComponent } from './core/slider/slider.component';
-import { SlickCarouselModule } from 'ngx-slick-carousel';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { AdminSidebarComponent } from './admin-pages/admin-core/admin-sidebar/admin-sidebar.component';
 import { SanPhamAdminModule } from './admin-pages/san-pham-admin/san-pham-admin.module';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { AuthInterceptor } from 'src/Interceptors/auth.interceptor';
+import { AuthenticationModule } from './authentication/authentication.module';
+import { ThuongHieuAdminComponent } from './admin-pages/thuong-hieu-admin/thuong-hieu-admin.component';
+import { LoaiSanPhamAdminComponent } from './admin-pages/loai-san-pham-admin/loai-san-pham-admin.component';
+import { HomeAdminComponent } from './admin-pages/home-admin/home-admin.component';
 
 @NgModule({
   declarations: [
@@ -37,15 +41,20 @@ import { HttpClientModule } from '@angular/common/http';
     AdminLayoutComponent,
     NotFoundComponent,
     AdminSidebarComponent,
+    ThuongHieuAdminComponent,
+    LoaiSanPhamAdminComponent,
+    HomeAdminComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     SanPhamAdminModule,
-    SlickCarouselModule,
-    HttpClientModule
+    HttpClientModule,
+    AuthenticationModule,
+
   ],
-  providers: [],
+  providers: [    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

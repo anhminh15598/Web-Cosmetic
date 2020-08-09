@@ -1,0 +1,135 @@
+<div class="container">
+  <a routerLink="/">Home</a>
+  <div class="row">
+    <div class="col-sm-6 mx-auto">
+      <form #signinForm="ngForm" (ngSubmit)="dangKy(signinForm.value)">
+        <div class="form-group">
+          <label for="tenTk">Tài khoản</label>
+          <input
+            type="text"
+            name="tenTk"
+            id="tenTk"
+            class="form-control"
+            ngModel
+            #tenTk="ngModel"
+            required
+          />
+          <div *ngIf="tenTk.invalid && (tenTk.touched || tenTk.dirty)">
+            <div *ngIf="tenTk.errors.required">
+              Tài khoản không được để trống
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="matKhau">Mật khẩu</label>
+          <input
+            type="password"
+            name="matKhau"
+            id="matKhau"
+            class="form-control"
+            ngModel
+            #matKhau="ngModel"
+            required
+            minlength="8"
+            maxlength="20"
+          />
+          <div *ngIf="matKhau.invalid && (matKhau.touched || matKhau.dirty)">
+            <div *ngIf="matKhau.errors.required">
+              Tài khoản không được để trống
+            </div>
+            <div *ngIf="matKhau.errors.minlength">
+              Tài khoản ít nhất 8 kí tự
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="hoTen">Họ tên</label>
+          <input
+            type="text"
+            name="hoTen"
+            id="hoTen"
+            class="form-control"
+            ngModel
+            #hoTen="ngModel"
+            required
+          />
+          <div *ngIf="hoTen.invalid && (hoTen.touched || hoTen.dirty)">
+            <div *ngIf="hoTen.errors.required">
+              Họ tên không được để trống
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input
+            type="email"
+            name="email"
+            id="email"
+            class="form-control"
+            ngModel
+            #email="ngModel"
+            required
+            pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+          />
+          <div *ngIf="email.invalid && (email.touched || email.dirty)">
+            <div *ngIf="email.errors.required">
+              Tài khoản không được để trống
+            </div>
+            <div *ngIf="email.errors.pattern">
+              Email không hợp lệ
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="email">Số điện thoại</label>
+          <input
+            type="tel"
+            name="soDt"
+            id="soDt"
+            class="form-control"
+            ngModel
+            #soDt="ngModel"
+            required
+          />
+          <div *ngIf="soDt.invalid && (soDt.touched || soDt.dirty)">
+            <div *ngIf="soDt.errors.required">
+              Số điện thoại không được để trống
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="maLoaiNguoiDung">Mã loại người dùng</label>
+          <select
+            class="form-control"
+            name="maLoaiNguoiDung"
+            id="maLoaiNguoiDung"
+            ngModel
+            required
+            #maLoaiNguoiDung="ngModel"
+          >
+            <option value="">---</option>
+            <option value="KhachHang">Khách hàng</option>
+            <option value="QuanTri">Quản trị</option>
+          </select>
+          <div
+            *ngIf="
+              maLoaiNguoiDung.invalid &&
+              (maLoaiNguoiDung.touched || maLoaiNguoiDung.dirty)
+            "
+          >
+            <div *ngIf="maLoaiNguoiDung.errors.required">
+              Mã loại người dùng không được để trống
+            </div>
+          </div>
+        </div>
+        <button
+          type="submit"
+          class="btn btn-success"
+          [disabled]="signinForm.invalid"
+        >
+          Đăng ký
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
