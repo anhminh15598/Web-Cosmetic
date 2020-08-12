@@ -24,6 +24,7 @@ import { ThuongHieuAdminComponent } from './admin-pages/thuong-hieu-admin/thuong
 import { LoaiSanPhamAdminComponent } from './admin-pages/loai-san-pham-admin/loai-san-pham-admin.component';
 import { HomeAdminComponent } from './admin-pages/home-admin/home-admin.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 @NgModule({
   declarations: [
@@ -47,6 +48,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     HomeAdminComponent,
   ],
   imports: [
+    NgxPaginationModule,
     FormsModule,
     ReactiveFormsModule,
     BrowserModule,

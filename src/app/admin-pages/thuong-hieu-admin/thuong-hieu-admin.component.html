@@ -39,6 +39,7 @@
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>
+
             <div class="modal-body">
               <div class="form-group">
                 <label for="">Tên thương hiệu</label>
@@ -99,16 +100,15 @@
                 >
                   Hủy
                 </button>
-                <button
-                  type="submit"
-                  class="btn btn-primary"
-                  data-toggle="modal"
-                  data-target="#staticBackdrop"
-                >
+
+                <!-- Button trigger modal -->
+                <button type="submit" class="btn btn-primary">
                   Thêm
                 </button>
+                <!-- Modal -->
               </div>
             </div>
+            <!-- -- -->
           </div>
         </div>
         <!-- end drop -->
@@ -119,15 +119,21 @@
         <table class="table">
           <thead>
             <tr>
-              <th scope="col">STT</th>
-              <th scope="col">Tên thương hiệu</th>
-              <th scope="col">Mô tả</th>
-              <th scope="col"></th>
+              <th>STT</th>
+              <th>Tên thương hiệu</th>
+              <th>Mô tả</th>
+              <th></th>
             </tr>
           </thead>
           <tbody>
-            <tr *ngFor="let item of thuongHieu; let i = index">
-              <th scope="row">{{ i + 1 }}</th>
+            <tr
+              *ngFor="
+                let item of thuongHieu
+                  | paginate: { itemsPerPage: 9, currentPage: p };
+                let i = index
+              "
+            >
+              <th>{{ i + 1 }}</th>
               <td>{{ item.tenThuongHieu }}</td>
               <td>{{ item.moTa }}</td>
               <th>
@@ -138,11 +144,68 @@
                 >
                   Xóa
                 </button>
-                <button type="button" class="btn btn-primary">
+
+                <!-- Button trigger modal -->
+                <button
+                  type="button"
+                  class="btn btn-primary"
+                  data-toggle="modal"
+                  data-target="#exampleModal"
+                >
                   Sửa
                 </button>
+
+                <!-- Modal -->
+                <div
+                  class="modal fade"
+                  id="exampleModal"
+                  tabindex="-1"
+                  role="dialog"
+                  aria-labelledby="exampleModalLabel"
+                  aria-hidden="true"
+                >
+                  <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">
+                          Modal title
+                        </h5>
+                        <button
+                          type="button"
+                          class="close"
+                          data-dismiss="modal"
+                          aria-label="Close"
+                        >
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
+                      <div class="modal-body">
+                        ...
+                      </div>
+                      <div class="modal-footer">
+                        <button
+                          type="button"
+                          class="btn btn-secondary"
+                          data-dismiss="modal"
+                        >
+                          Close
+                        </button>
+                        <button type="button" class="btn btn-primary">
+                          Save changes
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </th>
             </tr>
+            <pagination-controls
+              class="page-btn"
+              (pageChange)="p = $event"
+              previousLabel=""
+              maxSize="9"
+              nextLabel=""
+            ></pagination-controls>
           </tbody>
         </table>
       </div>

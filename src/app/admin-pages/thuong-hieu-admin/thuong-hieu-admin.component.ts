@@ -22,6 +22,8 @@ export class ThuongHieuAdminComponent implements OnInit {
   // moTa: string = '2';
 
   postId;
+  p: any;
+  xacNhan: any = false;
 
   themThuongHieu() {
     this.themThuongHieuForm.markAllAsTouched();
@@ -39,6 +41,7 @@ export class ThuongHieuAdminComponent implements OnInit {
       .subscribe((data) => {
         this.postId = data.id;
         this.getThuongHieu();
+        this.xacNhan === true;
       }),
       (error) => {
         this.errorService.showError(error);
@@ -53,8 +56,24 @@ export class ThuongHieuAdminComponent implements OnInit {
           'Content-Type': 'application/json',
         }),
       })
-      .subscribe((s) => {
-        console.log(s);
+      .subscribe((data) => {
+        console.log(data);
+      }),
+      (error) => {
+        this.errorService.showError(error);
+      };
+  }
+
+  suaThuongHieu(id) {
+    console.log(id);
+    this.http
+      .delete('https://api.usbeauty.vn/api/thuongHieux/' + id, {
+        headers: new HttpHeaders({
+          'Content-Type': 'application/json',
+        }),
+      })
+      .subscribe((data) => {
+        console.log(data);
       }),
       (error) => {
         this.errorService.showError(error);
