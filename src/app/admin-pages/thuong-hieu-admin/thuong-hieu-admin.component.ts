@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { ErrorService } from 'src/service/error.service';
+import { FormGroup, Validators, FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-thuong-hieu-admin',
@@ -9,6 +10,8 @@ import { ErrorService } from 'src/service/error.service';
   styleUrls: ['./thuong-hieu-admin.component.scss'],
 })
 export class ThuongHieuAdminComponent implements OnInit {
+  themThuongHieuForm: FormGroup;
+
   constructor(
     private router: Router,
     public http: HttpClient,
@@ -20,19 +23,22 @@ export class ThuongHieuAdminComponent implements OnInit {
 
   postId;
 
-  onClick(tenThuongHieu, moTa) {
-    const themThuongHieu = { tenThuongHieu: tenThuongHieu, moTa: moTa };
-
-    // console.log(themThuongHieu);
-
+  themThuongHieu() {
+    this.themThuongHieuForm.markAllAsTouched();
+    if (this.themThuongHieuForm.invalid) return;
     this.http
-      .post<any>('https://api.usbeauty.vn/api/ThuongHieux/', themThuongHieu, {
-        headers: new HttpHeaders({
-          'Content-Type': 'application/json',
-        }),
-      })
+      .post<any>(
+        'https://api.usbeauty.vn/api/ThuongHieux/',
+        this.themThuongHieuForm.value,
+        {
+          headers: new HttpHeaders({
+            'Content-Type': 'application/json',
+          }),
+        }
+      )
       .subscribe((data) => {
         this.postId = data.id;
+        this.getThuongHieu();
       }),
       (error) => {
         this.errorService.showError(error);
@@ -42,7 +48,11 @@ export class ThuongHieuAdminComponent implements OnInit {
   xoaThuongHieu(id) {
     console.log(id);
     this.http
-      .delete('https://api.usbeauty.vn/api/thuongHieux/' + id)
+      .delete('https://api.usbeauty.vn/api/thuongHieux/' + id, {
+        headers: new HttpHeaders({
+          'Content-Type': 'application/json',
+        }),
+      })
       .subscribe((s) => {
         console.log(s);
       }),
@@ -73,5 +83,14 @@ export class ThuongHieuAdminComponent implements OnInit {
 
   ngOnInit(): void {
     this.getThuongHieu();
+    this.themThuongHieuForm = new FormGroup({
+      tenThuongHieu: new FormControl('', [Validators.required]),
+      moTa: new FormControl('', [
+        Validators.required,
+        Validators.minLength(3),
+        Validators.maxLength(20),
+      ]),
+    });
   }
+  ngDoCheck() {}
 }

@@ -23,6 +23,7 @@ import { AuthenticationModule } from './authentication/authentication.module';
 import { ThuongHieuAdminComponent } from './admin-pages/thuong-hieu-admin/thuong-hieu-admin.component';
 import { LoaiSanPhamAdminComponent } from './admin-pages/loai-san-pham-admin/loai-san-pham-admin.component';
 import { HomeAdminComponent } from './admin-pages/home-admin/home-admin.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -46,14 +47,16 @@ import { HomeAdminComponent } from './admin-pages/home-admin/home-admin.componen
     HomeAdminComponent,
   ],
   imports: [
+    FormsModule,
+    ReactiveFormsModule,
     BrowserModule,
     AppRoutingModule,
     SanPhamAdminModule,
     HttpClientModule,
     AuthenticationModule,
-
   ],
-  providers: [    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
   ],
   bootstrap: [AppComponent],
 })

@@ -11,73 +11,109 @@
     >
       Thêm thương hiệu
     </button>
-    <div
-      class="modal fade"
-      id="exampleModalCenter"
-      tabindex="-1"
-      role="dialog"
-      aria-labelledby="exampleModalCenterTitle"
-      aria-hidden="true"
+    <form
+      [formGroup]="themThuongHieuForm"
+      class="row justify-content-md-center"
+      (ngSubmit)="themThuongHieu()"
     >
-      <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLongTitle">
-              Thêm sản phẩm
-            </h5>
-            <button
-              type="button"
-              class="close"
-              data-dismiss="modal"
-              aria-label="Close"
-            >
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body">
-            <div class="form-group">
-              <label for="">Tên sản phẩm</label>
-              <input
-                type="text"
-                class="form-control"
-                name=""
-                #tenSanPham
-                aria-describedby="helpId"
-                placeholder=""
-              />
-              <small id="helpId" class="form-text text-muted">Help text</small>
-            </div>
-            <div class="form-group">
-              <label for="exampleFormControlTextarea1">Mô tả</label>
-              <textarea
-                #moTa
-                class="form-control"
-                id="exampleFormControlTextarea1"
-                rows="3"
-              ></textarea>
-            </div>
-
-            <div class="modal-footer">
+      <div
+        class="modal fade form-group"
+        id="exampleModalCenter"
+        tabindex="-1"
+        role="dialog"
+        aria-labelledby="exampleModalCenterTitle"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLongTitle">
+                Thêm thương hiệu
+              </h5>
               <button
                 type="button"
-                class="btn btn-secondary"
+                class="close"
                 data-dismiss="modal"
+                aria-label="Close"
               >
-                Hủy
+                <span aria-hidden="true">&times;</span>
               </button>
-              <button
-                (click)="onClick(tenSanPham.value, moTa.value)"
-                type="button"
-                class="btn btn-primary"
-              >
-                Thêm
-              </button>
+            </div>
+            <div class="modal-body">
+              <div class="form-group">
+                <label for="">Tên thương hiệu</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="tenThuongHieu"
+                  aria-describedby="helpId"
+                  placeholder=""
+                  formControlName="tenThuongHieu"
+                />
+                <div
+                  *ngIf="
+                    themThuongHieuForm.get('tenThuongHieu').invalid &&
+                    (themThuongHieuForm.get('tenThuongHieu').touched ||
+                      themThuongHieuForm.get('tenThuongHieu').dirty)
+                  "
+                >
+                  <small
+                    style="color: red;"
+                    *ngIf="
+                      themThuongHieuForm.get('tenThuongHieu').errors.required
+                    "
+                  >
+                    Tên thương hiệu không được bỏ trống</small
+                  >
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="exampleFormControlTextarea1 moTa">Mô tả</label>
+                <textarea
+                  class="form-control"
+                  id="exampleFormControlTextarea1 moTa"
+                  rows="3"
+                  formControlName="moTa"
+                ></textarea>
+                <div
+                  *ngIf="
+                    themThuongHieuForm.get('moTa').invalid &&
+                    (themThuongHieuForm.get('moTa').touched ||
+                      themThuongHieuForm.get('moTa').dirty)
+                  "
+                >
+                  <small
+                    style="color: red;"
+                    *ngIf="themThuongHieuForm.get('moTa').errors.required"
+                  >
+                    Mô tả không được bỏ trống</small
+                  >
+                </div>
+              </div>
+
+              <div class="modal-footer">
+                <button
+                  type="button"
+                  class="btn btn-secondary"
+                  data-dismiss="modal"
+                >
+                  Hủy
+                </button>
+                <button
+                  type="submit"
+                  class="btn btn-primary"
+                  data-toggle="modal"
+                  data-target="#staticBackdrop"
+                >
+                  Thêm
+                </button>
+              </div>
             </div>
           </div>
         </div>
+        <!-- end drop -->
       </div>
-      <!-- end drop -->
-    </div>
+    </form>
     <div class="sanPham_danhSach">
       <div class="table-responsive">
         <table class="table">
