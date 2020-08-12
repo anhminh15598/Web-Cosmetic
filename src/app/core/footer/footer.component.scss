@@ -1,307 +1,33 @@
-// @import url('https://fonts.googleapis.com/css2?family=Alex+Brush&family=Mansalva&display=swap"');
+@import url("https://fonts.googleapis.com/css2?family=Sriracha&display=swap");
 
-// .footer-distributed {
-//   margin-top: 200px;
-//   background: #c6f1e1;
-//   box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);
-//   box-sizing: border-box;
-//   width: 100%;
-//   text-align: left;
-//   align-items: center;
-//   font-family: "Karla", sans-serif;
-//   letter-spacing: 1.2px;
-//   padding: 55px 50px;
-//   .footer-left {
-//     .menu_logo {
-//       a {
-//         justify-content: center;
-//         align-items: center;
-//         height: 100%;
-//         // display: flex;
-
-//         // justify-content: center;
-//         // align-items: center;
-//         font-family: "Alex Brush", cursive;
-//         font-size: 40px;
-//         font-weight: 400;
-//         font-style: normal;
-//         color: rgb(140, 187, 255);
-//         /* background: -webkit-linear-gradient(top, rgb(0, 255, 149), rgb(9, 0, 160))
-//                   text; */
-//         /* background: -webkit-linear-gradient(
-//                   45deg,
-//                   rgb(0, 255, 149),
-//                   rgb(9, 0, 160) 80%
-//                 ); */
-//         background: -webkit-linear-gradient(#09009f, #00ff95);
-//         -webkit-background-clip: text;
-//         -webkit-text-fill-color: transparent;
-//         span {
-//           font-family: "Mansalva", cursive;
-//           background-color: rgb(25, 175, 235);
-//           background: -webkit-linear-gradient(
-//             45deg,
-//             rgb(9, 0, 160),
-//             rgb(0, 255, 149)
-//           );
-//           -webkit-background-clip: text;
-//           -webkit-text-fill-color: transparent;
-//         }
-//       }
-//     }
-//   }
-// }
-
-// .footer-distributed .footer-left,
-// .footer-distributed .footer-center,
-// .footer-distributed .footer-right {
-//   display: inline-block;
-//   vertical-align: top;
-// }
-
-// /* Footer left */
-
-// .footer-distributed .footer-left {
-//   width: 33%;
-//   margin-left: 7%;
-// }
-
-// /* The company logo */
-
-// .footer-distributed h3 {
-//   color: #085aa0;
-//   font: normal 36px "Open Sans", cursive;
-//   margin: 0;
-// }
-
-// .footer-distributed h3 span {
-//   color: lightseagreen;
-// }
-
-// /* Footer links */
-
-// .footer-distributed .footer-links {
-//   color: #085aa0;
-//   margin: 20px 0 10px;
-//   padding: 0;
-// }
-
-// .footer-distributed .footer-links a {
-//   display: inline-block;
-//   line-height: 1.8;
-//   font-weight: 400;
-//   text-decoration: none;
-//   color: inherit;
-// }
-
-// .footer-distributed .footer-company-name {
-//   color: #222;
-//   font-size: 14px;
-//   font-weight: normal;
-//   margin: 0;
-// }
-
-// /* Footer Center */
-
-// .footer-distributed .footer-center {
-//   width: 33%;
-// }
-
-// .footer-distributed .footer-center i {
-//   background-color: #ffffff;
-//   color: #085aa0;
-//   font-size: 25px;
-//   width: 38px;
-//   height: 38px;
-//   border-radius: 50%;
-//   text-align: center;
-//   line-height: 42px;
-//   margin: 10px 15px;
-//   vertical-align: middle;
-// }
-
-// .footer-distributed .footer-center i.fa-envelope {
-//   font-size: 17px;
-//   line-height: 38px;
-// }
-
-// .footer-distributed .footer-center p {
-//   display: inline-block;
-//   color: #085aa0;
-//   font-weight: 400;
-//   vertical-align: middle;
-//   margin: 0;
-// }
-
-// .footer-distributed .footer-center p span {
-//   display: block;
-//   font-weight: normal;
-//   font-size: 14px;
-//   line-height: 2;
-// }
-
-// .footer-distributed .footer-center p a {
-//   color: lightseagreen;
-//   text-decoration: none;
-// }
-
-// .footer-distributed .footer-links a:before {
-//   content: "|";
-//   font-weight: 300;
-//   font-size: 20px;
-//   left: 0;
-//   color: #fff;
-//   display: inline-block;
-//   padding-right: 5px;
-// }
-
-// .footer-distributed .footer-links .link-1:before {
-//   content: none;
-// }
-
-// /* Footer Right */
-
-// .footer-distributed .footer-right {
-//   width: 20%;
-// }
-
-// .footer-distributed .footer-company-about {
-//   line-height: 20px;
-//   color: #92999f;
-//   font-size: 13px;
-//   font-weight: normal;
-//   margin: 0;
-// }
-
-// .footer-distributed .footer-company-about span {
-//   display: block;
-//   color: #085aa0;
-//   font-size: 14px;
-//   font-weight: bold;
-//   margin-bottom: 20px;
-// }
-
-// .footer-distributed .footer-icons {
-//   margin-top: 25px;
-// }
-
-// .footer-distributed .footer-icons a {
-//   display: inline-block;
-//   width: 35px;
-//   height: 35px;
-//   cursor: pointer;
-//   background-color: #ffffff;
-//   border-radius: 2px;
-
-//   font-size: 20px;
-//   color: #085aa0;
-//   text-align: center;
-//   line-height: 35px;
-
-//   margin-right: 3px;
-//   margin-bottom: 5px;
-// }
-
-// /* If you don't want the footer to be responsive, remove these media queries */
-
-// @media (max-width: 880px) {
-//   .footer-distributed {
-//     text-align: center;
-//     font: bold 14px sans-serif;
-//     .menu_logo {
-//       text-align: center;
-//     }
-//     .footer-links {
-//       text-align: center;
-//     }
-//     .footer-company-name {
-//       text-align: center;
-//     }
-//     .footer-left {
-//       margin-left: 0;
-//     }
-//     .footer-center {
-//       float: left;
-//     }
-//   }
-
-//   .footer-distributed .footer-left {
-//     display: block;
-//     width: 100%;
-//     margin-bottom: 40px;
-//     text-align: left;
-//   }
-//   .footer-distributed .footer-center {
-//     width: 50%;
-//     margin-bottom: 40px;
-//     text-align: left;
-//     margin-left: 7%;
-//   }
-//   .footer-distributed .footer-right {
-//     // display: block;
-//     width: 43%;
-//     margin-bottom: 40px;
-//     text-align: left;
-//   }
-
-//   .footer-distributed .footer-center i {
-//     margin-left: 0;
-//   }
-// }
-// @media (max-width: 880px) {
-//   .footer-distributed .footer-left {
-//     display: block;
-//     width: 100%;
-//     margin-bottom: 40px;
-//     text-align: left;
-//     .footer-links {
-//       text-align: left;
-//     }
-//     .footer-company-name {
-//       text-align: left;
-//     }
-//   }
-//   .footer-distributed .footer-center {
-//     display: block;
-//     width: 100%;
-//     margin-bottom: 40px;
-//     text-align: left;
-//     margin-left: 0;
-//   }
-//   .footer-distributed .footer-right {
-//     display: block;
-//     width: 100%;
-//     margin-bottom: 40px;
-//     text-align: left;
-//   }
-// }
-
-
-.footer{
+.footer {
+  font-family: "Sriracha", cursive;
   background: #c6f1e1;
-  color:#085aa0;
-  
-  .links{
-    ul {list-style-type: none;}
-    li a{
-      color: #085aa0;
-      transition: color .2s;
-      &:hover{
-        text-decoration:none;
-        color:#4180CB;
-        }
+  color: #085aa0;
+
+  .links {
+    ul {
+      list-style-type: none;
     }
-  }  
-  .about-company{
+    li a {
+      color: #085aa0;
+      transition: color 0.2s;
+      &:hover {
+        text-decoration: none;
+        color: #4180cb;
+      }
+    }
+  }
+  .about-company {
     .menu_logo {
       // width: 250px;
-      
+
       a {
         justify-content: center;
         align-items: center;
         height: 100%;
         // display: flex;
-  
+
         // justify-content: center;
         // align-items: center;
         font-family: "Alex Brush", cursive;
@@ -332,20 +58,27 @@
         }
       }
     }
-    p{
-      color:#085aa0;
-      
-      i{font-size: 25px;}
-      a{
+    p {
+      color: #085aa0;
 
-        color:#085aa0;
-        transition: color .2s;
-        &:hover{color:#4180CB}
+      i {
+        font-size: 25px;
+      }
+      a {
+        color: #085aa0;
+        transition: color 0.2s;
+        &:hover {
+          color: #4180cb;
+        }
       }
     }
-  } 
-  .location{
-    i{font-size: 18px;}
   }
-  .copyright p{border-top:1px solid rgba(255, 255, 255, 0.829);} 
+  .location {
+    i {
+      font-size: 18px;
+    }
+  }
+  .copyright p {
+    border-top: 1px solid rgba(255, 255, 255, 0.829);
+  }
 }

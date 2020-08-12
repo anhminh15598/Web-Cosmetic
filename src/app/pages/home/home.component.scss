@@ -1,4 +1,7 @@
+@import url("https://fonts.googleapis.com/css2?family=Sriracha&display=swap");
+
 .home_carousel {
+  font-family: "Sriracha", cursive;
   margin-top: 50px;
   padding: 0 20px;
   h1 {
@@ -6,12 +9,12 @@
     margin-bottom: 20px;
     text-align: center;
     color: #085aa0;
-    font-family: "Karla", sans-serif;
     letter-spacing: 1.2px;
     text-transform: uppercase;
   }
   @media screen and (max-width: 768px) {
     .home_text {
+      margin-bottom: 0;
       margin-left: 18px;
       h1 {
         font-size: 30px;
@@ -27,7 +30,6 @@
     align-items: center;
     // min-height: 100vh;
     background: #ffffff;
-    font-family: "Poppins", sans-serif;
     .container {
       width: 100%;
       margin: 0 auto;
@@ -140,8 +142,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    font-family: "Oswald", helvetica;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
 
     h1 {
       position: relative;
@@ -152,7 +153,6 @@
       padding-right: 30px;
       overflow: hidden;
       color: #085aa0;
-      font-family: "Karla", sans-serif;
 
       div {
         margin: 0 auto;

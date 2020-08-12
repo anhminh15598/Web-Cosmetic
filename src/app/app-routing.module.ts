@@ -11,6 +11,7 @@ import { SigninComponent } from './authentication/signin/signin.component';
 import { ThuongHieuAdminComponent } from './admin-pages/thuong-hieu-admin/thuong-hieu-admin.component';
 import { LoaiSanPhamAdminComponent } from './admin-pages/loai-san-pham-admin/loai-san-pham-admin.component';
 import { HomeAdminComponent } from './admin-pages/home-admin/home-admin.component';
+import { HomeComponent } from './pages/home/home.component';
 
 const routes: Routes = [
   {
@@ -19,8 +20,7 @@ const routes: Routes = [
     children: [
       {
         path: '',
-        loadChildren: () =>
-          import('./pages/home/home.module').then((m) => m.HomeModule),
+        component: HomeComponent,
       },
       {
         path: 'thuong-hieu/:id',
@@ -39,6 +39,7 @@ const routes: Routes = [
       },
     ],
   },
+
   {
     path: 'dang-nhap',
     component: SigninComponent,
