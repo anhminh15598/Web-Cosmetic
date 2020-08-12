@@ -18,15 +18,14 @@ export class HeaderComponent implements OnInit {
     { id: '1', tenThuongHieu: 'thuongHieu1' },
     { id: '2', tenThuongHieu: 'thuongHieu2' },
   ];
-  constructor(
-    private router: Router,
-    public http: HttpClient,
-    public errorService: ErrorService
-  ) {}
-  thuongHieux: any = [];
-  getThuongHieu() {
-    this.http
-      .get('https://api.usbeauty.vn/api/ThuongHieux/', {
+  constructor(private router: Router,
+    public http : HttpClient,
+    public errorService: ErrorService,)
+    {}
+    x = false;
+    thuongHieux:any = [];
+    getThuongHieu(){
+      this.http.get(environment.apiUrl + environment.apiList.ThuongHieu,{
         headers: new HttpHeaders({
           'Content-Type': 'application/json',
         }),
