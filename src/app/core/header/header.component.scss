@@ -32,7 +32,7 @@
   // background: #c6f1e1;
   height: 4rem;
   display: flex;
-  background-color: #fff;
+  background-color: #f8fcf8;
   // background-color: rgb(198, 241, 225);
   justify-content: space-around;
   // .menu_search {
@@ -141,7 +141,7 @@
     > .sub-menu {
       display: block;
       position: absolute;
-      left: 2px;
+      // left: 2px;
     }
   }
 }
@@ -153,6 +153,7 @@
     opacity: 0;
     transform-origin: bottom;
     animation: enter 0.2s ease forwards;
+
     &:nth-child(1) {
       animation-duration: 0.2s;
       animation-delay: 0s;
