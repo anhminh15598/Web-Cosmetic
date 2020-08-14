@@ -8,7 +8,7 @@ import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { GioiThieuCongTyComponent } from './pages/gioi-thieu-cong-ty/gioi-thieu-cong-ty.component';
 import { AdminGuard } from 'src/guards/admin.guard';
 import { SigninComponent } from './authentication/signin/signin.component';
-import { ThuongHieuAdminComponent } from './admin-pages/thuong-hieu-admin/thuong-hieu-admin.component';
+import { QuanLyThuongHieuComponent } from './admin-pages/quan-ly-thuong-hieu/quan-ly-thuong-hieu.component';
 import { LoaiSanPhamAdminComponent } from './admin-pages/loai-san-pham-admin/loai-san-pham-admin.component';
 import { HomeAdminComponent } from './admin-pages/home-admin/home-admin.component';
 import { HomeComponent } from './pages/home/home.component';
@@ -51,7 +51,7 @@ const routes: Routes = [
 
     children: [
       { path: 'home', component: HomeAdminComponent },
-      { path: 'thuong-hieu-admin', component: ThuongHieuAdminComponent },
+      { path: 'quan-ly-thuong-hieu', component: QuanLyThuongHieuComponent },
       {
         path: 'san-pham-admin',
         component: SanPhamAdminComponent,

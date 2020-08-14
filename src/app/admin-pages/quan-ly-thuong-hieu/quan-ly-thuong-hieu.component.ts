@@ -5,11 +5,12 @@ import { ErrorService } from 'src/service/error.service';
 import { FormGroup, Validators, FormControl } from '@angular/forms';
 
 @Component({
-  selector: 'app-thuong-hieu-admin',
-  templateUrl: './thuong-hieu-admin.component.html',
-  styleUrls: ['./thuong-hieu-admin.component.scss'],
+  selector: 'app-quan-ly-thuong-hieu',
+  templateUrl: './quan-ly-thuong-hieu.component.html',
+  styleUrls: ['./quan-ly-thuong-hieu.component.scss']
 })
-export class ThuongHieuAdminComponent implements OnInit {
+export class QuanLyThuongHieuComponent implements OnInit {
+
   themThuongHieuForm: FormGroup;
   constructor(
     private router: Router,
