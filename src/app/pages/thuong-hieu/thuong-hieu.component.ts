@@ -13,7 +13,6 @@ import { ErrorService } from 'src/service/error.service';
 export class ThuongHieuComponent implements OnInit {
   filterargs = {}
   p:any;
-  //listThuongHieu = [{id:"1", tenThuongHieu:'thuongHieu1'},{id:"2", tenThuongHieu:'thuongHieu2'}];
   id:number;
   sub:any;
   thuongHieu:any = [];
@@ -43,8 +42,9 @@ export class ThuongHieuComponent implements OnInit {
       _dsThuongHieu.push(data);
       _dsThuongHieu.forEach(th => {
         th.loaiSps.forEach(lsp => {
-            lsp.sanPhams.forEach(sp => {
-              _dsSanpham.push(sp);
+            lsp.sanPhams.forEach(dssp => {
+              _dsSanpham.push(dssp);
+              
             });
         });
       });

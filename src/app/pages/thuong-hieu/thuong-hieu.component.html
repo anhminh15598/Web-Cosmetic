@@ -19,7 +19,7 @@
       </div>
       <div class="row">
           <div class="col-4" *ngFor="let sanPham of dsSanPhamLoc | paginate: { itemsPerPage: 10, currentPage: p }">
-            <img [routerLink]="['san-pham',1]" routerLinkActive="router-link-active"  src="../../../assets/img/sp1.png" alt="">
+            <img [routerLink]="['san-pham',sanPham.id]" routerLinkActive="router-link-active"  src="../../../assets/img/sp1.png" alt="">
             <h4 >
               {{ sanPham.tenSp  }}
             </h4>
