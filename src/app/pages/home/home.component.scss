@@ -69,6 +69,7 @@
           margin: 0;
           padding: 0;
           transition: 0.5s;
+          color: #063760;
         }
         h4 {
           margin: 20px 0 0;
@@ -126,6 +127,50 @@
           pointer-events: none;
           transition: 0.5s;
           transform: rotate(180deg) translateY(0px);
+        }
+        .btn-bg {
+          width: 100%;
+          height: 50px;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+        }
+        .changeButton {
+          height: 50px;
+        }
+        .btn-bg.bg-1 {
+          .btn-1 {
+            button {
+              color: #085aa0;
+              background: transparent;
+              border: 2px solid #085aa0;
+              border-radius: 5px;
+              -webkit-transition: all 0.5s ease;
+              transition: all 0.5s ease;
+              -webkit-transform: translate(0, 0);
+              transform: translate(0, 0);
+              a {
+                color: #085aa0;
+              }
+              &:hover {
+                background: #085aa0;
+                color: #6ab1c9;
+                border: 2px solid #6ab1c9;
+                -webkit-transition: all 0.35s ease;
+                transition: all 0.35s ease;
+                > a {
+                  color: #6ab1c9;
+                  -webkit-transition: all 0.35s ease;
+                  transition: all 0.35s ease;
+                }
+              }
+              &:active {
+                -webkit-transform: translate(5px, 5px);
+                transform: translate(5px, 5px);
+              }
+            }
+          }
         }
       }
     }
@@ -218,6 +263,69 @@
     }
     100% {
       width: 0%;
+    }
+  }
+}
+.testimonials {
+  margin: 4% 0;
+  color: #063760;
+  .carousel-indicators {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    z-index: 15;
+    width: 60%;
+    padding-left: 0;
+    margin-left: -30%;
+    text-align: center;
+    list-style: none;
+    li {
+      display: inline-block;
+      width: 10px;
+      height: 10px;
+      margin: 1px;
+      padding: 0;
+      text-indent: -999px;
+      cursor: pointer;
+      background-color: #000;
+      background-color: rgba(0, 0, 0, 0);
+      border: 1px solid #fff;
+      border-radius: 10px;
+    }
+    .active {
+      width: 12px;
+      height: 12px;
+      margin: 0;
+      background-color: #fff;
+    }
+  }
+  .carousel-control-prev {
+    opacity: 0;
+  }
+  .carousel-control-next {
+    opacity: 0;
+  }
+  .nhanXet {
+    font-family: "Sriracha", cursive;
+    text-align: center;
+    padding: 5% 10%;
+    background-color: #c6f1e1;
+    height: 550px;
+    width: 100%;
+    h1 {
+      margin: 3% 0;
+    }
+    .nhanXet_ten {
+      font-size: 18px;
+    }
+    .avatar {
+      img {
+        background-color: white;
+        height: 150px;
+        width: 150px;
+        border-radius: 50%;
+        margin-top: 2%;
+      }
     }
   }
 }

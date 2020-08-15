@@ -51,7 +51,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
     SanPhamAdminModule,
     HttpClientModule,
     AuthenticationModule,
-    QuanLyThuongHieuModule
+    QuanLyThuongHieuModule,
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },

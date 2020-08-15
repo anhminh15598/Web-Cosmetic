@@ -2,14 +2,14 @@
 <div class="small-container" *ngFor="let item of thuongHieu">
   <div class="row justify-content-md-center thuongHieu">
     <h1 class="col-lg-3 col-md-3">{{ item.tenThuongHieu }}</h1>
-    <div class="scroll-slow col-md 9">
-      <p>
-        {{ item.moTa }} Lorem ipsum dolor sit amet consectetur, adipisicing
-        elit. Ex non minus doloribus rerum, cupiditate temporibus dolorum
-        laborum facilis, eveniet inventore ab fugit consequuntur dignissimos
-        architecto ut. Ipsam beatae facere iusto.
-      </p>
-    </div>
+  </div>
+  <div class="moTa">
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti,
+      repudiandae iusto. Odio, alias praesentium eligendi est eius delectus
+      quasi voluptatibus qui odit dolore. Quis id harum, minima aspernatur
+      aliquid cumque.
+    </p>
   </div>
 
   <!-- <div class="row row-2">
@@ -46,7 +46,7 @@
         <div class="input-field first-wrap">
           <div class="input-select">
             <select data-trigger="" name="choices-single-defaul">
-              <option value="">Default shoping</option>
+              <option value="">Sắp xếp theo</option>
               <option value="">Short by price</option>
               <option value="">Short by popularity</option>
               <option value="">Short by rating</option>
@@ -84,7 +84,7 @@
 
   <div class="row">
     <div
-      class="col-4"
+      class="col-4 thongTinSanPham"
       *ngFor="
         let sanPham of dsSanPhamLoc
           | paginate: { itemsPerPage: 10, currentPage: p }
