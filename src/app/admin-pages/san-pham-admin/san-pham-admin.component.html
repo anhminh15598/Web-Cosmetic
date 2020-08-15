@@ -1,8 +1,8 @@
 <div class="sanPham">
-  <h3>
-    Danh sách sản phẩm
-  </h3>
   <div class="sanPham_chucNang">
+    <h3>
+      Danh Sách Sản Phẩm
+    </h3>
     <button
       type="button"
       class="btn btn-success"
@@ -11,162 +11,161 @@
     >
       Thêm sản phẩm
     </button>
-    <div
-      class="modal fade"
-      id="exampleModalCenter"
-      tabindex="-1"
-      role="dialog"
-      aria-labelledby="exampleModalCenterTitle"
-      aria-hidden="true"
-    >
-      <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLongTitle">
-              Thêm sản phẩm
-            </h5>
-            <button
-              type="button"
-              class="close"
-              data-dismiss="modal"
-              aria-label="Close"
-            >
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body">
-            <div class="form-group">
-              <label for="">Tên sản phẩm</label>
-              <input
-                type="text"
-                class="form-control"
-                name=""
-                id=""
-                aria-describedby="helpId"
-                placeholder=""
-              />
-              <small id="helpId" class="form-text text-muted">Help text</small>
-            </div>
-            <div class="form-group">
-              <label for="">Thương hiệu</label>
-              <div class="input-group mb-3">
-                <!-- <div class="input-group-prepend">
-                <label class="input-group-text" for="inputGroupSelect01"
-                  >Options</label
-                >
-              </div> -->
-                <select class="custom-select" id="inputGroupSelect01">
-                  <option selected>Choose...</option>
-                  <option value="1">One</option>
-                  <option value="2">Two</option>
-                  <option value="3">Three</option>
-                </select>
-              </div>
-              <small id="helpId" class="form-text text-muted">Help text</small>
-            </div>
-            <div class="form-group">
-              <label for="">Loại sản phẩm</label>
-              <div class="input-group mb-3">
-                <!-- <div class="input-group-prepend">
-                <label class="input-group-text" for="inputGroupSelect01"
-                  >Options</label
-                >
-              </div> -->
-                <select class="custom-select" id="inputGroupSelect01">
-                  <option selected>Choose...</option>
-                  <option value="1">One</option>
-                  <option value="2">Two</option>
-                  <option value="3">Three</option>
-                </select>
-              </div>
-              <small id="helpId" class="form-text text-muted">Help text</small>
-            </div>
-            <div class="form-group">
-              <label for="">Kích cỡ sản phẩm</label>
-              <input
-                type="text"
-                class="form-control"
-                name=""
-                id=""
-                aria-describedby="helpId"
-                placeholder=""
-              />
-              <small id="helpId" class="form-text text-muted">Help text</small>
-            </div>
-            <div class="form-group">
-              <label for="">Mô tả</label>
-              <input
-                type="text"
-                class="form-control"
-                name=""
-                id=""
-                aria-describedby="helpId"
-                placeholder=""
-              />
-              <small id="helpId" class="form-text text-muted">Help text</small>
-            </div>
-            <div class="form-group">
-              <label for="">Lợi ích</label>
-              <input
-                type="text"
-                class="form-control"
-                name=""
-                id=""
-                aria-describedby="helpId"
-                placeholder=""
-              />
-              <small id="helpId" class="form-text text-muted">Help text</small>
-            </div>
-          </div>
-          <div class="modal-footer">
-            <button
-              type="button"
-              class="btn btn-secondary"
-              data-dismiss="modal"
-            >
-              Hủy
-            </button>
-            <button type="button" class="btn btn-primary">Thêm</button>
-          </div>
-        </div>
-      </div>
-    </div>
   </div>
   <div class="sanPham_danhSach">
     <div class="table-responsive">
       <table class="table">
-        <thead>
+        <thead> 
           <tr>
             <th scope="col">STT</th>
-            <th scope="col">Hình ảnh</th>
             <th scope="col">Tên SP</th>
             <th scope="col">Thương hiệu</th>
             <th scope="col">Loại sản phẩm</th>
-            <th scope="col">Kích cỡ</th>
             <th scope="col">Mô tả</th>
             <th scope="col">Lợi ích</th>
-            <th>
-              <button type="button" class="btn btn-danger mr-2">
-                Xóa
-              </button>
-              <button type="button" class="btn btn-primary">Sửa</button>
-            </th>
+            <th scope="col">Hình ảnh</th>
+            <th scope="col" class="m-auto" style="text-align: center;">Tùy chọn</th>
           </tr>
         </thead>
         <tbody>
           <tr *ngFor="let item of sanPham; let i = index">
             <th scope="row">{{ i + 1 }}</th>
-            <td>{{ item.hinhAnhs }}</td>
             <td>{{ item.tenSp }}</td>
-            <td></td>
             <td>{{ item.idLoaiSp }}</td>
-            <td></td>
             <td></td>
             <td>{{ item.moTa }}</td>
             <td>{{ item.loiIch }}</td>
+            <td>{{ item.hinhAnhs }}</td>
+            <td>
+              <button type="button" class="btn btn-warning mr-2" (click)="moKichCo(1)">Kích cỡ/ giá</button>
+              <button type="button" class="btn btn-primary mr-2" (click)="moSuaSp()">Sửa</button>
+              <button type="button" class="btn btn-danger" (click)="moXoaSp()">Xóa</button>
+            </td>
           </tr>
         </tbody>
       </table>
     </div>
   </div>
 </div>
+<div
+class="modal fade"
+id="exampleModalCenter"
+tabindex="-1"
+role="dialog"
+aria-labelledby="exampleModalCenterTitle"
+aria-hidden="true"
+>
+
+<!-- modal -->
+<div class="modal-dialog modal-dialog-centered" role="document">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h5 class="modal-title" id="exampleModalLongTitle">
+        Thêm sản phẩm
+      </h5>
+      <button
+        type="button"
+        class="close"
+        data-dismiss="modal"
+        aria-label="Close"
+      >
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <div class="form-group">
+        <label for="">Tên sản phẩm</label>
+        <input
+          type="text"
+          class="form-control"
+          name=""
+          id=""
+          aria-describedby="helpId"
+          placeholder=""
+        />
+        <small id="helpId" class="form-text text-muted">Help text</small>
+      </div>
+      <div class="form-group">
+        <label for="">Thương hiệu</label>
+        <div class="input-group mb-3">
+          <!-- <div class="input-group-prepend">
+          <label class="input-group-text" for="inputGroupSelect01"
+            >Options</label
+          >
+        </div> -->
+          <select class="custom-select" id="inputGroupSelect01">
+            <option selected>Choose...</option>
+            <option value="1">One</option>
+            <option value="2">Two</option>
+            <option value="3">Three</option>
+          </select>
+        </div>
+        <small id="helpId" class="form-text text-muted">Help text</small>
+      </div>
+      <div class="form-group">
+        <label for="">Loại sản phẩm</label>
+        <div class="input-group mb-3">
+          <!-- <div class="input-group-prepend">
+          <label class="input-group-text" for="inputGroupSelect01"
+            >Options</label
+          >
+        </div> -->
+          <select class="custom-select" id="inputGroupSelect01">
+            <option selected>Choose...</option>
+            <option value="1">One</option>
+            <option value="2">Two</option>
+            <option value="3">Three</option>
+          </select>
+        </div>
+        <small id="helpId" class="form-text text-muted">Help text</small>
+      </div>
+      <div class="form-group">
+        <label for="">Kích cỡ sản phẩm</label>
+        <input
+          type="text"
+          class="form-control"
+          name=""
+          id="" 
+          aria-describedby="helpId"
+          placeholder=""
+        />
+        <small id="helpId" class="form-text text-muted">Help text</small>
+      </div>
+      <div class="form-group">
+        <label for="">Mô tả</label>
+        <input
+          type="text"
+          class="form-control"
+          name=""
+          id=""
+          aria-describedby="helpId"
+          placeholder=""
+        />
+        <small id="helpId" class="form-text text-muted">Help text</small>
+      </div>
+      <div class="form-group">
+        <label for="">Lợi ích</label>
+        <input
+          type="text"
+          class="form-control"
+          name=""
+          id=""
+          aria-describedby="helpId"
+          placeholder=""
+        />
+        <small id="helpId" class="form-text text-muted">Help text</small>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button
+        type="button"
+        class="btn btn-secondary"
+        data-dismiss="modal"
+      >
+        Hủy
+      </button>
+      <button type="button" class="btn btn-primary">Thêm</button>
+    </div>
+  </div>
+</div>
+</div>  

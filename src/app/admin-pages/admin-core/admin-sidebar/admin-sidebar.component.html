@@ -40,30 +40,29 @@
       </li> 
       <!-- /END Separator --> 
       <!-- Menu with submenu -->  
-    <a href="#" class="bg-dark list-group-item list-group-item-action">
-      <div class="d-flex w-100 justify-content-start align-items-center">
-          <span class="fa fa-bars fa-fw mr-3"></span>
-          <span class="menu-collapsed">Quản lý thương hiệu</span>
-      </div>
-    </a>
-    <ng-container *ngFor="let item of thuongHieux">
-      <a [href]="'#sub'+item.id" data-toggle="collapse" aria-expanded="false" class="bg-dark list-group-item list-group-item-action flex-column align-items-start">
+      <a [routerLink]="['/admin/quan-ly-thuong-hieu']" class="bg-dark list-group-item list-group-item-action">
+        <div class="d-flex w-100 justify-content-start align-items-center">
+          <i class="fa fa-cogs pr-2" aria-hidden="true"></i>      
+            <span class="menu-collapsed">Quản lý Thương Hiệu</span>
+        </div>
+      </a>
+      <a href="#sub" data-toggle="collapse" aria-expanded="false" class="bg-dark list-group-item list-group-item-action flex-column align-items-start">
         <div class="d-flex w-100 justify-content-start align-items-center">
             <span class="fa fa-archive fa-fw mr-3"></span>
-            <span class="menu-collapsed">{{ item.tenThuongHieu}}</span>
+            <span class="menu-collapsed">Sản Phẩm</span>
             <span class="submenu-icon ml-auto"></span>
         </div>
       </a>
       <!-- Submenu content -->
-      <div [id]="'sub'+item.id" class="collapse sidebar-submenu">
-        <a href="#" class="list-group-item list-group-item-action bg-dark text-white">
-            <span class="menu-collapsed">Quản Lý thương hiệu</span>
+      <div id="sub" class="collapse sidebar-submenu">
+        <!-- <a class="list-group-item list-group-item-action bg-dark text-white">
+          <i class="fa fa-cogs pr-2" aria-hidden="true"></i>
+          <span class="menu-collapsed">Quản lý thương hiệu</span>
+        </a>  -->
+        <a *ngFor="let item of thuongHieux" [routerLink]="['/admin/san-pham-admin',item.id]" class="list-group-item list-group-item-action bg-dark text-white">
+            <span class="menu-collapsed"> {{ item.tenThuongHieu }}</span>
         </a>  
-        <a href="#" class="list-group-item list-group-item-action bg-dark text-white">
-            <span class="menu-collapsed">Reports</span>
-        </a>
       </div>
-    </ng-container>
     
     <!-- Submenu content -->
   </ul><!-- List Group END-->

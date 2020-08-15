@@ -1,8 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { ErrorService } from 'src/service/error.service';
 import { FormGroup, Validators, FormControl } from '@angular/forms';
+import {NgbModal, ModalDismissReasons, NgbModalOptions} from '@ng-bootstrap/ng-bootstrap';
+import { LoaiSanPhamAdminComponent } from '../loai-san-pham-admin/loai-san-pham-admin.component';
+import { SuaThuongHieuComponent } from './modals/sua-thuong-hieu/sua-thuong-hieu.component';
+import { XoaThuongHieuComponent } from './modals/xoa-thuong-hieu/xoa-thuong-hieu.component';
 
 @Component({
   selector: 'app-quan-ly-thuong-hieu',
@@ -10,17 +14,16 @@ import { FormGroup, Validators, FormControl } from '@angular/forms';
   styleUrls: ['./quan-ly-thuong-hieu.component.scss']
 })
 export class QuanLyThuongHieuComponent implements OnInit {
-
   themThuongHieuForm: FormGroup;
   constructor(
     private router: Router,
     public http: HttpClient,
-    public errorService: ErrorService
+    public errorService: ErrorService,
+    private modalService: NgbModal
   ) {}
 
   // tenThuongHieu: string = '1';
   // moTa: string = '2';
-
   postId;
   p: any;
   xacNhan: any = false;
@@ -112,4 +115,20 @@ export class QuanLyThuongHieuComponent implements OnInit {
     });
   }
   ngDoCheck() {}
+  moLSP(id){
+    // const modalRef = this.modalService.open(LoaiSanPhamAdminComponent, { size: 'xl', backdrop: 'static' });
+    // modalRef.componentInstance.my_modal_title = tenTH;
+    // modalRef.componentInstance.my_modal_content = 'I am your content';
+    this.router.navigate(['/admin/loai-san-pham-admin',id]);
+  }
+  moSuaTH(){
+    const modalRef = this.modalService.open(SuaThuongHieuComponent);
+    modalRef.componentInstance.my_modal_title = "Sửa Thương Hiệu";
+    modalRef.componentInstance.my_modal_content = 'I am your content';
+  }
+  moXoaTH(){
+    const modalRef = this.modalService.open(XoaThuongHieuComponent);
+    modalRef.componentInstance.my_modal_title = "Xóa thương hiệu";
+    modalRef.componentInstance.my_modal_content = 'I am your content';
+  }
 }

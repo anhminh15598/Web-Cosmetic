@@ -1,7 +1,7 @@
 <div class="sanPham">
   <div class="header-content">
     <h3>
-      Danh sách thương hiệu
+      Danh Sách Thương Hiệu
     </h3>
     <button
         type="button"
@@ -15,7 +15,7 @@
   </div>
   <div class="sanPham_chucNang">
     <form
-      
+      [formGroup]="themThuongHieuForm"
       class="row justify-content-md-center"
       (ngSubmit)="themThuongHieu()"
     >
@@ -132,7 +132,8 @@
           <tbody>
             <tr
               *ngFor="
-                let item of thuongHieu;
+                let item of thuongHieu
+                  | paginate: { itemsPerPage: 9, currentPage: p };
                 let i = index
               "
             >
@@ -142,7 +143,7 @@
               <td></td>
               <th>
                 <button
-                  (click)="xoaThuongHieu(item.id)"
+                  (click)="moXoaTH()"
                   type="button"
                   class="btn btn-danger mr-2"
                 >
@@ -151,10 +152,12 @@
 
                 <!-- Button trigger modal -->
                 <button
+                  (click) = "moSuaTH()"
                   type="button"
                   class="btn btn-primary mr-2"
                   data-toggle="modal"
                   data-target="#exampleModal"
+                  
                 >
                   Sửa
                 </button>
@@ -163,12 +166,14 @@
                   class="btn btn-primary"
                   data-toggle="modal"
                   data-target="#exampleModal"
+                  
+                  (click)="moLSP(item.id)"
                 >
                   Loại sản phẩm
                 </button>
 
                 <!-- Modal -->
-                <div
+                <!-- <div
                   class="modal fade"
                   id="exampleModal"
                   tabindex="-1"
@@ -208,9 +213,16 @@
                       </div>
                     </div>
                   </div>
-                </div>
+                </div> -->
               </th>
             </tr>
+            <pagination-controls
+              class="page-btn"
+              (pageChange)="p = $event"
+              previousLabel=""
+              maxSize="9"
+              nextLabel=""
+            ></pagination-controls>
           </tbody>
         </table>
       </div>

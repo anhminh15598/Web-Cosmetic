@@ -12,6 +12,9 @@ import { QuanLyThuongHieuComponent } from './admin-pages/quan-ly-thuong-hieu/qua
 import { LoaiSanPhamAdminComponent } from './admin-pages/loai-san-pham-admin/loai-san-pham-admin.component';
 import { HomeAdminComponent } from './admin-pages/home-admin/home-admin.component';
 import { HomeComponent } from './pages/home/home.component';
+import { QuanLyKichCoComponent } from './admin-pages/san-pham-admin/quan-ly-kich-co/quan-ly-kich-co.component';
+import { QuanLyKichCoModule } from './admin-pages/san-pham-admin/quan-ly-kich-co/quan-ly-kich-co.module';
+
 
 const routes: Routes = [
   {
@@ -53,12 +56,16 @@ const routes: Routes = [
       { path: 'home', component: HomeAdminComponent },
       { path: 'quan-ly-thuong-hieu', component: QuanLyThuongHieuComponent },
       {
-        path: 'san-pham-admin',
+        path: 'san-pham-admin/:id',
         component: SanPhamAdminComponent,
       },
       {
-        path: 'loai-san-pham-admin',
+        path: 'loai-san-pham-admin/:id',
         component: LoaiSanPhamAdminComponent,
+      },
+      {
+        path: 'quan-ly-kich-co/:id',
+        component: QuanLyKichCoComponent,
       },
     ],
   },
