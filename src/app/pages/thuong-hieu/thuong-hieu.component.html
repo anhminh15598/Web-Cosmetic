@@ -1,6 +1,16 @@
 <!-- Ds Thương hiệu -->
 <div class="small-container" *ngFor="let item of thuongHieu">
-  <h1>{{ item.tenThuongHieu }}</h1>
+  <div class="row justify-content-md-center thuongHieu">
+    <h1 class="col-lg-3 col-md-3">{{ item.tenThuongHieu }}</h1>
+  </div>
+  <div class="moTa">
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti,
+      repudiandae iusto. Odio, alias praesentium eligendi est eius delectus
+      quasi voluptatibus qui odit dolore. Quis id harum, minima aspernatur
+      aliquid cumque.
+    </p>
+  </div>
 
   <!-- <div class="row row-2">
     <h2>{{ item.tenThuongHieu }}</h2>
@@ -36,7 +46,7 @@
         <div class="input-field first-wrap">
           <div class="input-select">
             <select data-trigger="" name="choices-single-defaul">
-              <option value="">Default shoping</option>
+              <option value="">Sắp xếp theo</option>
               <option value="">Short by price</option>
               <option value="">Short by popularity</option>
               <option value="">Short by rating</option>
@@ -74,7 +84,7 @@
 
   <div class="row">
     <div
-      class="col-4"
+      class="col-4 thongTinSanPham"
       *ngFor="
         let sanPham of dsSanPhamLoc
           | paginate: { itemsPerPage: 10, currentPage: p }

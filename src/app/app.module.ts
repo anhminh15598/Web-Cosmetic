@@ -47,7 +47,7 @@ import { QuanLyThuongHieuModule } from './admin-pages/quan-ly-thuong-hieu/quan-l
     SanPhamAdminModule,
     HttpClientModule,
     AuthenticationModule,
-    QuanLyThuongHieuModule
+    QuanLyThuongHieuModule,
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
