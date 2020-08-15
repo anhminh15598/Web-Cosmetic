@@ -1,4 +1,4 @@
-<div class="sidebar expanded">
+<!-- <div class="sidebar expanded">
   <div
     style="
       text-align: center;
@@ -7,26 +7,64 @@
     class="sidebar-item no-hover"
     id="burger"
   >
-    <a [routerLink]="['home']">
+    <a [routerLink]="['/home']">
       <span class="sidebar-item-title">Quản lý US Beauty</span>
     </a>
   </div>
   <div class="sidebar-item" routerLinkActive="active">
-    <a [routerLink]="['thuong-hieu-admin']">
+    <a [routerLink]="['/admin/thuong-hieu-admin']">
       <i class="fa fa-code" aria-hidden="true"></i>
       <span class="sidebar-item-title">Quản lý thương hiệu</span>
     </a>
   </div>
   <div class="sidebar-item" routerLinkActive="active">
-    <a [routerLink]="['loai-san-pham-admin']">
+    <a [routerLink]="['/admin/loai-san-pham-admin']">
       <i class="fa fa-code" aria-hidden="true"></i>
       <span class="sidebar-item-title">Quản lý loại sản phẩm</span>
     </a>
   </div>
   <div class="sidebar-item" routerLinkActive="active">
-    <a [routerLink]="['san-pham-admin']">
+    <a [routerLink]="['/admin/san-pham-admin']">
       <i class="fa fa-code" aria-hidden="true"></i>
       <span class="sidebar-item-title">Quản lý sản phẩm</span>
     </a>
   </div>
-</div>
+</div> -->
+<div id="sidebar-container" class="sidebar-expanded d-none d-md-block">
+  <!-- d-* hiddens the Sidebar in smaller devices. Its itens can be kept on the Navbar 'Menu' -->
+  <!-- Bootstrap List Group -->
+  <ul class="list-group">
+      <!-- Separator with title -->
+      <li class="list-group-item sidebar-separator-title text-muted d-flex align-items-center menu-collapsed">
+          <small>Web Cosmetic Admin</small>
+      </li> 
+      <!-- /END Separator --> 
+      <!-- Menu with submenu -->  
+    <a href="#" class="bg-dark list-group-item list-group-item-action">
+      <div class="d-flex w-100 justify-content-start align-items-center">
+          <span class="fa fa-bars fa-fw mr-3"></span>
+          <span class="menu-collapsed">Quản lý thương hiệu</span>
+      </div>
+    </a>
+    <ng-container *ngFor="let item of thuongHieux">
+      <a [href]="'#sub'+item.id" data-toggle="collapse" aria-expanded="false" class="bg-dark list-group-item list-group-item-action flex-column align-items-start">
+        <div class="d-flex w-100 justify-content-start align-items-center">
+            <span class="fa fa-archive fa-fw mr-3"></span>
+            <span class="menu-collapsed">{{ item.tenThuongHieu}}</span>
+            <span class="submenu-icon ml-auto"></span>
+        </div>
+      </a>
+      <!-- Submenu content -->
+      <div [id]="'sub'+item.id" class="collapse sidebar-submenu">
+        <a href="#" class="list-group-item list-group-item-action bg-dark text-white">
+            <span class="menu-collapsed">Quản Lý thương hiệu</span>
+        </a>  
+        <a href="#" class="list-group-item list-group-item-action bg-dark text-white">
+            <span class="menu-collapsed">Reports</span>
+        </a>
+      </div>
+    </ng-container>
+    
+    <!-- Submenu content -->
+  </ul><!-- List Group END-->
+</div><!-- sidebar-container END -->

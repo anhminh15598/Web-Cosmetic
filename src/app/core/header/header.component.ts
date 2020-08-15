@@ -14,10 +14,6 @@ import { ErrorService } from 'src/service/error.service';
   styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent implements OnInit {
-  listThuongHieu = [
-    { id: '1', tenThuongHieu: 'thuongHieu1' },
-    { id: '2', tenThuongHieu: 'thuongHieu2' },
-  ];
   constructor(private router: Router,
     public http : HttpClient,
     public errorService: ErrorService,)
@@ -33,14 +29,12 @@ export class HeaderComponent implements OnInit {
       .subscribe(
         (data) => {
           this.thuongHieux = data;
-
-          console.log(data);
         },
         (error) => {
           this.errorService.showError(error);
         }
       );
-  }
+    }
 
   ngOnInit(): void {
     this.getThuongHieu();

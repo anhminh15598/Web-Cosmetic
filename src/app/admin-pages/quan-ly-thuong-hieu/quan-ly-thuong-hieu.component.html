@@ -15,7 +15,7 @@
   </div>
   <div class="sanPham_chucNang">
     <form
-      [formGroup]="themThuongHieuForm"
+      
       class="row justify-content-md-center"
       (ngSubmit)="themThuongHieu()"
     >
@@ -132,8 +132,7 @@
           <tbody>
             <tr
               *ngFor="
-                let item of thuongHieu
-                  | paginate: { itemsPerPage: 9, currentPage: p };
+                let item of thuongHieu;
                 let i = index
               "
             >
@@ -212,13 +211,6 @@
                 </div>
               </th>
             </tr>
-            <pagination-controls
-              class="page-btn"
-              (pageChange)="p = $event"
-              previousLabel=""
-              maxSize="9"
-              nextLabel=""
-            ></pagination-controls>
           </tbody>
         </table>
       </div>
