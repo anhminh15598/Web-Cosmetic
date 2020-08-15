@@ -1,6 +1,16 @@
 <!-- Ds Thương hiệu -->
 <div class="small-container" *ngFor="let item of thuongHieu">
-  <h1>{{ item.tenThuongHieu }}</h1>
+  <div class="row justify-content-md-center thuongHieu">
+    <h1 class="col-lg-3 col-md-3">{{ item.tenThuongHieu }}</h1>
+    <div class="scroll-slow col-md 9">
+      <p>
+        {{ item.moTa }} Lorem ipsum dolor sit amet consectetur, adipisicing
+        elit. Ex non minus doloribus rerum, cupiditate temporibus dolorum
+        laborum facilis, eveniet inventore ab fugit consequuntur dignissimos
+        architecto ut. Ipsam beatae facere iusto.
+      </p>
+    </div>
+  </div>
 
   <!-- <div class="row row-2">
     <h2>{{ item.tenThuongHieu }}</h2>

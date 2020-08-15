@@ -32,7 +32,7 @@
   // background: #c6f1e1;
   height: 4rem;
   display: flex;
-  background-color: #f8fcf8;
+  background-color: #f4fcfa;
   // background-color: rgb(198, 241, 225);
   justify-content: space-around;
   // .menu_search {
@@ -153,7 +153,6 @@
     opacity: 0;
     transform-origin: bottom;
     animation: enter 0.2s ease forwards;
-
     &:nth-child(1) {
       animation-duration: 0.2s;
       animation-delay: 0s;
@@ -215,9 +214,16 @@ a {
       a {
         color: #fff;
       }
+      &:hover {
+        > .sub-menu {
+          display: block;
+          position: absolute;
+          left: 2px;
+        }
+      }
     }
     width: 100%;
-    left: -2rem;
+    // left: -2rem;
     top: 50%;
     transform: translateY(-50%);
   }
@@ -289,6 +295,7 @@ a {
           }
         }
       }
+
       &:after {
         box-shadow: none;
       }

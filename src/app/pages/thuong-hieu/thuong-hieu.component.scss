@@ -24,11 +24,74 @@
   padding-left: 25px;
   padding-right: 25px;
   font-family: "Sriracha", cursive;
-  h1 {
+  .thuongHieu {
     padding-top: 5%;
     padding-bottom: 2%;
-  }
+    margin: 0;
+    h1 {
+      // float: left;
+      margin-bottom: 0;
+      color: #276fad;
+      padding: 0;
+    }
+    /* Move it (define the animation) */
+    @-moz-keyframes scroll-slow {
+      0% {
+        -moz-transform: translateX(5%);
+      }
+      100% {
+        -moz-transform: translateX(-100%);
+      }
+    }
+    @-webkit-keyframes scroll-slow {
+      0% {
+        -webkit-transform: translateX(5%);
+      }
+      100% {
+        -webkit-transform: translateX(-100%);
+      }
+    }
+    @keyframes scroll-slow {
+      0% {
+        -moz-transform: translateX(5%);
+        /* Browser bug fix */
+        -webkit-transform: translateX(5%);
+        /* Browser bug fix */
+        // transform: translateX(100%);
+      }
+      100% {
+        -moz-transform: translateX(-100%);
+        /* Browser bug fix */
+        -webkit-transform: translateX(-100%);
+        /* Browser bug fix */
+        // transform: translateX(-100%);
+      }
+    }
+    .scroll-slow {
+      height: 50px;
+      overflow: hidden;
+      position: relative;
+      background: #e1f4f0;
+      color: #276fad;
+      border: 1px solid #bee0d7;
+      padding: 0;
 
+      p {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        line-height: 50px;
+        text-align: center;
+        -moz-transform: translateX(5%);
+        -webkit-transform: translateX(5%);
+        transform: translateX(5%);
+        -moz-animation: scroll-slow 20s linear infinite;
+        -webkit-animation: scroll-slow 20s linear infinite;
+        animation: scroll-slow 20s linear infinite;
+      }
+    }
+  }
   .s003 {
     color: #555;
 
@@ -310,6 +373,15 @@ select:focus {
     flex-basis: 100%;
     min-width: 320px;
   }
+  .small-container {
+    .thuongHieu {
+      h1 {
+        font-size: 30px;
+        text-align: left;
+        padding: 0;
+      }
+    }
+  }
 }
 // @media (min-width: 640px) {
 //   .choices__list--dropdown {
@@ -341,15 +413,25 @@ select:focus {
 //   }
 // }
 @media screen and (max-width: 992px) {
-  .s003 {
-    form {
-      .inner-form {
-        .input-field {
-          height: 50px;
-          .input-select {
-            select {
-              height: 50px;
-              width: 200px;
+  .small-container {
+    .thuongHieu {
+      h1 {
+        font-size: 35px;
+        text-align: left;
+        padding: 0;
+      }
+    }
+
+    .s003 {
+      form {
+        .inner-form {
+          .input-field {
+            height: 50px;
+            .input-select {
+              select {
+                height: 50px;
+                width: 200px;
+              }
             }
           }
         }
