@@ -13,7 +13,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     CommonModule,
     NgxPaginationModule,
     NgbModule
-  ],
+  ],  
   declarations: [
     QuanLyKichCoComponent,
     ThemKichCoComponent,
