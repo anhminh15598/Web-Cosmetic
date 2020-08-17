@@ -14,6 +14,36 @@ import { ErrorService } from 'src/service/error.service';
   styleUrls: ['./thuong-hieu.component.scss'],
 })
 export class ThuongHieuComponent implements OnInit {
+  term: string;
+
+  filterData = [
+    {
+      firstName: 'Celestine',
+      lastName: 'Schimmel',
+      address: '7687 Jadon Port',
+    },
+    {
+      firstName: 'Johan',
+      lastName: 'Ziemann PhD',
+      address: '156 Streich Ports',
+    },
+    {
+      firstName: 'Lizzie',
+      lastName: 'Schumm',
+      address: '5203 Jordon Center',
+    },
+    {
+      firstName: 'Gavin',
+      lastName: 'Leannon',
+      address: '91057 Davion Club',
+    },
+    {
+      firstName: 'Lucious',
+      lastName: 'Leuschke',
+      address: '16288 Reichel Harbor',
+    },
+  ];
+
   filterargs = {};
   p: any;
   //listThuongHieu = [{id:"1", tenThuongHieu:'thuongHieu1'},{id:"2", tenThuongHieu:'thuongHieu2'}];
@@ -33,6 +63,7 @@ export class ThuongHieuComponent implements OnInit {
       this.id = +param['id'];
       this.getDsThuongHieu(this.id);
     });
+    console.log(this.filterData);
   }
 
   getDsThuongHieu(id) {

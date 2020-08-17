@@ -22,6 +22,9 @@ import { AuthInterceptor } from 'src/Interceptors/auth.interceptor';
 import { AuthenticationModule } from './authentication/authentication.module';
 import { HomeAdminComponent } from './admin-pages/home-admin/home-admin.component';
 import { QuanLyThuongHieuModule } from './admin-pages/quan-ly-thuong-hieu/quan-ly-thuong-hieu.module';
+import { ThuongHieuModule } from './pages/thuong-hieu/thuong-hieu.module';
+import { FormsModule } from '@angular/forms';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -48,6 +51,8 @@ import { QuanLyThuongHieuModule } from './admin-pages/quan-ly-thuong-hieu/quan-l
     HttpClientModule,
     AuthenticationModule,
     QuanLyThuongHieuModule,
+    ThuongHieuModule,
+    FormsModule,
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },

@@ -50,12 +50,35 @@
               <option value="">Short by price</option>
               <option value="">Short by popularity</option>
               <option value="">Short by rating</option>
-              <option value="">Short by sale</option>
             </select>
           </div>
         </div>
         <div class="input-field second-wrap">
-          <input id="search" type="text" placeholder="Tìm kiếm" />
+          <!-- <input id="search" type="text" placeholder="Tìm kiếm" /> -->
+          <div class="form-group">
+            <input
+              id="search"
+              type="text"
+              placeholder="Tìm kiếm"
+              [(ngModel)]="term"
+            />
+          </div>
+          <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">First</th>
+                <th scope="col">Last</th>
+                <th scope="col">Address</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of filterData | filter: term">
+                <td>{{ item.firstName }}</td>
+                <td>{{ item.lastName }}</td>
+                <td>{{ item.address }}</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
 
         <!-- Search -->
@@ -78,8 +101,10 @@
         </div>
         <!-- End-search -->
       </div>
+      <p style="padding: 2% 1%;">Có "{{ dsSanPhamLoc.length }}" sản phẩm</p>
     </form>
   </div>
+
   <!-- end -->
 
   <div class="row">
