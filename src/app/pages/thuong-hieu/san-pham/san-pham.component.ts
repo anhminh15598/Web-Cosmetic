@@ -9,17 +9,20 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
   styleUrls: ['./san-pham.component.scss'],
 })
 export class SanPhamComponent implements OnInit {
-  thuongHieu: any = [];
-  chitietSP:any = [];
+  chitietSP: any = [];
+  loaiSp: any = [];
+  sanPham: any = [];
+  kichCoSanPham: any = [];
+  danhSachSanPham: any = [];
   ten: any;
-  sub:any;
-  id:any;
+  sub: any;
+  id: any;
   constructor(
     private router: Router,
     public http: HttpClient,
     public errorService: ErrorService,
-    private route: ActivatedRoute, 
-    ) {}
+    private route: ActivatedRoute
+  ) {}
 
   ngOnInit() {
     this.sub = this.route.params.subscribe((param) => {
@@ -28,7 +31,7 @@ export class SanPhamComponent implements OnInit {
     });
   }
 
-  layLoaiSp(id){
+  layLoaiSp(id) {
     this.http
       .get(environment.apiUrl + environment.apiList.DsSanPham + id, {
         headers: new HttpHeaders({
@@ -38,7 +41,24 @@ export class SanPhamComponent implements OnInit {
       .subscribe(
         (data) => {
           this.chitietSP.push(data);
-          console.log(this.chitietSP);
+          this.chitietSP.forEach((chiTiet) => {
+            this.chitietSP = chiTiet;
+            chiTiet.loaiSps.forEach((lsp) => {
+              this.loaiSp = lsp;
+              lsp.sanPhams.forEach((sps) => {
+                this.sanPham = sps;
+                sps.kichCoSps.forEach((kc) => {
+                  this.kichCoSanPham = kc;
+                  this.danhSachSanPham.push(kc);
+                });
+              });
+            });
+          });
+          console.log('chitietSP', this.chitietSP);
+          console.log('loaiSp', this.loaiSp);
+          console.log('sanPham', this.sanPham);
+          console.log('kichCoSanPham', this.kichCoSanPham);
+          console.log('danhSachSanPham', this.danhSachSanPham);
         },
         (error) => {
           this.errorService.showError(error);

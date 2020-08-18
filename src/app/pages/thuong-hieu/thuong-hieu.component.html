@@ -5,10 +5,7 @@
   </div>
   <div class="moTa">
     <p>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti,
-      repudiandae iusto. Odio, alias praesentium eligendi est eius delectus
-      quasi voluptatibus qui odit dolore. Quis id harum, minima aspernatur
-      aliquid cumque.
+      {{ item.moTa }}
     </p>
   </div>
 
@@ -60,7 +57,7 @@
             <div class="input-search">
               <div class="form-group">
                 <input
-                  type="search"
+                  type="text"
                   placeholder="Tìm kiếm"
                   class="form-control"
                   id="search"
@@ -86,7 +83,7 @@
                   [content]="c.tenSp"
                   [classToApply]="'font-weight-bold'"
                   [setTitle]="'true'"
-                  [routerLink]="['/']"
+                  [routerLink]="['san-pham', c.id]"
                 >
                   {{ c.tenSp }}
                 </li>
@@ -126,13 +123,10 @@
         let sanPham of dsSanPhamLoc
           | paginate: { itemsPerPage: 10, currentPage: p }
       "
+      [routerLink]="['san-pham', sanPham.id]"
+      routerLinkActive="router-link-active"
     >
-      <img
-        [routerLink]="['san-pham', sanPham.id]"
-        routerLinkActive="router-link-active"
-        src="../../../assets/img/sp1.png"
-        alt=""
-      />
+      <img src="../../../assets/img/sp1.png" alt="" />
       <h4>
         {{ sanPham.tenSp }}
       </h4>

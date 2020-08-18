@@ -18,22 +18,75 @@
       </div>
     </div>
     <div class="col-2">
-      <p><span>Home</span> / <span>T-shirt</span></p>
-      <h1>Red Printd T-Shirt by Dang</h1>
-      <h4>$50.00</h4>
-      <select name="" id="">
-        <option value="">Select size</option>
-        <option value="">XXL</option>
-        <option value="">Large</option>
-        <option value="">Medium</option>
-        <option value="">Small</option>
-      </select>
-      <input type="number" value="1" />
+      <span><a [routerLink]="['/']">Trang chủ</a></span> /
+      <span
+        ><a [routerLink]="['../../']">{{ chitietSP.tenThuongHieu }}</a></span
+      >
+      /
+      <span
+        ><a [routerLink]="['../../']">{{ loaiSp.tenLoaiSp }}</a></span
+      >
+
+      <h1>{{ sanPham.tenSp }}</h1>
+
+      <div class="kichCo">
+        <div class="select-box">
+          <div class="select-box__current" tabindex="1">
+            <div class="select-box__value">
+              <input
+                class="select-box__input"
+                type="radio"
+                id="0"
+                value="1"
+                name="Ben"
+                checked="checked"
+              />
+              <p class="select-box__input-text">Cream</p>
+            </div>
+            <div class="select-box__value">
+              <input
+                class="select-box__input"
+                type="radio"
+                id="1"
+                value="2"
+                name="Ben"
+                checked="checked"
+              />
+              <p class="select-box__input-text">Cheese</p>
+            </div>
+            <img
+              class="select-box__icon"
+              src="http://cdn.onlinewebfonts.com/svg/img_295694.svg"
+              alt="Arrow Icon"
+              aria-hidden="true"
+            />
+          </div>
+          <ul class="select-box__list">
+            <li>
+              <label
+                class="select-box__option"
+                for="0"
+                aria-hidden="aria-hidden"
+                >Cream</label
+              >
+            </li>
+            <li>
+              <label
+                class="select-box__option"
+                for="1"
+                aria-hidden="aria-hidden"
+                >Cheese</label
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+      <h4>Giá: $50.00</h4>
+      <!-- <input type="number" value="1" />
       <a href="" class="btn"
         ><i class="fa fa-shopping-cart" aria-hidden="true"></i> Add To Cash</a
-      >
-      <h3>Product Details <i class="fa fa-indent"></i></h3>
-      <br />
+      > -->
+      <h3>Chi tiết sản phẩm</h3>
       <p>
         Lorem Ipsum is simply dummy text of the printing and typesetting
         industry. Lorem Ipsum has been the industry's standard dummy text ever
@@ -44,13 +97,14 @@
         of Letraset sheets containing Lorem Ipsum passages, and more recently
         with desktop publishing software like Aldus PageMaker including versions
         of Lorem Ipsum.
+        {{ sanPham.moTa }}
       </p>
     </div>
   </div>
 </div>
 <div class="small-container">
   <div class="row row-2">
-    <h2>Related Product</h2>
+    <h2>Sản phẩm cùng loại</h2>
     <p id="view-more">View More</p>
   </div>
   <div class="row">

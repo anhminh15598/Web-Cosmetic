@@ -15,14 +15,6 @@ import { ErrorService } from 'src/service/error.service';
 })
 export class ThuongHieuComponent implements OnInit {
   searchText = '';
-  characters: any = [
-    { id: 1, name: 'minh' },
-    { id: 2, name: 'minh2' },
-    { id: 3, name: 'minh3' },
-    { id: 4, name: 'minh4' },
-    { id: 5, name: 'minh5' },
-    { id: 6, name: 'minh6' },
-  ];
 
   filterargs = {};
   values = '';
@@ -74,6 +66,9 @@ export class ThuongHieuComponent implements OnInit {
           this.thuongHieu = _dsThuongHieu;
           this.dsSanPham = _dsSanpham;
           this.dsSanPhamLoc = this.dsSanPham;
+          console.log('thuongHieu', this.thuongHieu);
+          console.log('dsSanPham', this.dsSanPham);
+          console.log('dsSanPhamLoc', this.dsSanPhamLoc);
         },
         (error) => {
           this.errorService.showError(error);

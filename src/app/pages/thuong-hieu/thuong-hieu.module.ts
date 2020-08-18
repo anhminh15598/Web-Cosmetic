@@ -7,6 +7,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { FilterPipe } from 'src/pipe/filter.pipe';
 import { FormsModule } from '@angular/forms';
 import { HighlightDirective } from 'src/app/directive/highlight.directive';
+import { SanPhamComponent } from './san-pham/san-pham.component';
 
 @NgModule({
   imports: [
@@ -15,7 +16,12 @@ import { HighlightDirective } from 'src/app/directive/highlight.directive';
     NgxPaginationModule,
     FormsModule,
   ],
-  declarations: [ThuongHieuComponent, FilterPipe, HighlightDirective],
+  declarations: [
+    ThuongHieuComponent,
+    SanPhamComponent,
+    FilterPipe,
+    HighlightDirective,
+  ],
   exports: [],
 })
 export class ThuongHieuModule {}
