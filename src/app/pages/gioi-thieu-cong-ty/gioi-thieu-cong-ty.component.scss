@@ -1,35 +1,21 @@
+@import url("https://fonts.googleapis.com/css2?family=Sriracha&display=swap");
+
 /**
  * Demo Styles
  */
 /**
  * Footer Styles
  */
-html {
-  height: 100%;
-  box-sizing: border-box;
-}
-* {
-  box-sizing: inherit;
-  &:before {
-    box-sizing: inherit;
-  }
-  &:after {
-    box-sizing: inherit;
-  }
-}
-body {
-  position: relative;
-  margin: 0;
-  padding-bottom: 6rem;
-  min-height: 100%;
-  font-family: "Helvetica Neue", Arial, sans-serif;
-}
+
 .demo {
+  font-family: "Sriracha", cursive;
   margin: 0 auto;
   padding-top: 64px;
-  max-width: 640px;
-  width: 94%;
+  // max-width: 640px;
+  width: 100%;
+  padding: 5% 10%;
   h1 {
+    padding-bottom: 3%;
     text-align: center;
     margin-top: 0;
     margin-bottom: 20px;

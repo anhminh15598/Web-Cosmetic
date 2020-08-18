@@ -1,35 +1,49 @@
 <div class="small-container single-product">
   <div class="row">
     <div class="col-2">
-      <img src="../../../../assets/img/sp1.png" width="100%">
+      <img src="../../../../assets/img/sp1.png" width="100%" />
       <div class="small-img-row">
-          <div class="small-img-col">
-            <img src="../../../../assets/img/sp2.png" width="100%">
-          </div>
-          <div class="small-img-col">
-            <img src="../../../../assets/img/sp3.png" width="100%">
-          </div>
-          <div class="small-img-col">
-            <img src="../../../../assets/img/sp1.png" width="100%">
-          </div>
-          <div class="small-img-col">
-            <img src="../../../../assets/img/sp1.png" width="100%">
-          </div>
+        <div class="small-img-col">
+          <img src="../../../../assets/img/sp2.png" width="100%" />
+        </div>
+        <div class="small-img-col">
+          <img src="../../../../assets/img/sp3.png" width="100%" />
+        </div>
+        <div class="small-img-col">
+          <img src="../../../../assets/img/sp1.png" width="100%" />
+        </div>
+        <div class="small-img-col">
+          <img src="../../../../assets/img/sp1.png" width="100%" />
+        </div>
       </div>
     </div>
-    <div class="col-2" *ngFor=" let sp of sanPham">
-      <p>Home /T-shirt</p>
-      <h1>{{ sp.tenSp }}</h1>
-        <h4>$50.00</h4>
-        <select name="" id="">
-          <option *ngFor="let kichCo of kichCosp" [value]="kichCo.giaSp">{{ kichCo.tenKichCo  }}</option>
-        </select>
-      <input type="number" value="1">
-      <a href="" class="btn"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Add To Cash</a>
+    <div class="col-2">
+      <p><span>Home</span> / <span>T-shirt</span></p>
+      <h1>Red Printd T-Shirt by Dang</h1>
+      <h4>$50.00</h4>
+      <select name="" id="">
+        <option value="">Select size</option>
+        <option value="">XXL</option>
+        <option value="">Large</option>
+        <option value="">Medium</option>
+        <option value="">Small</option>
+      </select>
+      <input type="number" value="1" />
+      <a href="" class="btn"
+        ><i class="fa fa-shopping-cart" aria-hidden="true"></i> Add To Cash</a
+      >
       <h3>Product Details <i class="fa fa-indent"></i></h3>
-      <br>
+      <br />
       <p>
-        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+        Lorem Ipsum is simply dummy text of the printing and typesetting
+        industry. Lorem Ipsum has been the industry's standard dummy text ever
+        since the 1500s, when an unknown printer took a galley of type and
+        scrambled it to make a type specimen book. It has survived not only five
+        centuries, but also the leap into electronic typesetting, remaining
+        essentially unchanged. It was popularised in the 1960s with the release
+        of Letraset sheets containing Lorem Ipsum passages, and more recently
+        with desktop publishing software like Aldus PageMaker including versions
+        of Lorem Ipsum.
       </p>
     </div>
   </div>
@@ -41,7 +55,11 @@
   </div>
   <div class="row">
     <div class="col-4">
-      <img routerLinkActive="router-link-active"  src="../../../assets/img/sp1.png" alt="">
+      <img
+        routerLinkActive="router-link-active"
+        src="../../../assets/img/sp1.png"
+        alt=""
+      />
       <h4>
         Red Printed T-shirt
       </h4>
@@ -55,7 +73,7 @@
       <p>$50.00</p>
     </div>
     <div class="col-4">
-      <img src="../../../assets/img/sp1.png" alt="">
+      <img src="../../../assets/img/sp1.png" alt="" />
       <h4>
         Red Printed T-shirt
       </h4>
@@ -69,7 +87,7 @@
       <p>$50.00</p>
     </div>
     <div class="col-4">
-      <img src="../../../assets/img/sp1.png" alt="">
+      <img src="../../../assets/img/sp1.png" alt="" />
       <h4>
         Red Printed T-shirt
       </h4>
@@ -83,7 +101,7 @@
       <p>$50.00</p>
     </div>
     <div class="col-4">
-      <img src="../../../assets/img/sp1.png" alt="">
+      <img src="../../../assets/img/sp1.png" alt="" />
       <h4>
         Red Printed T-shirt
       </h4>

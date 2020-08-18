@@ -10,42 +10,148 @@
 
   <div class="home_thuongHieu">
     <div class="container">
-      <div class="box">
-        <div class="img-box">
-          <img src="../../../assets/img/cosmedica_1.jpg" />
-        </div>
-        <p>
-          "Make your skin more beautiful and younger" - Sản phẩm từ Cosmedica
-          cam kết sẽ giúp làn da bạn chiến đấu bền vững với thời gian"
-        </p>
-        <h4>Angela Fakename<br /><span>Creative Director</span></h4>
-      </div>
-
-      <div class="box">
+      <div
+        class="box"
+        (mouseover)="changeText1 = true"
+        (mouseout)="changeText1 = false"
+      >
         <div class="img-box">
           <img
-            src="https://images.freeimages.com/images/premium/large-thumbs/5488/54880468-businessman-profile-icon-male-portrait-flat.jpg"
+            style="background-color: #f7fdfd;"
+            src="../../../assets/img/logocosmedica1.png"
           />
         </div>
         <p>
-          Phasellus eu nibh et tellus finibus dictum. Cras tincidunt et quam
-          eget accumsan. Mauris id arcu in augue tincidunt condimentum. Sed
-          dapibus lobortis augue id viverra. ut posuere leo ullamcorper id.
+          Cosmedica Skincare cam kết mang đến cho bạn làn da khỏe đẹp nhất có
+          thể thông qua các sản phẩm đơn giản, chất lượng cao giúp nâng cao sức
+          khỏe và vẻ ngoài của làn da. Mỗi liệu pháp chăm sóc da của Cosmedica
+          đều được bào chế bằng những nguyên liệu tinh khiết nhất, tiên tiến
+          nhất trên thị trường nhằm mang đến cho bạn những sản phẩm tốt nhất mà
+          tiền có thể mua được. Sứ mệnh của chúng tôi là mang đến cho bạn những
+          sản phẩm cực kỳ hiệu quả và những kết quả vô song.
         </p>
-        <h4>Johnny Notreal<br /><span>Head of Finance</span></h4>
+
+        <h4>Cosmedica Skin Care<br /><span></span></h4>
+
+        <div class="btn-bg bg-1" *ngIf="changeText1">
+          <div class="btn btn-1">
+            <button [routerLink]="['/thuong-hieu', 1]">
+              Xem sản phẩm
+            </button>
+          </div>
+        </div>
+        <div class="changeButton" *ngIf="!changeText1"></div>
+      </div>
+
+      <div
+        class="box"
+        (mouseover)="changeText2 = true"
+        (mouseout)="changeText2 = false"
+      >
+        <div class="img-box">
+          <img
+            style="background-color: #f7fdfd;"
+            src="../../../assets/img/logotime1.png"
+          />
+        </div>
+        <p>
+          Năm 2009, Timeless Skin Care được thành lập để cung cấp các chế phẩm
+          chăm sóc da chất lượng với giá cả phải chăng, rẻ, mang lại hiệu quả.
+          Việc chúng tôi tập trung vào nồng độ cao của các thành phần hoạt tính
+          với ít chất độn hơn, ít hóa chất hơn và công thức không chứa paraben
+          vẫn tiếp tục trong các hoạt động hàng ngày của chúng tôi. Người sáng
+          lập của chúng tôi tin tưởng vào chất lượng của sản xuất hàng loạt nhỏ
+          được thực hiện tại Hoa Kỳ, đặc biệt là ở Nam California.
+        </p>
+        <h4>Timeless Skin Care<br /><span></span></h4>
+        <div class="btn-bg bg-1" *ngIf="changeText2">
+          <div class="btn btn-1">
+            <button [routerLink]="['/thuong-hieu', 2]">
+              Xem sản phẩm
+            </button>
+          </div>
+        </div>
+        <div class="changeButton" *ngIf="!changeText2"></div>
       </div>
     </div>
   </div>
+</div>
 
-  <!-- <ngx-slick-carousel
-    class="carousel"
-    #slickModal="slick-carousel"
-    [config]="slideConfig"
-  >
-    <div ngxSlickItem *ngFor="let slide of slides" class="slide" style="">
-      <a href="#"
-        ><img src="{{ slide.img }}" alt="" width="100%" style="padding: 0 20%;"
-      /></a>
+<div class="testimonials">
+  <div id="carouselExampleInterval" class="carousel slide" data-ride="carousel">
+    <ol class="carousel-indicators">
+      <li
+        data-target="#carouselExampleInterval"
+        data-slide-to="0"
+        class="active"
+      ></li>
+      <li data-target="#carouselExampleInterval" data-slide-to="1"></li>
+      <li data-target="#carouselExampleInterval" data-slide-to="2"></li>
+    </ol>
+    <div class="carousel-inner">
+      <div class="carousel-item active" data-interval="10000">
+        <div class="d-block w-100 nhanXet">
+          <h1>Nhận xét khách hàng</h1>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo iste
+            rerum quisquam at debitis tempore minus nihil modi numquam cum.
+            Minima possimus alias nam officiis nihil molestiae consequatur,
+            minus nulla?
+          </p>
+          <p class="nhanXet_ten">Nguyễn Văn A</p>
+          <div class="avatar m-auto">
+            <img src="../../../assets/img/sp1.png" />
+          </div>
+        </div>
+      </div>
+      <div class="carousel-item" data-interval="2000">
+        <div class="d-block w-100 nhanXet">
+          <h1>Nhận xét khách hàng</h1>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            Exercitationem, tempore. Labore a voluptatem eligendi ratione enim
+            soluta voluptas ab alias inventore, magnam fugiat eos voluptates,
+            necessitatibus voluptatibus eaque beatae modi.
+          </p>
+          <p class="nhanXet_ten">Nguyễn Văn B</p>
+          <div class="avatar m-auto">
+            <img src="../../../assets/img/sp3.png" />
+          </div>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <div class="d-block w-100 nhanXet">
+          <h1>Nhận xét khách hàng</h1>
+          <p>
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Explicabo
+            voluptatibus harum excepturi assumenda asperiores optio provident
+            impedit soluta? Mollitia aspernatur maxime illum nulla, sapiente aut
+            ut magnam ea debitis dolores.
+          </p>
+          <p class="nhanXet_ten">Nguyễn Văn C</p>
+          <div class="avatar m-auto">
+            <img src="../../../assets/img/sp2.png" />
+          </div>
+        </div>
+      </div>
     </div>
-  </ngx-slick-carousel> -->
+    <a
+      class="carousel-control-prev"
+      href="#carouselExampleInterval"
+      role="button"
+      data-slide="prev"
+    >
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a
+      class="carousel-control-next"
+      href="#carouselExampleInterval"
+      role="button"
+      data-slide="next"
+    >
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+  </div>
 </div>

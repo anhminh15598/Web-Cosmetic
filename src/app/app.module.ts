@@ -20,10 +20,8 @@ import { SanPhamAdminModule } from './admin-pages/san-pham-admin/san-pham-admin.
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptor } from 'src/Interceptors/auth.interceptor';
 import { AuthenticationModule } from './authentication/authentication.module';
-import { ThuongHieuAdminComponent } from './admin-pages/thuong-hieu-admin/thuong-hieu-admin.component';
-import { LoaiSanPhamAdminComponent } from './admin-pages/loai-san-pham-admin/loai-san-pham-admin.component';
 import { HomeAdminComponent } from './admin-pages/home-admin/home-admin.component';
-
+import { QuanLyThuongHieuModule } from './admin-pages/quan-ly-thuong-hieu/quan-ly-thuong-hieu.module';
 @NgModule({
   declarations: [
     AppComponent,
@@ -41,8 +39,6 @@ import { HomeAdminComponent } from './admin-pages/home-admin/home-admin.componen
     AdminLayoutComponent,
     NotFoundComponent,
     AdminSidebarComponent,
-    ThuongHieuAdminComponent,
-    LoaiSanPhamAdminComponent,
     HomeAdminComponent,
   ],
   imports: [
@@ -51,9 +47,10 @@ import { HomeAdminComponent } from './admin-pages/home-admin/home-admin.componen
     SanPhamAdminModule,
     HttpClientModule,
     AuthenticationModule,
-
+    QuanLyThuongHieuModule,
   ],
-  providers: [    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
   ],
   bootstrap: [AppComponent],
 })

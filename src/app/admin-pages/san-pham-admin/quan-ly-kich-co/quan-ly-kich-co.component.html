@@ -1,0 +1,35 @@
+<div class="kichCo">
+  <div class="header-kichCo">
+    <h3>
+      Danh Sách Kích Cỡ
+    </h3>
+    <button type="button" class="btn btn-success" (click)="moThemKc()">
+      Thêm kích cỡ  
+    </button>
+  </div>
+  <div class="sanPham_danhSach">
+    <div class="table-responsive">
+      <table class="table">
+        <thead> 
+          <tr>
+            <th scope="col">STT</th>
+            <th scope="col">Tên Kích Cỡ</th>
+            <th scope="col">Giá</th>
+            <th scope="col">Tùy chọn</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">a</th>
+            <td>b</td>
+            <td>c</td>
+            <td>  
+              <button type="button" class="btn btn-primary mr-2" (click)="moSuaKc()">Sửa</button>
+              <button type="button" class="btn btn-danger" (click)="moXoaKc()">Xóa</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

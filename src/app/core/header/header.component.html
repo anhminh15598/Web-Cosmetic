@@ -3,13 +3,16 @@
     <a [routerLink]="['']"><span>US</span>Beauty</a>
   </div>
   <ol>
-    <li class="menu-item"><a [routerLink]="['']">TRANG CHỦ</a></li>
+    <li class="menu-item">
+      <a [routerLink]="['']" routerLinkActive="router-link-active">TRANG CHỦ</a>
+    </li>
     <li class="menu-item">
       <a>THƯƠNG HIỆU</a>
       <ol class="sub-menu">
         <li
           *ngFor="let item of thuongHieux"
-          [routerLink]="['/thuong-hieu',item.id]" routerLinkActive="router-link-active" 
+          [routerLink]="['/thuong-hieu', item.id]"
+          routerLinkActive="router-link-active"
           class="menu-item"
         >
           <a>{{ item.tenThuongHieu }}</a>
@@ -17,9 +20,17 @@
       </ol>
     </li>
     <li class="menu-item">
-      <a [routerLink]="['gioi-thieu-cong-ty']">CÔNG TY</a>
+      <a
+        [routerLink]="['/gioi-thieu-cong-ty']"
+        routerLinkActive="router-link-active"
+        >CÔNG TY</a
+      >
     </li>
-    <li class="menu-item"><a [routerLink]="['lien-he']">LIÊN HỆ</a></li>
+    <li class="menu-item">
+      <a [routerLink]="['/lien-he']" routerLinkActive="router-link-active"
+        >LIÊN HỆ</a
+      >
+    </li>
   </ol>
   <ol>
     <li></li>

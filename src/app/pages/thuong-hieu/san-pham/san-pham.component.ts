@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from "@angular/router";
-import { HttpClient,HttpHeaders,HttpErrorResponse } from '@angular/common/http';
-import { environment } from 'src/environments/environment';
+import { Router, ActivatedRoute } from '@angular/router';
 import { ErrorService } from 'src/service/error.service';
+import { environment } from 'src/environments/environment';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 @Component({
   selector: 'app-san-pham',
   templateUrl: './san-pham.component.html',
-  styleUrls: ['./san-pham.component.scss']
+  styleUrls: ['./san-pham.component.scss'],
 })
 export class SanPhamComponent implements OnInit {
   id:number;
@@ -54,6 +54,7 @@ export class SanPhamComponent implements OnInit {
       this.sanPham = _sanPham;
       this.kichCosp = _kichCoSp.sort(function(a, b){return a - b});
       this.dsGiaSp = _dsGiaSP.sort(function(a, b){return a - b});
+        console.log(this.sanPham);
        console.log(this.kichCosp);
        console.log(this.dsGiaSp);
     },
@@ -61,7 +62,7 @@ export class SanPhamComponent implements OnInit {
       this.errorService.showError(error);
     });
   }
+  
   giaSanPham(gia){
-
   }
 }
