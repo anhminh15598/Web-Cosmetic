@@ -1,5 +1,5 @@
 <!-- Ds Thương hiệu -->
-<div class="small-container" *ngFor="let item of thuongHieu"  >
+<div class="small-container" *ngFor="let item of thuongHieu">
   <div class="row justify-content-md-center thuongHieu">
     <h1 class="col-lg-3 col-md-3">{{ item.tenThuongHieu }}</h1>
   </div>
@@ -72,7 +72,7 @@
                 />
               </div>
               <ul
-                class="list-group"
+                class="list-group list-group-flush"
                 [ngClass]="{
                   hide: values == '',
                   show: values !== ''
