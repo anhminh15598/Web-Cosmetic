@@ -14,7 +14,23 @@ import { ErrorService } from 'src/service/error.service';
   styleUrls: ['./thuong-hieu.component.scss'],
 })
 export class ThuongHieuComponent implements OnInit {
+  searchText = '';
+  characters: any = [
+    { id: 1, name: 'minh' },
+    { id: 2, name: 'minh2' },
+    { id: 3, name: 'minh3' },
+    { id: 4, name: 'minh4' },
+    { id: 5, name: 'minh5' },
+    { id: 6, name: 'minh6' },
+  ];
+
   filterargs = {};
+  values = '';
+  onKey(event: any) {
+    // without type info
+    this.values = event.target.value;
+    console.log(this.values);
+  }
   p: any;
   //listThuongHieu = [{id:"1", tenThuongHieu:'thuongHieu1'},{id:"2", tenThuongHieu:'thuongHieu2'}];
   id: number;

@@ -1,5 +1,5 @@
 <!-- Ds Thương hiệu -->
-<div class="small-container" *ngFor="let item of thuongHieu"  >
+<div class="small-container" *ngFor="let item of thuongHieu">
   <div class="row justify-content-md-center thuongHieu">
     <h1 class="col-lg-3 col-md-3">{{ item.tenThuongHieu }}</h1>
   </div>
@@ -55,11 +55,48 @@
           </div>
         </div>
         <div class="input-field second-wrap">
-          <input id="search" type="text" placeholder="Tìm kiếm" />
+          <!-- <input id="search" type="text" placeholder="Tìm kiếm" /> -->
+          <div class="content" role="main">
+            <div class="input-search">
+              <div class="form-group">
+                <input
+                  type="search"
+                  placeholder="Tìm kiếm"
+                  class="form-control"
+                  id="search"
+                  aria-describedby="search-text"
+                  [(ngModel)]="searchText"
+                  autofocus
+                  name="first"
+                  (keyup)="onKey($event)"
+                />
+              </div>
+              <ul
+                class="list-group list-group-flush"
+                [ngClass]="{
+                  hide: values == '',
+                  show: values !== ''
+                }"
+              >
+                <li
+                  class="list-group-item"
+                  *ngFor="let c of dsSanPham | appFilter: searchText"
+                  appHighlight
+                  [searchedWord]="searchText"
+                  [content]="c.tenSp"
+                  [classToApply]="'font-weight-bold'"
+                  [setTitle]="'true'"
+                  [routerLink]="['/']"
+                >
+                  {{ c.tenSp }}
+                </li>
+              </ul>
+            </div>
+          </div>
         </div>
 
         <!-- Search -->
-        <div class="input-field third-wrap">
+        <!-- <div class="input-field third-wrap">
           <button class="btn-search" type="button">
             <svg
               class="svg-inline--fa fa-search fa-w-16"
@@ -75,7 +112,7 @@
               ></path>
             </svg>
           </button>
-        </div>
+        </div> -->
         <!-- End-search -->
       </div>
     </form>
