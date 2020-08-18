@@ -1,5 +1,5 @@
 <div class="header-table">
-    <h3>Quản Lý Loại Sản Phẩm</h3>
+    <h3>Quản Lý Loại Sản Phẩm: {{ tenThuongHieu }} </h3>
     <button class="btn btn-success" (click)="moThemLsp()">Thêm loại sản phẩm</button>
 </div>
 <table class="table">
@@ -12,13 +12,13 @@
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <th scope="row">1</th>
-      <td>Mark</td>
-      <td>Otto</td>
+    <tr *ngFor="let lsp of dsloaiSP; let i = index">
+      <th scope="row">{{i+1}}</th>
+      <td>{{lsp.tenThuongHieu}}</td>
+      <td>{{lsp.moTa}}</td>
       <td>
-        <button class="btn btn-primary mr-2" (click)="moSuaLsp()">Sửa</button>
-        <button class="btn btn-danger" (click)="moXoaLsp()">Xóa</button>
+        <button class="btn btn-primary mr-2" (click)="moSuaLsp(lsp.id)">Sửa</button>
+        <button class="btn btn-danger" (click)="moXoaLsp(lsp.id)">Xóa</button>
       </td>
     </tr>
   </tbody>

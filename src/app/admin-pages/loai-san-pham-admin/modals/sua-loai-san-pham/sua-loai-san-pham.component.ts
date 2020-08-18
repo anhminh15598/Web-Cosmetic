@@ -7,7 +7,7 @@ import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 })
 export class SuaLoaiSanPhamComponent implements OnInit {
   @Input() my_modal_title;
-  @Input() my_modal_content;
+  @Input() id;
   constructor(public activeModal: NgbActiveModal) { }
 
   ngOnInit() {

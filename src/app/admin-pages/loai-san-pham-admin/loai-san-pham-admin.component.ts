@@ -8,6 +8,8 @@ import {NgbModal, ModalDismissReasons, NgbModalOptions} from '@ng-bootstrap/ng-b
 import { SuaLoaiSanPhamComponent } from './modals/sua-loai-san-pham/sua-loai-san-pham.component';
 import { ThemLoaiSanPhamComponent } from './modals/them-loai-san-pham/them-loai-san-pham.component';
 import { XoaLoaiSanPhamComponent } from './modals/xoa-loai-san-pham/xoa-loai-san-pham.component';
+import { environment } from 'src/environments/environment';
+import { analyzeAndValidateNgModules } from '@angular/compiler';
 @Component({
   selector: 'app-loai-san-pham-admin',
   templateUrl: './loai-san-pham-admin.component.html',
@@ -19,6 +21,7 @@ export class LoaiSanPhamAdminComponent implements OnInit {
   dsloaiSP:any = [];
   sub:any;
   id:any;
+  tenThuongHieu:any;
   constructor(
     private router: Router,
     public http: HttpClient,
@@ -30,11 +33,13 @@ export class LoaiSanPhamAdminComponent implements OnInit {
   ngOnInit(): void {
     this.sub = this.route.params.subscribe((param) => {
       this.id = +param['id'];
+      this.layDsLoaiSp(this.id);
+      this.layTenThuongHieu(this.id)
     }); 
   }
-  layLoaiSp(){
+  layDsLoaiSp(id){
     this.http
-      .get('https://api.usbeauty.vn/api/ThuongHieux/', {
+      .get(environment.apiUrl + environment.apiList.DsLoaiSanPham + id, {
         headers: new HttpHeaders({
           'Content-Type': 'application/json',
         }),
@@ -42,8 +47,30 @@ export class LoaiSanPhamAdminComponent implements OnInit {
       .subscribe(
         (data) => {
           this.dsloaiSP = data;
-
           console.log(data);
+        },
+        (error) => {
+          this.errorService.showError(error);
+        }
+      );
+  }
+  layTenThuongHieu(id){
+    let _dsThuongHieu :any;
+    this.http
+      .get(environment.apiUrl + environment.apiList.DsThuongHieu, {
+        headers: new HttpHeaders({
+          'Content-Type': 'application/json',
+        }),
+      })
+      .subscribe(
+        (data) => {
+          _dsThuongHieu = data;
+          _dsThuongHieu.forEach(element => {
+            if(element.id == id){
+              this.tenThuongHieu = element.tenThuongHieu;
+            }
+          });
+          console.log(this.tenThuongHieu);
         },
         (error) => {
           this.errorService.showError(error);
@@ -55,14 +82,14 @@ export class LoaiSanPhamAdminComponent implements OnInit {
     modalRef.componentInstance.my_modal_title = 'Thêm Loại sản phẩm';
     modalRef.componentInstance.my_modal_content = 'I am your content';
   }
-  moSuaLsp(){
+  moSuaLsp(id){
     const modalRef = this.modalService.open(SuaLoaiSanPhamComponent);
     modalRef.componentInstance.my_modal_title = 'Sửa Loại sản Phẩm';
-    modalRef.componentInstance.my_modal_content = 'I am your content';
+    modalRef.componentInstance.id = id;
   }
-  moXoaLsp(){
+  moXoaLsp(id){
     const modalRef = this.modalService.open(XoaLoaiSanPhamComponent);
     modalRef.componentInstance.my_modal_title = 'Xóa Loại sản phẩm';
-    modalRef.componentInstance.my_modal_content = 'I am your content';
+    modalRef.componentInstance.id = id;
   }
 }
