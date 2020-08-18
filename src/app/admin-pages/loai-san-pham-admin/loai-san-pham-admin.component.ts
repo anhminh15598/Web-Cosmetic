@@ -16,6 +16,7 @@ import { XoaLoaiSanPhamComponent } from './modals/xoa-loai-san-pham/xoa-loai-san
 export class LoaiSanPhamAdminComponent implements OnInit {
   // @Input() my_modal_title;
   // @Input() my_modal_content;
+  dsloaiSP:any = [];
   sub:any;
   id:any;
   constructor(
@@ -30,6 +31,24 @@ export class LoaiSanPhamAdminComponent implements OnInit {
     this.sub = this.route.params.subscribe((param) => {
       this.id = +param['id'];
     }); 
+  }
+  layLoaiSp(){
+    this.http
+      .get('https://api.usbeauty.vn/api/ThuongHieux/', {
+        headers: new HttpHeaders({
+          'Content-Type': 'application/json',
+        }),
+      })
+      .subscribe(
+        (data) => {
+          this.dsloaiSP = data;
+
+          console.log(data);
+        },
+        (error) => {
+          this.errorService.showError(error);
+        }
+      );
   }
   moThemLsp(){
     const modalRef = this.modalService.open(ThemLoaiSanPhamComponent);
