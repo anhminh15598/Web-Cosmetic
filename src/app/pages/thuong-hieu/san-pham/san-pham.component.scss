@@ -14,9 +14,18 @@
       color: #4b87bd;
     }
   }
+  .chiTietSp {
+    line-height: normal;
+    h3 {
+      color: #085aa0;
+    }
+  }
 }
 .col-10 {
   flex-basis: 10%;
+}
+.col-sm-12 {
+  padding: 0 30px 30px 30px;
 }
 
 .col-2 {
@@ -94,7 +103,7 @@ h4 {
 }
 .row-2 {
   justify-content: space-between;
-  margin: 100px auto 50px;
+  margin: 50px auto 10px;
 }
 #view-more {
   margin-top: 1rem;
@@ -124,7 +133,7 @@ select:focus {
   color: #fff;
 }
 .single-product {
-  margin-top: 80px;
+  margin-top: 120px;
 }
 .single-product .col-2 img {
   padding: 0;
@@ -253,7 +262,6 @@ input:focus {
       padding: 0;
       list-style: none;
       opacity: 0;
-
       // We need to use animation with delay.
       // Otherwise the click event will not have time to run on label, because this element disapears immediately when .select-box__current element loses the focus.
       // This delay will not be noticed because we set "opacity" to "0".
@@ -264,18 +272,19 @@ input:focus {
       animation-delay: 0.5s;
       animation-fill-mode: forwards;
       animation-timing-function: step-start;
-      box-shadow: 0 15px 30px -10px transparentize(#000, 0.9);
+      // box-shadow: 0 15px 30px -10px transparentize(#000, 0.9);
     }
 
     &__option {
       display: block;
       padding: 15px;
-      background-color: #fff;
+      color: #085aa0;
+      background-color: #f4fcfa;
 
       &:hover,
       &:focus {
-        color: #546c84;
-        background-color: #fbfbfb;
+        color: white;
+        background-color: #6eb6bf;
       }
     }
   }

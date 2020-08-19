@@ -155,3 +155,37 @@
     </a>
   </div>
 </div>
+
+<div class="video container pb-5">
+  <h1 class="">Video nổi bật</h1>
+  <div class="row">
+    <div class="video-right col-lg-6 my-3">
+      <video
+        width="100%"
+        height="100%"
+        controls
+        class="video"
+        (play)="video()"
+        autoplay
+        #videoPlayer
+      >
+        <source src="../../../assets/video/video1.mp4" type="video/mp4" />
+      </video>
+      <p>Your browser does not support the video tag.</p>
+    </div>
+    <div class="video-left col-lg-6 my-3">
+      <video
+        width="100%"
+        height="100%"
+        controls
+        class="video"
+        (play)="video()"
+        autoplay
+        #videoPlayer
+      >
+        <source src="../../../assets/video/video1.mp4" type="video/mp4" />
+      </video>
+      <p>Your browser does not support the video tag.</p>
+    </div>
+  </div>
+</div>

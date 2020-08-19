@@ -1,6 +1,6 @@
 <div class="small-container single-product">
   <div class="row">
-    <div class="col-2">
+    <div class="col-lg-6 col-sm-12">
       <img src="../../../../assets/img/sp1.png" width="100%" />
       <div class="small-img-row">
         <div class="small-img-col" *ngFor="let image of hinhAnh; let i = index">
@@ -8,7 +8,7 @@
         </div>
       </div>
     </div>
-    <div class="col-2">
+    <div class="col-lg-6 col-sm-12">
       <span><a [routerLink]="['/']">Trang chủ</a></span> /
       <span
         ><a [routerLink]="['../../']">{{ thuongHieu.tenThuongHieu }}</a></span
@@ -18,7 +18,7 @@
         ><a [routerLink]="['../../']">{{ loaiSp.tenLoaiSp }}</a></span
       >
 
-      <h1 class="my-2">{{ sanPham.tenSp }}</h1>
+      <h1 class="my-4">{{ sanPham.tenSp }}</h1>
 
       <div class="kichCo">
         <div class="select-box">
@@ -38,17 +38,6 @@
               />
               <p class="select-box__input-text">{{ kc.tenKichCo }}</p>
             </div>
-            <!-- <div class="select-box__value">
-              <input
-                class="select-box__input"
-                type="radio"
-                id="1"
-                value="2"
-                name="Ben"
-                checked="checked"
-              />
-              <p class="select-box__input-text">Cheese</p>
-            </div> -->
             <img
               class="select-box__icon"
               src="http://cdn.onlinewebfonts.com/svg/img_295694.svg"
@@ -68,24 +57,26 @@
           </ul>
         </div>
       </div>
-      <h4>Giá sản phẩm: {{ giaSp }}</h4>
+      <h4 class="my-4">Giá sản phẩm: {{ giaSp }}</h4>
       <!-- <input type="number" value="1" />
       <a href="" class="btn"
         ><i class="fa fa-shopping-cart" aria-hidden="true"></i> Add To Cash</a
       > -->
-      <h3>Chi tiết sản phẩm</h3>
-      <p>
-        Lorem Ipsum is simply dummy text of the printing and typesetting
-        industry. Lorem Ipsum has been the industry's standard dummy text ever
-        since the 1500s, when an unknown printer took a galley of type and
-        scrambled it to make a type specimen book. It has survived not only five
-        centuries, but also the leap into electronic typesetting, remaining
-        essentially unchanged. It was popularised in the 1960s with the release
-        of Letraset sheets containing Lorem Ipsum passages, and more recently
-        with desktop publishing software like Aldus PageMaker including versions
-        of Lorem Ipsum.
-        {{ sanPham.moTa }}
-      </p>
+      <div class="chiTietSp">
+        <h3>Chi tiết sản phẩm:</h3>
+        <p class="mt-2">
+          Lorem Ipsum is simply dummy text of the printing and typesetting
+          industry. Lorem Ipsum has been the industry's standard dummy text ever
+          since the 1500s, when an unknown printer took a galley of type and
+          scrambled it to make a type specimen book. It has survived not only
+          five centuries, but also the leap into electronic typesetting,
+          remaining essentially unchanged. It was popularised in the 1960s with
+          the release of Letraset sheets containing Lorem Ipsum passages, and
+          more recently with desktop publishing software like Aldus PageMaker
+          including versions of Lorem Ipsum.
+          {{ sanPham.moTa }}
+        </p>
+      </div>
     </div>
   </div>
 </div>
@@ -104,13 +95,7 @@
       <h4>
         Red Printed T-shirt
       </h4>
-      <div class="rating">
-        <i class="fa fa-star" aria-hidden="true"></i>
-        <i class="fa fa-star" aria-hidden="true"></i>
-        <i class="fa fa-star" aria-hidden="true"></i>
-        <i class="fa fa-star" aria-hidden="true"></i>
-        <i class="fa fa-star-o" aria-hidden="true"></i>
-      </div>
+
       <p>$50.00</p>
     </div>
     <div class="col-4">
@@ -118,13 +103,7 @@
       <h4>
         Red Printed T-shirt
       </h4>
-      <div class="rating">
-        <i class="fa fa-star" aria-hidden="true"></i>
-        <i class="fa fa-star" aria-hidden="true"></i>
-        <i class="fa fa-star" aria-hidden="true"></i>
-        <i class="fa fa-star" aria-hidden="true"></i>
-        <i class="fa fa-star-o" aria-hidden="true"></i>
-      </div>
+
       <p>$50.00</p>
     </div>
     <div class="col-4">
@@ -132,13 +111,7 @@
       <h4>
         Red Printed T-shirt
       </h4>
-      <div class="rating">
-        <i class="fa fa-star" aria-hidden="true"></i>
-        <i class="fa fa-star" aria-hidden="true"></i>
-        <i class="fa fa-star" aria-hidden="true"></i>
-        <i class="fa fa-star" aria-hidden="true"></i>
-        <i class="fa fa-star-o" aria-hidden="true"></i>
-      </div>
+
       <p>$50.00</p>
     </div>
     <div class="col-4">
@@ -146,13 +119,7 @@
       <h4>
         Red Printed T-shirt
       </h4>
-      <div class="rating">
-        <i class="fa fa-star" aria-hidden="true"></i>
-        <i class="fa fa-star" aria-hidden="true"></i>
-        <i class="fa fa-star" aria-hidden="true"></i>
-        <i class="fa fa-star" aria-hidden="true"></i>
-        <i class="fa fa-star-o" aria-hidden="true"></i>
-      </div>
+
       <p>$50.00</p>
     </div>
   </div>

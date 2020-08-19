@@ -49,7 +49,7 @@ export class SanPhamComponent implements OnInit {
     for (let i = 0; i < this._albums.length; i++) {
       // const src = '../../../../assets/img/sp' + i + '.png';
       const src = this._albums[i].hinhAnh;
-      const caption = 'Image ' + i + ' caption here';
+      const caption = 'Hình ảnh ' + (i + 1);
       const thumb = this._albums[i].hinhAnh;
       // const thumb = '../../../../assets/img/sp' + i + '.png';
       const album = {
