@@ -9,38 +9,11 @@
     </p>
   </div>
 
-  <!-- <div class="row row-2">
-    <h2>{{ item.tenThuongHieu }}</h2>
-    <select (change)="locLoaiSP($event)">
-      <option value="0">Tất cả sản phẩm</option>
-      <option *ngFor="let loaiSp of item.loaiSps" [value]="loaiSp.id">{{
-        loaiSp.tenLoaiSp
-      }}</option>
-    </select>
-    <select>
-      <option value="">Default shoping</option>
-      <option value="">Short by price</option>
-      <option value="">Short by popularity</option>
-      <option value="">Short by rating</option>
-      <option value="">Short by sale</option>
-    </select>
-  </div> -->
-
   <!-- star -->
   <div class="s003">
     <form>
       <div class="inner-form">
-        <div class="input-field first-wrap">
-          <div class="input-select">
-            <select (change)="locLoaiSP($event)">
-              <option value="0">Tất cả sản phẩm</option>
-              <option *ngFor="let loaiSp of item.loaiSps" [value]="loaiSp.id">
-                {{ loaiSp.tenLoaiSp }}</option
-              >
-            </select>
-          </div>
-        </div>
-        <div class="input-field first-wrap">
+        <!-- <div class="input-field first-wrap">
           <div class="input-select">
             <select data-trigger="" name="choices-single-defaul">
               <option value="">Sắp xếp theo</option>
@@ -50,7 +23,7 @@
               <option value="">Short by sale</option>
             </select>
           </div>
-        </div>
+        </div> -->
         <div class="input-field second-wrap">
           <!-- <input id="search" type="text" placeholder="Tìm kiếm" /> -->
           <div class="content" role="main">
@@ -66,6 +39,7 @@
                   autofocus
                   name="first"
                   (keyup)="onKey($event)"
+                  autocomplete="off"
                 />
               </div>
               <ul
@@ -111,6 +85,16 @@
           </button>
         </div> -->
         <!-- End-search -->
+        <div class="input-field first-wrap">
+          <div class="input-select">
+            <select (change)="locLoaiSP($event)">
+              <option value="0">Tất cả sản phẩm</option>
+              <option *ngFor="let loaiSp of item.loaiSps" [value]="loaiSp.id">
+                {{ loaiSp.tenLoaiSp }}</option
+              >
+            </select>
+          </div>
+        </div>
       </div>
     </form>
   </div>
