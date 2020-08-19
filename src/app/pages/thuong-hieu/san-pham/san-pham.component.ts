@@ -3,6 +3,8 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { ErrorService } from 'src/service/error.service';
 import { environment } from 'src/environments/environment';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Lightbox } from 'ngx-lightbox';
+
 @Component({
   selector: 'app-san-pham',
   templateUrl: './san-pham.component.html',
@@ -18,13 +20,62 @@ export class SanPhamComponent implements OnInit {
   kichCosp: any = [];
   dsGiaSp: any = [];
   giaSp: any;
+  // _albums = [];
+
+  _albums: any = [
+    {
+      hinhAnh: '../../../../assets/img/sp1.png',
+    },
+    {
+      hinhAnh: '../../../../assets/img/sp2.png',
+    },
+    {
+      hinhAnh: '../../../../assets/img/sp3.png',
+    },
+    {
+      hinhAnh: '../../../../assets/img/sp1.png',
+    },
+  ];
+  hinhAnh: any = [];
+
   constructor(
     private route: ActivatedRoute,
     public http: HttpClient,
-    public errorService: ErrorService
-  ) {}
+    public errorService: ErrorService,
+    private _lightbox: Lightbox
+  ) {
+    console.log(this._albums.length);
+
+    for (let i = 0; i < this._albums.length; i++) {
+      // const src = '../../../../assets/img/sp' + i + '.png';
+      const src = this._albums[i].hinhAnh;
+      const caption = 'Image ' + i + ' caption here';
+      const thumb = this._albums[i].hinhAnh;
+      // const thumb = '../../../../assets/img/sp' + i + '.png';
+      const album = {
+        src: src,
+        caption: caption,
+        thumb: thumb,
+      };
+      this.hinhAnh.push(album);
+      console.log('album', album);
+    }
+  }
+  open(index: number): void {
+    // open lightbox
+    this._lightbox.open(this.hinhAnh, index);
+  }
+
+  close(): void {
+    // close lightbox programmatically
+    this._lightbox.close();
+  }
+
   onKey(event) {
-    this.giaSp = event;
+    this.giaSp = event.toLocaleString('it-IT', {
+      style: 'currency',
+      currency: 'VND',
+    });
   }
 
   ngOnInit() {
@@ -70,7 +121,13 @@ export class SanPhamComponent implements OnInit {
             return a - b;
           });
 
-          this.giaSp = this.dsGiaSp[this.dsGiaSp.length - 1];
+          this.giaSp = this.dsGiaSp[this.dsGiaSp.length - 1].toLocaleString(
+            'it-IT',
+            {
+              style: 'currency',
+              currency: 'VND',
+            }
+          );
           console.log('thuongHieu', this.thuongHieu);
           console.log('loaiSp', this.loaiSp);
           console.log('sanPham', this.sanPham);
