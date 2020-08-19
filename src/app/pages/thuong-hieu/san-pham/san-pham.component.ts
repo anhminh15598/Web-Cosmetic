@@ -17,11 +17,15 @@ export class SanPhamComponent implements OnInit {
   loaiSp: any = [];
   kichCosp: any = [];
   dsGiaSp: any = [];
+  giaSp: any;
   constructor(
     private route: ActivatedRoute,
     public http: HttpClient,
     public errorService: ErrorService
   ) {}
+  onKey(event) {
+    this.giaSp = event;
+  }
 
   ngOnInit() {
     this.sub = this.route.params.subscribe((param) => {
@@ -44,9 +48,12 @@ export class SanPhamComponent implements OnInit {
         (data) => {
           _thuongHieu.push(data);
           _thuongHieu.forEach((th) => {
+            this.thuongHieu = th;
             th.loaiSps.forEach((lsp) => {
+              this.loaiSp = lsp;
               lsp.sanPhams.forEach((sp) => {
                 _sanPham.push(sp);
+                this.sanPham = sp;
                 sp.kichCoSps.forEach((element) => {
                   _kichCoSp.push(element);
                   _dsGiaSP.push(element.giaSp);
@@ -54,17 +61,21 @@ export class SanPhamComponent implements OnInit {
               });
             });
           });
-          this.thuongHieu = _thuongHieu;
-          this.sanPham = _sanPham;
+          // this.thuongHieu = _thuongHieu;
+          // this.sanPham = _sanPham;
           this.kichCosp = _kichCoSp.sort(function (a, b) {
             return a - b;
           });
           this.dsGiaSp = _dsGiaSP.sort(function (a, b) {
             return a - b;
           });
-          console.log(this.sanPham);
-          console.log(this.kichCosp);
-          console.log(this.dsGiaSp);
+
+          this.giaSp = this.dsGiaSp[this.dsGiaSp.length - 1];
+          console.log('thuongHieu', this.thuongHieu);
+          console.log('loaiSp', this.loaiSp);
+          console.log('sanPham', this.sanPham);
+          console.log('kichCosp', this.kichCosp);
+          console.log('dsGiaSp', this.dsGiaSp);
         },
         (error) => {
           this.errorService.showError(error);

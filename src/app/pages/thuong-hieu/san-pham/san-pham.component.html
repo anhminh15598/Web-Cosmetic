@@ -20,30 +20,34 @@
     <div class="col-2">
       <span><a [routerLink]="['/']">Trang chủ</a></span> /
       <span
-        ><a [routerLink]="['../../']">{{ sanPham.tenThuongHieu }}</a></span
+        ><a [routerLink]="['../../']">{{ thuongHieu.tenThuongHieu }}</a></span
       >
       /
       <span
         ><a [routerLink]="['../../']">{{ loaiSp.tenLoaiSp }}</a></span
       >
 
-      <h1>{{ sanPham.tenSp }}</h1>
+      <h1 class="my-2">{{ sanPham.tenSp }}</h1>
 
       <div class="kichCo">
         <div class="select-box">
           <div class="select-box__current" tabindex="1">
-            <div class="select-box__value">
+            <div
+              class="select-box__value"
+              *ngFor="let kc of kichCosp; let i = index"
+            >
               <input
                 class="select-box__input"
                 type="radio"
-                id="0"
-                value="1"
+                id="{{ i }}"
+                value="{{ i + 1 }}"
+                (change)="onKey(kc.giaSp)"
                 name="Ben"
                 checked="checked"
               />
-              <p class="select-box__input-text">Cream</p>
+              <p class="select-box__input-text">{{ kc.tenKichCo }}</p>
             </div>
-            <div class="select-box__value">
+            <!-- <div class="select-box__value">
               <input
                 class="select-box__input"
                 type="radio"
@@ -53,7 +57,7 @@
                 checked="checked"
               />
               <p class="select-box__input-text">Cheese</p>
-            </div>
+            </div> -->
             <img
               class="select-box__icon"
               src="http://cdn.onlinewebfonts.com/svg/img_295694.svg"
@@ -62,26 +66,18 @@
             />
           </div>
           <ul class="select-box__list">
-            <li>
+            <li *ngFor="let kc of kichCosp; let i = index">
               <label
                 class="select-box__option"
-                for="0"
+                for="{{ i }}"
                 aria-hidden="aria-hidden"
-                >Cream</label
-              >
-            </li>
-            <li>
-              <label
-                class="select-box__option"
-                for="1"
-                aria-hidden="aria-hidden"
-                >Cheese</label
+                >{{ kc.tenKichCo }}</label
               >
             </li>
           </ul>
         </div>
       </div>
-      <h4>Giá: $50.00</h4>
+      <h4>Giá sản phẩm: {{ giaSp }}</h4>
       <!-- <input type="number" value="1" />
       <a href="" class="btn"
         ><i class="fa fa-shopping-cart" aria-hidden="true"></i> Add To Cash</a
@@ -105,7 +101,7 @@
 <div class="small-container">
   <div class="row row-2">
     <h2>Sản phẩm cùng loại</h2>
-    <p id="view-more">View More</p>
+    <p id="view-more"><a [routerLink]="['../../']"> View More</a></p>
   </div>
   <div class="row">
     <div class="col-4">
