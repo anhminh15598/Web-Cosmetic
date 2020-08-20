@@ -20,7 +20,7 @@ export class SanPhamComponent implements OnInit {
   kichCosp: any = [];
   dsGiaSp: any = [];
   giaSp: any;
-  // _albums = [];
+  locdsSanPhamLoc = [];
 
   _albums: any = [
     {
@@ -44,7 +44,7 @@ export class SanPhamComponent implements OnInit {
     public errorService: ErrorService,
     private _lightbox: Lightbox
   ) {
-    console.log(this._albums.length);
+    // console.log(this._albums.length);
 
     for (let i = 0; i < this._albums.length; i++) {
       // const src = '../../../../assets/img/sp' + i + '.png';
@@ -58,7 +58,7 @@ export class SanPhamComponent implements OnInit {
         thumb: thumb,
       };
       this.hinhAnh.push(album);
-      console.log('album', album);
+      // console.log('album', album);
     }
   }
   open(index: number): void {
@@ -78,17 +78,12 @@ export class SanPhamComponent implements OnInit {
     });
   }
 
-  ngOnInit() {
-    this.sub = this.route.params.subscribe((param) => {
-      this.id = +param['id'];
-      this.getSanPham(this.id);
-    });
-  }
   getSanPham(id) {
     let _thuongHieu: any = [];
     let _kichCoSp: any = [];
     let _sanPham: any = [];
     let _dsGiaSP: any = [];
+    let locThuongHieu = [];
     this.http
       .get(environment.apiUrl + environment.apiList.SanPham + id, {
         headers: new HttpHeaders({
@@ -133,6 +128,37 @@ export class SanPhamComponent implements OnInit {
           console.log('sanPham', this.sanPham);
           console.log('kichCosp', this.kichCosp);
           console.log('dsGiaSp', this.dsGiaSp);
+
+          this.http
+            .get(
+              environment.apiUrl +
+                environment.apiList.DsThuongHieu +
+                this.thuongHieu.id,
+              {
+                headers: new HttpHeaders({
+                  'Content-Type': 'application/json',
+                }),
+              }
+            )
+            .subscribe(
+              (data) => {
+                locThuongHieu.push(data);
+                locThuongHieu.forEach((lth) => {
+                  for (let i = 0; i < lth.loaiSps.length; i++) {
+                    // console.log('lth.loaiSps[i]', lth.loaiSps[i].id);
+                    // console.log('id', this.loaiSp.id);
+
+                    if (lth.loaiSps[i].id === this.loaiSp.id) {
+                      this.locdsSanPhamLoc = lth.loaiSps[i].sanPhams;
+                      console.log('locdsSanPhamLoc', this.locdsSanPhamLoc);
+                    }
+                  }
+                });
+              },
+              (error) => {
+                this.errorService.showError(error);
+              }
+            );
         },
         (error) => {
           this.errorService.showError(error);
@@ -141,4 +167,11 @@ export class SanPhamComponent implements OnInit {
   }
 
   giaSanPham(gia) {}
+
+  ngOnInit() {
+    this.sub = this.route.params.subscribe((param) => {
+      this.id = +param['id'];
+      this.getSanPham(this.id);
+    });
+  }
 }

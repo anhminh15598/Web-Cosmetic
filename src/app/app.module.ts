@@ -24,7 +24,6 @@ import { HomeAdminComponent } from './admin-pages/home-admin/home-admin.componen
 import { QuanLyThuongHieuModule } from './admin-pages/quan-ly-thuong-hieu/quan-ly-thuong-hieu.module';
 import { FormsModule } from '@angular/forms';
 import { LightboxModule } from 'ngx-lightbox';
-import { FacebookModule } from 'ngx-facebook';
 
 @NgModule({
   declarations: [
@@ -54,7 +53,6 @@ import { FacebookModule } from 'ngx-facebook';
     AuthenticationModule,
     QuanLyThuongHieuModule,
     FormsModule,
-    FacebookModule.forRoot(),
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },

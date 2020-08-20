@@ -86,38 +86,14 @@
     <p id="view-more"><a [routerLink]="['../../']"> View More</a></p>
   </div>
   <div class="row">
-    <div class="col-4">
+    <div class="col-4" *ngFor="let locSp of locdsSanPhamLoc">
       <img
         routerLinkActive="router-link-active"
         src="../../../assets/img/sp1.png"
         alt=""
       />
       <h4>
-        Red Printed T-shirt
-      </h4>
-
-      <p>$50.00</p>
-    </div>
-    <div class="col-4">
-      <img src="../../../assets/img/sp1.png" alt="" />
-      <h4>
-        Red Printed T-shirt
-      </h4>
-
-      <p>$50.00</p>
-    </div>
-    <div class="col-4">
-      <img src="../../../assets/img/sp1.png" alt="" />
-      <h4>
-        Red Printed T-shirt
-      </h4>
-
-      <p>$50.00</p>
-    </div>
-    <div class="col-4">
-      <img src="../../../assets/img/sp1.png" alt="" />
-      <h4>
-        Red Printed T-shirt
+        {{ locSp.tenSp }}
       </h4>
 
       <p>$50.00</p>
