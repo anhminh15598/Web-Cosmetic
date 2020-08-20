@@ -4,9 +4,19 @@
     <span aria-hidden="true">&times;</span>
   </button>
 </div>
+<form [formGroup]="formThemKichCo" (ngSubmit)="onClickSubmit(formThemKichCo.value)">
 <div class="modal-body">
-  <p> {{my_modal_content}}</p>
+    <div class="form-group">
+      <label>Tên Kích cỡ: </label>
+      <input type="input" class="form-control" formControlName="tenKichCo" required>
+    </div>
+    <div class="form-group">
+      <label for="exampleFormControlTextarea1">Giá</label>
+      <input type="input" class="form-control" formControlName="giaSp" required>
+    </div>
 </div>
 <div class="modal-footer">
   <button type="button" class="btn btn-outline-dark" (click)="activeModal.close('Close click')">Close</button>
+  <button type="submit" class="btn btn-primary">Thêm</button>
 </div>
+</form>

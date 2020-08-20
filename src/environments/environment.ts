@@ -12,6 +12,11 @@ export const environment = {
     SanPham: "ThuongHieux/getDetailSanPham/",
     TaiKhoan: "TaiKhoans/",
     DsLoaiSanPham: "ThuongHieux/getDsLoaiSanPham/",
+    Sanphams: "SanPhams/",
+    LoaiSanPham : "LoaiSps/",
+    DsSanPham : "ThuongHieux/GetDsSanPham/",
+    KichCoSanPham : "KichCoSps/",
+    dsKichCoSp : "KichCoSps/DsKichCo/"
   }
 };
 

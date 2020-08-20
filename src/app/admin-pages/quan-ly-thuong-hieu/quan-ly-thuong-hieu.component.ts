@@ -69,24 +69,7 @@ export class QuanLyThuongHieuComponent implements OnInit {
       };
   }
 
-  suaThuongHieu(id) {
-    var thuongHieu = {
-      TenThuongHieu : "aaaa13213",
-      MoTa : "hello"
-    };
-    this.http
-      .put(environment.apiUrl + environment.apiList.DsThuongHieu+ id, thuongHieu, {
-        headers: new HttpHeaders({
-          'Content-Type': 'application/json',
-        }),
-      })
-      .subscribe((data) => {
-        console.log("work");
-      }),
-      (error) => {
-        this.errorService.showError(error);
-      };
-  }
+  
   thuongHieu: any = [];
   getThuongHieu() {
     this.http
@@ -98,14 +81,12 @@ export class QuanLyThuongHieuComponent implements OnInit {
       .subscribe(
         (data) => {
           this.thuongHieu = data;
-
-          console.log(data);
         },
         (error) => {
           this.errorService.showError(error);
         }
       );
-  }
+    }
 
   ngOnInit(): void {
     this.getThuongHieu();
@@ -122,10 +103,11 @@ export class QuanLyThuongHieuComponent implements OnInit {
   moLSP(id){
     this.router.navigate(['/admin/loai-san-pham-admin',id]);
   }
-  moSuaTH(){
+  moSuaTH(id,tenTH){
     const modalRef = this.modalService.open(SuaThuongHieuComponent);
-    modalRef.componentInstance.my_modal_title = "Sửa Thương Hiệu";
+    modalRef.componentInstance.my_modal_title = "Sửa Thương Hiệu "+tenTH;
     modalRef.componentInstance.my_modal_content = 'I am your content';
+    modalRef.componentInstance.id = id;
   }
   moXoaTH(id,tenTH){
     const modalRef = this.modalService.open(XoaThuongHieuComponent);

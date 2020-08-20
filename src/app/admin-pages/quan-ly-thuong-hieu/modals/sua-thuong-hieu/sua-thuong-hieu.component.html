@@ -5,8 +5,28 @@
   </button>
 </div>
 <div class="modal-body">
-  <p> {{my_modal_content}}</p>
-</div>
-<div class="modal-footer">
-  <button type="button" class="btn btn-outline-dark" (click)="activeModal.close('Close click')">Close</button>
+  <form [formGroup]="suaThuongHieuForm" (ngSubmit)="onSubmit()">
+    <div class="form-group" >
+      <label for="">
+        Tên thương hiệu
+      </label>
+      <input type="text" formControlName="tenThuongHieu" class="form-control" [(ngModel)]="thuongHieu.tenThuongHieu" required>
+    </div>
+    <div class="form-group">
+      <label for="">
+        Mô tả
+      </label>
+      <textarea type="text" formControlName="moTa" [(ngModel)]="thuongHieu.moTa" class="form-control" required> </textarea>
+    </div>
+    <div class="form-group" >
+      <label for="">
+        Hình ảnh
+      </label>
+      <input type="text" formControlName="hinhAnh" class="form-control" required>
+    </div>
+    <div class="btn-right">
+      <button type="button" class="btn btn-outline-dark mr-2" (click)="activeModal.close('Close click')">Đóng</button>
+      <button type="button" class="btn btn-primary" type="submit">Lưu</button>
+    </div>
+  </form>
 </div>
