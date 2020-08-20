@@ -81,15 +81,18 @@ export class LoaiSanPhamAdminComponent implements OnInit {
     const modalRef = this.modalService.open(ThemLoaiSanPhamComponent);
     modalRef.componentInstance.my_modal_title = 'Thêm Loại sản phẩm';
     modalRef.componentInstance.my_modal_content = 'I am your content';
+    modalRef.componentInstance.idTH = this.id;
   }
-  moSuaLsp(id){
+  moSuaLsp(id,tenLSP){
     const modalRef = this.modalService.open(SuaLoaiSanPhamComponent);
-    modalRef.componentInstance.my_modal_title = 'Sửa Loại sản Phẩm';
+    modalRef.componentInstance.my_modal_title = 'Sửa Loại sản Phẩm '+tenLSP;
+    modalRef.componentInstance.tenLSP = tenLSP;
     modalRef.componentInstance.id = id;
   }
-  moXoaLsp(id){
+  moXoaLsp(id,tenLSP){
     const modalRef = this.modalService.open(XoaLoaiSanPhamComponent);
-    modalRef.componentInstance.my_modal_title = 'Xóa Loại sản phẩm';
+    modalRef.componentInstance.my_modal_title = 'Xóa Loại sản phẩm '+tenLSP;
+    modalRef.componentInstance.tenLSP = tenLSP;
     modalRef.componentInstance.id = id;
   }
 }

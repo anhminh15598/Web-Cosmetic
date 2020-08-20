@@ -5,8 +5,44 @@
   </button>
 </div>
 <div class="modal-body">
-  <p> {{my_modal_content}}</p>
-</div>
-<div class="modal-footer">
-  <button type="button" class="btn btn-outline-dark" (click)="activeModal.close('Close click')">Close</button>
+  <form [formGroup]="suaSanPhamForm" (ngSubmit)="onSubmit(sanPham.id)">
+    <div class="form-group" >
+      <label for="">
+        Tên sản phẩm
+      </label>
+      <input type="text" formControlName="tenSp" class="form-control" [(ngModel)]="sanPham.tenSp" required>
+    </div>
+    <div class="form-group">
+      <label for="">Loại sản phẩm</label>
+      <div class="input-group mb-3">
+        <div class="input-group mb-3">
+          <select class="custom-select" formControlName="idLoaiSp" id="inputGroupSelect01"  [value]="sanPham.idLoaiSp">
+            <option *ngFor="let item of dsloaiSP" [value]="item.id" [selected]="item.id === sanPham.idLoaiSp">{{ item.tenThuongHieu }}</option>
+          </select>
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="">
+        Lợi ích
+      </label>
+      <textarea type="text" formControlName="loiIch" [(ngModel)]="sanPham.loiIch" class="form-control" required> </textarea>
+    </div>
+    <div class="form-group">
+      <label for="">
+        Mô tả
+      </label>
+      <textarea type="text" formControlName="moTa" [(ngModel)]="sanPham.moTa" class="form-control" required> </textarea>
+    </div>
+    <div class="form-group" >
+      <label for="">
+        Hình ảnh
+      </label>
+      <input type="text"  class="form-control"  required>
+    </div>
+    <div class="btn-right">
+      <button type="button" class="btn btn-outline-dark mr-2" (click)="activeModal.close('Close click')">Đóng</button>
+      <button type="button" class="btn btn-primary" type="submit">Lưu</button>
+    </div>
+  </form>
 </div>

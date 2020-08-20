@@ -1,12 +1,26 @@
 <div class="modal-header">
-  <h4 class="modal-title">{{my_modal_title}}</h4>
+  <h4 class="modal-title">{{my_modal_title}} {{ tenKc }}</h4>
   <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
     <span aria-hidden="true">&times;</span>
   </button>
 </div>
 <div class="modal-body">
-  <p> {{my_modal_content}}</p>
-</div>
-<div class="modal-footer">
-  <button type="button" class="btn btn-outline-dark" (click)="activeModal.close('Close click')">Close</button>
+  <form [formGroup]="suaKichCoForm" (ngSubmit)="onSubmit()">
+    <div class="form-group" >
+      <label for="">
+        Tên thương hiệu
+      </label>
+      <input type="text" formControlName="tenKichCo" class="form-control" [(ngModel)]="kichCo.tenKichCo" required>
+    </div>
+    <div class="form-group">
+      <label for="">
+        Giá
+      </label>
+      <textarea type="text" formControlName="giaSp" [(ngModel)]="kichCo.giaSp" class="form-control" required> </textarea>
+    </div>
+    <div class="btn-right">
+      <button type="button" class="btn btn-outline-dark mr-2" (click)="activeModal.close('Close click')">Đóng</button>
+      <button type="button" class="btn btn-primary" type="submit">Lưu</button>
+    </div>
+  </form>
 </div>

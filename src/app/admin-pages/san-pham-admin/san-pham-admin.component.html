@@ -28,20 +28,22 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let item of sanPham; let i = index">
-            <th scope="row">{{ i + 1 }}</th>
-            <td>{{ item.tenSp }}</td>
-            <td>{{ item.idLoaiSp }}</td>
-            <td></td>
-            <td>{{ item.moTa }}</td>
-            <td>{{ item.loiIch }}</td>
-            <td>{{ item.hinhAnhs }}</td>
-            <td>
-              <button type="button" class="btn btn-warning mr-2" (click)="moKichCo(1)">Kích cỡ/ giá</button>
-              <button type="button" class="btn btn-primary mr-2" (click)="moSuaSp()">Sửa</button>
-              <button type="button" class="btn btn-danger" (click)="moXoaSp()">Xóa</button>
-            </td>
-          </tr>
+          <ng-container *ngFor="let item of dsLoaiSP;let j = index">
+            <tr *ngFor="let sp of item.sanPhams; let i = index">
+              <th scope="row">{{ i }}</th>
+              <td>{{ sp.tenSp }}</td>
+              <td>{{ thuongHieu }}</td>
+              <td>{{ item.tenLoaiSp }}</td>
+              <td>{{ sp.moTa }}</td>
+              <td>{{ sp.loiIch }}</td>
+              <td>{{ sp.hinhAnhs }}</td>
+              <td>
+                <button type="button" class="btn btn-warning mr-2" (click)="moKichCo(sp.id)">Kích cỡ/ giá</button>
+                <button type="button" class="btn btn-primary mr-2" (click)="moSuaSp(sp.id,sp.tenSp)">Sửa</button>
+                <button type="button" class="btn btn-danger" (click)="moXoaSp(sp.id,sp.tenSp)">Xóa</button>
+              </td>
+            </tr>
+          </ng-container>
         </tbody>
       </table>
     </div>
@@ -73,98 +75,69 @@ aria-hidden="true"
       </button>
     </div>
     <div class="modal-body">
-      <div class="form-group">
-        <label for="">Tên sản phẩm</label>
-        <input
-          type="text"
-          class="form-control"
-          name=""
-          id=""
-          aria-describedby="helpId"
-          placeholder=""
-        />
-        <small id="helpId" class="form-text text-muted">Help text</small>
-      </div>
-      <div class="form-group">
-        <label for="">Thương hiệu</label>
-        <div class="input-group mb-3">
-          <!-- <div class="input-group-prepend">
-          <label class="input-group-text" for="inputGroupSelect01"
-            >Options</label
-          >
-        </div> -->
-          <select class="custom-select" id="inputGroupSelect01">
-            <option selected>Choose...</option>
-            <option value="1">One</option>
-            <option value="2">Two</option>
-            <option value="3">Three</option>
-          </select>
+      <form  [formGroup]="formThemSp" (ngSubmit)="onClickSubmit(formThemSp.value)">
+        <div class="form-group">
+          <label for="">Tên sản phẩm</label>
+          <input
+            type="text"
+            class="form-control"
+            id=""
+            aria-describedby="helpId"
+            placeholder=""
+            formControlName="tenSp"
+          />
         </div>
-        <small id="helpId" class="form-text text-muted">Help text</small>
-      </div>
-      <div class="form-group">
-        <label for="">Loại sản phẩm</label>
-        <div class="input-group mb-3">
-          <!-- <div class="input-group-prepend">
-          <label class="input-group-text" for="inputGroupSelect01"
-            >Options</label
-          >
-        </div> -->
-          <select class="custom-select" id="inputGroupSelect01">
-            <option selected>Choose...</option>
-            <option value="1">One</option>
-            <option value="2">Two</option>
-            <option value="3">Three</option>
-          </select>
+        <div class="form-group">
+          <label for="">Thương hiệu</label>
+          <div class="input-group mb-3">
+            <input type="text" class="form-control" disabled [value]="thuongHieu">
+          </div>
         </div>
-        <small id="helpId" class="form-text text-muted">Help text</small>
-      </div>
-      <div class="form-group">
-        <label for="">Kích cỡ sản phẩm</label>
-        <input
-          type="text"
-          class="form-control"
-          name=""
-          id="" 
-          aria-describedby="helpId"
-          placeholder=""
-        />
-        <small id="helpId" class="form-text text-muted">Help text</small>
-      </div>
-      <div class="form-group">
-        <label for="">Mô tả</label>
-        <input
-          type="text"
-          class="form-control"
-          name=""
-          id=""
-          aria-describedby="helpId"
-          placeholder=""
-        />
-        <small id="helpId" class="form-text text-muted">Help text</small>
-      </div>
-      <div class="form-group">
-        <label for="">Lợi ích</label>
-        <input
-          type="text"
-          class="form-control"
-          name=""
-          id=""
-          aria-describedby="helpId"
-          placeholder=""
-        />
-        <small id="helpId" class="form-text text-muted">Help text</small>
-      </div>
-    </div>
-    <div class="modal-footer">
-      <button
-        type="button"
-        class="btn btn-secondary"
-        data-dismiss="modal"
-      >
-        Hủy
-      </button>
-      <button type="button" class="btn btn-primary">Thêm</button>
+        <div class="form-group">
+          <label for="">Loại sản phẩm</label>
+          <div class="input-group mb-3">
+            <div class="input-group mb-3">
+              <select class="custom-select" formControlName="idLoaiSp" id="inputGroupSelect01">
+                <option *ngFor="let item of dsLoaiSP" [value]="item.id">{{ item.tenLoaiSp }}</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="">Mô tả</label>
+          <input
+            type="text"
+            class="form-control"
+            name=""
+            id=""
+            aria-describedby="helpId"
+            placeholder=""
+            formControlName="moTa"
+          />
+        </div>
+        <div class="form-group">
+          <label for="">Lợi ích</label>
+          <input
+            type="text"
+            class="form-control"
+            name=""
+            id=""
+            aria-describedby="helpId"
+            placeholder=""
+            formControlName="loiIch"
+          />
+        </div>
+        <div class="right">
+          <button
+          type="button"
+          class="btn btn-secondary"
+          data-dismiss="modal"
+          >
+            Hủy
+          </button>
+          <button type="submit" class="btn btn-primary ml-2">Thêm</button>
+        </div>
+      </form>
     </div>
   </div>
 </div>

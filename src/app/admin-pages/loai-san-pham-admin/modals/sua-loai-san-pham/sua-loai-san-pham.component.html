@@ -5,8 +5,22 @@
   </button>
 </div>
 <div class="modal-body">
-  <p> {{id}}</p>
-</div>
-<div class="modal-footer">
-  <button type="button" class="btn btn-outline-dark" (click)="activeModal.close('Close click')">Close</button>
+  <form [formGroup]="suaLoaiSanPhamForm" (ngSubmit)="onSubmit()">
+    <div class="form-group" >
+      <label for="">
+        Tên thương hiệu
+      </label>
+      <input type="text" formControlName="tenLoaiSp" class="form-control" [(ngModel)]="loaiSanPham.tenLoaiSp" required>
+    </div>
+    <div class="form-group">
+      <label for="">
+        Mô tả
+      </label>
+      <textarea type="text" formControlName="moTa" [(ngModel)]="loaiSanPham.moTa" class="form-control" required> </textarea>
+    </div>
+    <div class="btn-right">
+      <button type="button" class="btn btn-outline-dark mr-2" (click)="activeModal.close('Close click')">Đóng</button>
+      <button type="button" class="btn btn-primary" type="submit">Lưu</button>
+    </div>
+  </form>
 </div>
