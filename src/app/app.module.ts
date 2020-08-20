@@ -22,8 +22,13 @@ import { AuthInterceptor } from 'src/Interceptors/auth.interceptor';
 import { AuthenticationModule } from './authentication/authentication.module';
 import { HomeAdminComponent } from './admin-pages/home-admin/home-admin.component';
 import { QuanLyThuongHieuModule } from './admin-pages/quan-ly-thuong-hieu/quan-ly-thuong-hieu.module';
+<<<<<<< HEAD
 import { ThuongHieuModule } from './pages/thuong-hieu/thuong-hieu.module';
 import { FormsModule } from '@angular/forms';
+=======
+import { FormsModule } from '@angular/forms';
+import { LightboxModule } from 'ngx-lightbox';
+>>>>>>> master
 
 @NgModule({
   declarations: [
@@ -45,13 +50,17 @@ import { FormsModule } from '@angular/forms';
     HomeAdminComponent,
   ],
   imports: [
+    LightboxModule,
     BrowserModule,
     AppRoutingModule,
     SanPhamAdminModule,
     HttpClientModule,
     AuthenticationModule,
     QuanLyThuongHieuModule,
+<<<<<<< HEAD
     ThuongHieuModule,
+=======
+>>>>>>> master
     FormsModule,
   ],
   providers: [

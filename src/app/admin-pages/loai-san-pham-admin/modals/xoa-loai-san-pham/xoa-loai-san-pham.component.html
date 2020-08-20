@@ -5,8 +5,9 @@
   </button>
 </div>
 <div class="modal-body">
-  <p> {{my_modal_content}}</p>
+  <p> Bạn có chắc chắn xóa Loại Sản Phẩm <b>"{{ tenLSP }}"</b> toàn bộ dữ liệu sẽ bị xóa?</p>
 </div>
 <div class="modal-footer">
   <button type="button" class="btn btn-outline-dark" (click)="activeModal.close('Close click')">Close</button>
+  <button type="button" class="btn btn-danger" (click)="xoaLoaiSP(id)">Xóa</button>
 </div>

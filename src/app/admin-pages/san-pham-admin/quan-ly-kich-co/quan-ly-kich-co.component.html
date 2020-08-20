@@ -19,13 +19,13 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <th scope="row">a</th>
-            <td>b</td>
-            <td>c</td>
+          <tr *ngFor="let item of kichCoSP; let i = index">
+            <td>{{ i + 1 }}</td>
+            <th scope="row" >{{item.tenKichCo}}</th>
+            <td>{{ item.giaSp }}</td>
             <td>  
-              <button type="button" class="btn btn-primary mr-2" (click)="moSuaKc()">Sửa</button>
-              <button type="button" class="btn btn-danger" (click)="moXoaKc()">Xóa</button>
+              <button type="button" class="btn btn-primary mr-2" (click)="moSuaKc(item.id,item.tenKichCo)">Sửa</button>
+              <button type="button" class="btn btn-danger" (click)="moXoaKc(item.id,item.tenKichCo)">Xóa</button>
             </td>
           </tr>
         </tbody>

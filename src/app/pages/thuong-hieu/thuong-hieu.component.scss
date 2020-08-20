@@ -33,13 +33,14 @@
       margin-bottom: 0;
       color: #276fad;
       padding: 0;
+      text-align: center;
     }
   }
   .thongTinSanPham {
     height: 400px;
   }
   .moTa {
-    font-size: 14px;
+    font-size: 16px;
     font-weight: 300;
     display: block;
     margin-bottom: 4%;
@@ -199,6 +200,25 @@
         .input-field.second-wrap {
           -ms-flex-positive: 1;
           flex-grow: 1;
+          .input-search {
+          }
+          ul {
+            position: absolute;
+            z-index: 5;
+            display: flex;
+            transform: translateY(-14px);
+            width: 30%;
+            li:hover {
+              background-color: #f4fcfa;
+              color: black;
+            }
+          }
+          .hide {
+            display: none;
+          }
+          .show {
+            display: flex;
+          }
         }
         .input-field.third-wrap {
           width: 74px;
@@ -235,6 +255,7 @@
   transition: transform 0.5s;
 }
 .thongTinSanPham {
+  height: 400px;
   box-shadow: 0px 8px 20px 0px rgba(0, 0, 0, 0.1);
 }
 

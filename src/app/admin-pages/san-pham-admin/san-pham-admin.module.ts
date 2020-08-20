@@ -9,7 +9,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { SuaSanPhamComponent } from './modals/sua-san-pham/sua-san-pham.component';
 import { XoaSanPhamComponent } from './modals/xoa-san-pham/xoa-san-pham.component';
 @NgModule({
-  imports: [CommonModule,QuanLyKichCoModule,NgxPaginationModule,NgbModule],
+  imports: [CommonModule,QuanLyKichCoModule,NgxPaginationModule,NgbModule,ReactiveFormsModule],
   declarations: [SanPhamAdminComponent,SuaSanPhamComponent,XoaSanPhamComponent],
   exports: [SanPhamAdminComponent],
   entryComponents:[

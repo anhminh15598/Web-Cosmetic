@@ -14,6 +14,7 @@ import { ErrorService } from 'src/service/error.service';
   styleUrls: ['./thuong-hieu.component.scss'],
 })
 export class ThuongHieuComponent implements OnInit {
+<<<<<<< HEAD
   term: string;
 
   filterData = [
@@ -43,8 +44,17 @@ export class ThuongHieuComponent implements OnInit {
       address: '16288 Reichel Harbor',
     },
   ];
+=======
+  searchText = '';
+>>>>>>> master
 
   filterargs = {};
+  values = '';
+  onKey(event: any) {
+    // without type info
+    this.values = event.target.value;
+    console.log(this.values);
+  }
   p: any;
   //listThuongHieu = [{id:"1", tenThuongHieu:'thuongHieu1'},{id:"2", tenThuongHieu:'thuongHieu2'}];
   id: number;
@@ -70,6 +80,7 @@ export class ThuongHieuComponent implements OnInit {
     var _dsThuongHieu = [];
     var _dsLoaiSP = [];
     var _dsSanpham = [];
+
     this.http
       .get(environment.apiUrl + environment.apiList.DsThuongHieu + id, {
         headers: new HttpHeaders({
@@ -79,6 +90,7 @@ export class ThuongHieuComponent implements OnInit {
       .subscribe(
         (data) => {
           _dsThuongHieu.push(data);
+
           _dsThuongHieu.forEach((th) => {
             th.loaiSps.forEach((lsp) => {
               lsp.sanPhams.forEach((sp) => {
@@ -89,6 +101,9 @@ export class ThuongHieuComponent implements OnInit {
           this.thuongHieu = _dsThuongHieu;
           this.dsSanPham = _dsSanpham;
           this.dsSanPhamLoc = this.dsSanPham;
+          console.log('thuongHieu', this.thuongHieu);
+          console.log('dsSanPham', this.dsSanPham);
+          console.log('dsSanPhamLoc', this.dsSanPhamLoc);
         },
         (error) => {
           this.errorService.showError(error);

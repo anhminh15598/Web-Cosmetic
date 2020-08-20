@@ -1,37 +1,26 @@
-  <!-- <div class="modal-header">
-    <h4 class="modal-title">{{my_modal_title}}</h4>
-    <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
-      <span aria-hidden="true">&times;</span>
-    </button>
-  </div>
-  <div class="modal-body"> -->
-    <div class="header-table">
-      <h3>Quản Lý Loại Sản Phẩm</h3>
-      <button class="btn btn-success" (click)="moThemLsp()">Thêm loại sản phẩm</button>
-  </div>
-  <table class="table">
-      <thead>
-        <tr>
-          <th scope="col">stt</th>
-          <th scope="col">Tên Loại Sản Phẩm</th>
-          <th scope="col">Mô tả</th>
-          <th scope="col">Tùy chọn</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <th scope="row">1</th>
-          <td>Mark</td>
-          <td>Otto</td>
-          <td>
-            <button class="btn btn-primary mr-2" (click)="moSuaLsp()">Sửa</button>
-            <button class="btn btn-danger" (click)="moXoaLsp()">Xóa</button>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-    <!-- </div>
-    <div class="modal-footer">
-      <button type="button" class="btn btn-outline-dark" (click)="activeModal.close('Close click')">Close</button>
-    </div> -->
+<div class="header-table">
+    <h3>Quản Lý Loại Sản Phẩm: {{ tenThuongHieu }} </h3>
+    <button class="btn btn-success" (click)="moThemLsp()">Thêm loại sản phẩm</button>
+</div>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">stt</th>
+      <th scope="col">Tên Loại Sản Phẩm</th>
+      <th scope="col">Mô tả</th>
+      <th scope="col">Tùy chọn</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let lsp of dsloaiSP; let i = index">
+      <th scope="row">{{i+1}}</th>
+      <td>{{lsp.tenThuongHieu}}</td>
+      <td>{{lsp.moTa}}</td>
+      <td>
+        <button class="btn btn-primary mr-2" (click)="moSuaLsp(lsp.id,lsp.tenThuongHieu)">Sửa</button>
+        <button class="btn btn-danger" (click)="moXoaLsp(lsp.id,lsp.tenThuongHieu)">Xóa</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
 

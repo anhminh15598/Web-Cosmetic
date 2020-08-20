@@ -5,45 +5,15 @@
   </div>
   <div class="moTa">
     <p>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti,
-      repudiandae iusto. Odio, alias praesentium eligendi est eius delectus
-      quasi voluptatibus qui odit dolore. Quis id harum, minima aspernatur
-      aliquid cumque.
+      {{ item.moTa }}
     </p>
   </div>
-
-  <!-- <div class="row row-2">
-    <h2>{{ item.tenThuongHieu }}</h2>
-    <select (change)="locLoaiSP($event)">
-      <option value="0">Tất cả sản phẩm</option>
-      <option *ngFor="let loaiSp of item.loaiSps" [value]="loaiSp.id">{{
-        loaiSp.tenLoaiSp
-      }}</option>
-    </select>
-    <select>
-      <option value="">Default shoping</option>
-      <option value="">Short by price</option>
-      <option value="">Short by popularity</option>
-      <option value="">Short by rating</option>
-      <option value="">Short by sale</option>
-    </select>
-  </div> -->
 
   <!-- star -->
   <div class="s003">
     <form>
       <div class="inner-form">
-        <div class="input-field first-wrap">
-          <div class="input-select">
-            <select (change)="locLoaiSP($event)">
-              <option value="0">Tất cả sản phẩm</option>
-              <option *ngFor="let loaiSp of item.loaiSps" [value]="loaiSp.id">
-                {{ loaiSp.tenLoaiSp }}</option
-              >
-            </select>
-          </div>
-        </div>
-        <div class="input-field first-wrap">
+        <!-- <div class="input-field first-wrap">
           <div class="input-select">
             <select data-trigger="" name="choices-single-defaul">
               <option value="">Sắp xếp theo</option>
@@ -52,9 +22,10 @@
               <option value="">Short by rating</option>
             </select>
           </div>
-        </div>
+        </div> -->
         <div class="input-field second-wrap">
           <!-- <input id="search" type="text" placeholder="Tìm kiếm" /> -->
+<<<<<<< HEAD
           <div class="form-group">
             <input
               id="search"
@@ -79,10 +50,50 @@
               </tr>
             </tbody>
           </table>
+=======
+          <div class="content" role="main">
+            <div class="input-search">
+              <div class="form-group">
+                <input
+                  type="text"
+                  placeholder="Tìm kiếm"
+                  class="form-control"
+                  id="search"
+                  aria-describedby="search-text"
+                  [(ngModel)]="searchText"
+                  autofocus
+                  name="first"
+                  (keyup)="onKey($event)"
+                  autocomplete="off"
+                />
+              </div>
+              <ul
+                class="list-group list-group-flush"
+                [ngClass]="{
+                  hide: values == '',
+                  show: values !== ''
+                }"
+              >
+                <li
+                  class="list-group-item"
+                  *ngFor="let c of dsSanPham | appFilter: searchText"
+                  appHighlight
+                  [searchedWord]="searchText"
+                  [content]="c.tenSp"
+                  [classToApply]="'font-weight-bold'"
+                  [setTitle]="'true'"
+                  [routerLink]="['san-pham', c.id]"
+                >
+                  {{ c.tenSp }}
+                </li>
+              </ul>
+            </div>
+          </div>
+>>>>>>> master
         </div>
 
         <!-- Search -->
-        <div class="input-field third-wrap">
+        <!-- <div class="input-field third-wrap">
           <button class="btn-search" type="button">
             <svg
               class="svg-inline--fa fa-search fa-w-16"
@@ -98,8 +109,18 @@
               ></path>
             </svg>
           </button>
-        </div>
+        </div> -->
         <!-- End-search -->
+        <div class="input-field first-wrap">
+          <div class="input-select">
+            <select (change)="locLoaiSP($event)">
+              <option value="0">Tất cả sản phẩm</option>
+              <option *ngFor="let loaiSp of item.loaiSps" [value]="loaiSp.id">
+                {{ loaiSp.tenLoaiSp }}</option
+              >
+            </select>
+          </div>
+        </div>
       </div>
       <p style="padding: 2% 1%;">Có "{{ dsSanPhamLoc.length }}" sản phẩm</p>
     </form>
@@ -114,13 +135,10 @@
         let sanPham of dsSanPhamLoc
           | paginate: { itemsPerPage: 10, currentPage: p }
       "
+      [routerLink]="['san-pham', sanPham.id]"
+      routerLinkActive="router-link-active"
     >
-      <img
-        [routerLink]="['san-pham', 1]"
-        routerLinkActive="router-link-active"
-        src="../../../assets/img/sp1.png"
-        alt=""
-      />
+      <img src="../../../assets/img/sp1.png" alt="" />
       <h4>
         {{ sanPham.tenSp }}
       </h4>

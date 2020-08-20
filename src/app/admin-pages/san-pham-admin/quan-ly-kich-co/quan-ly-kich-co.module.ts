@@ -12,13 +12,15 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
   imports: [
     CommonModule,
     NgxPaginationModule,
-    NgbModule
-  ],
+    NgbModule,
+    ReactiveFormsModule
+  ],  
   declarations: [
     QuanLyKichCoComponent,
     ThemKichCoComponent,
     XoaKichCoComponent,
-    SuaKichCoComponent]
+    SuaKichCoComponent
+  ]
   ,
   entryComponents:[
     ThemKichCoComponent,
