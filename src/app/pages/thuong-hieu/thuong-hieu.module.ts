@@ -4,24 +4,24 @@ import { ThuongHieuComponent } from './thuong-hieu.component';
 import { RouterModule } from '@angular/router';
 import { ThuongHieuRoutes } from './thuong-hieu.routing';
 import { NgxPaginationModule } from 'ngx-pagination';
-import { BrowserModule } from '@angular/platform-browser';
-import { SanPhamComponent } from './san-pham/san-pham.component';
 import { FilterPipe } from 'src/pipe/filter.pipe';
 import { FormsModule } from '@angular/forms';
 import { HighlightDirective } from 'src/app/directive/highlight.directive';
+import { SanPhamComponent } from './san-pham/san-pham.component';
 
 @NgModule({
   imports: [
     CommonModule,
     RouterModule.forChild(ThuongHieuRoutes),
     NgxPaginationModule,
+    FormsModule,
   ],
   declarations: [
-    ThuongHieuComponent, 
-    FilterPipe, 
-    HighlightDirective,
+    ThuongHieuComponent,
     SanPhamComponent,
-    FormsModule],
+    FilterPipe,
+    HighlightDirective,
+  ],
   exports: [],
 })
 export class ThuongHieuModule {}

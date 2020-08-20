@@ -23,6 +23,7 @@ import { AuthenticationModule } from './authentication/authentication.module';
 import { HomeAdminComponent } from './admin-pages/home-admin/home-admin.component';
 import { QuanLyThuongHieuModule } from './admin-pages/quan-ly-thuong-hieu/quan-ly-thuong-hieu.module';
 import { FormsModule } from '@angular/forms';
+import { LightboxModule } from 'ngx-lightbox';
 
 @NgModule({
   declarations: [
@@ -44,6 +45,7 @@ import { FormsModule } from '@angular/forms';
     HomeAdminComponent,
   ],
   imports: [
+    LightboxModule,
     BrowserModule,
     AppRoutingModule,
     SanPhamAdminModule,

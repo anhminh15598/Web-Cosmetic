@@ -4,7 +4,6 @@ import { QuanLyThuongHieuComponent } from './quan-ly-thuong-hieu.component';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
-import { LoaiSanPhamAdminComponent } from '../loai-san-pham-admin/loai-san-pham-admin.component';
 import { LoaiSanPhamAdminModule } from '../loai-san-pham-admin/loai-san-pham-admin.module';
 import "@angular/compiler"
 import { SuaThuongHieuComponent } from './modals/sua-thuong-hieu/sua-thuong-hieu.component';
