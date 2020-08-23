@@ -1,27 +1,26 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';  
+import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { environment } from 'src/environments/environment';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { ErrorService } from 'src/service/error.service';
 @Component({
   selector: 'app-xoa-san-pham',
   templateUrl: './xoa-san-pham.component.html',
-  styleUrls: ['./xoa-san-pham.component.scss']
+  styleUrls: ['./xoa-san-pham.component.scss'],
 })
 export class XoaSanPhamComponent implements OnInit {
   @Input() my_modal_title;
   @Input() my_modal_content;
   @Input() id;
   @Input() tenSp;
-  constructor(public activeModal: NgbActiveModal,
+  constructor(
+    public activeModal: NgbActiveModal,
     public http: HttpClient,
-    public errorService: ErrorService,
-    ) { }
+    public errorService: ErrorService
+  ) {}
 
-  ngOnInit() {
-    
-  }
-  xoaSp(){
+  ngOnInit() {}
+  xoaSp() {
     this.http
       .delete(environment.apiUrl + environment.apiList.Sanphams + this.id, {
         headers: new HttpHeaders({
@@ -29,7 +28,7 @@ export class XoaSanPhamComponent implements OnInit {
         }),
       })
       .subscribe((data) => {
-        console.log("work");
+        console.log('work');
         this.activeModal.close('Close click');
       }),
       (error) => {

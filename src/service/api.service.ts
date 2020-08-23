@@ -2,12 +2,14 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ApiService {
-  BASE_URL = 'https://api.usbeauty.vn/api';
+  // BASE_URL = 'https://api.usbeauty.vn/api';
+  BASE_URL = environment.apiUrl;
   // BASE_URL = 'http://movie0706.cybersoft.edu.vn/api';
   constructor(private http: HttpClient) {}
 
@@ -28,19 +30,19 @@ export class ApiService {
 
   get(path: string, options?: any): Observable<any> {
     return this.http
-      .get(`${this.BASE_URL}/${path}`, options)
+      .get(`${this.BASE_URL}${path}`, options)
       .pipe(catchError(this.handleError));
   }
 
   post(path: string, body: any, options?: any): Observable<any> {
     return this.http
-      .post(`${this.BASE_URL}/${path}`, body, options)
+      .post(`${this.BASE_URL}${path}`, body, options)
       .pipe(catchError(this.handleError));
   }
 
   put(path: string, body: any, options?: any): Observable<any> {
     return this.http
-      .put(`${this.BASE_URL}/${path}`, body, options)
+      .put(`${this.BASE_URL}${path}`, body, options)
       .pipe(catchError(this.handleError));
   }
 

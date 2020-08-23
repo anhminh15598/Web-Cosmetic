@@ -58,12 +58,14 @@ export class SanPhamComponent implements OnInit {
         thumb: thumb,
       };
       this.hinhAnh.push(album);
-      // console.log('album', album);
+      console.log('album', album);
     }
   }
   open(index: number): void {
     // open lightbox
     this._lightbox.open(this.hinhAnh, index);
+
+    console.log('i', index);
   }
 
   close(): void {

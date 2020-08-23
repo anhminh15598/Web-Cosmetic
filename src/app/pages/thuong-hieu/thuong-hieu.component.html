@@ -30,7 +30,7 @@
             <div class="input-search">
               <div class="form-group">
                 <input
-                  type="text"
+                  type="search"
                   placeholder="Tìm kiếm"
                   class="form-control"
                   id="search"
@@ -51,7 +51,9 @@
               >
                 <li
                   class="list-group-item"
-                  *ngFor="let c of dsSanPham | appFilter: searchText"
+                  *ngFor="
+                    let c of dsSanPham | appFilter: searchText | slice: 0:10
+                  "
                   appHighlight
                   [searchedWord]="searchText"
                   [content]="c.tenSp"
