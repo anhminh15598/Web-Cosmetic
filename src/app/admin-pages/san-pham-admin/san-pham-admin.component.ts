@@ -8,6 +8,7 @@ import { SuaSanPhamComponent } from './modals/sua-san-pham/sua-san-pham.componen
 import { XoaSanPhamComponent } from './modals/xoa-san-pham/xoa-san-pham.component';
 import { environment } from 'src/environments/environment';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { HinhAnhSanPhamComponent } from './modals/hinh-anh-san-pham/hinh-anh-san-pham.component';
 @Component({
   selector: 'app-san-pham-admin',
   templateUrl: './san-pham-admin.component.html',
@@ -88,7 +89,13 @@ export class SanPhamAdminComponent implements OnInit {
     this.themLoaiSanPham(formThemsp);
   }
 
-
+  moHinhAnhSanPham(id,tenSp){
+    const modalRef = this.modalService.open(HinhAnhSanPhamComponent);
+    modalRef.componentInstance.my_modal_title = 'Hình ảnh Sản Phẩm '+tenSp;
+    modalRef.componentInstance.tenSp = tenSp;
+    modalRef.componentInstance.idTH = this.id;
+    modalRef.componentInstance.id = id;
+  }
   
   moKichCo(id){
     this.router.navigate(['/admin/quan-ly-kich-co',id]);

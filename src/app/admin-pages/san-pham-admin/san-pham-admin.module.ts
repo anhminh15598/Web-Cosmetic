@@ -8,13 +8,16 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { SuaSanPhamComponent } from './modals/sua-san-pham/sua-san-pham.component';
 import { XoaSanPhamComponent } from './modals/xoa-san-pham/xoa-san-pham.component';
+import { HinhAnhSanPhamComponent } from './modals/hinh-anh-san-pham/hinh-anh-san-pham.component';
+
 @NgModule({
   imports: [CommonModule,QuanLyKichCoModule,NgxPaginationModule,NgbModule,ReactiveFormsModule],
-  declarations: [SanPhamAdminComponent,SuaSanPhamComponent,XoaSanPhamComponent],
+  declarations: [SanPhamAdminComponent,SuaSanPhamComponent,XoaSanPhamComponent,HinhAnhSanPhamComponent],
   exports: [SanPhamAdminComponent],
   entryComponents:[
     SuaSanPhamComponent,
     XoaSanPhamComponent,
+    HinhAnhSanPhamComponent
   ]
 })
 export class SanPhamAdminModule {}

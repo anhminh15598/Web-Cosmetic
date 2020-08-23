@@ -88,8 +88,6 @@ export class SuaSanPhamComponent implements OnInit {
       };
   }
   onSubmit(id){
-    console.log(id);
-    console.log(this.suaSanPhamForm.value);
     this.suaSanPhamForm.value.idLoaiSp = parseInt(this.suaSanPhamForm.value.idLoaiSp);
     this.suaSanPham(id,this.suaSanPhamForm.value);
   }

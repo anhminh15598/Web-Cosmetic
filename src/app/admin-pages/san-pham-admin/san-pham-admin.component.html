@@ -23,7 +23,6 @@
             <th scope="col">Loại sản phẩm</th>
             <th scope="col">Mô tả</th>
             <th scope="col">Lợi ích</th>
-            <th scope="col">Hình ảnh</th>
             <th scope="col" class="m-auto" style="text-align: center;">Tùy chọn</th>
           </tr>
         </thead>
@@ -36,9 +35,9 @@
               <td>{{ item.tenLoaiSp }}</td>
               <td>{{ sp.moTa }}</td>
               <td>{{ sp.loiIch }}</td>
-              <td>{{ sp.hinhAnhs }}</td>
               <td>
                 <button type="button" class="btn btn-warning mr-2" (click)="moKichCo(sp.id)">Kích cỡ/ giá</button>
+                <button type="button" class="btn btn-info mr-2" (click)="moHinhAnhSanPham(sp.id,sp.tenSp)">Hình ảnh</button>
                 <button type="button" class="btn btn-primary mr-2" (click)="moSuaSp(sp.id,sp.tenSp)">Sửa</button>
                 <button type="button" class="btn btn-danger" (click)="moXoaSp(sp.id,sp.tenSp)">Xóa</button>
               </td>

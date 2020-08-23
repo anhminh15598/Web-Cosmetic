@@ -4,8 +4,10 @@
 
 export const environment = {
   production: false,
-  apiUrl : "https://api.usbeauty.vn/api/",
-  // apiUrl : "https://localhost:44380/api/",
+  apiUrl : "https://localhost:44380/api/",
+  Url:"https://localhost:44380/",
+  // apiUrl : "https://api.usbeauty.vn/api/",
+  // Url:"https://api.usbeauty.vn/",
   apiList : {
     ThuongHieu: "ThuongHieux/",
     DsThuongHieu: "ThuongHieux/",
@@ -16,7 +18,10 @@ export const environment = {
     LoaiSanPham : "LoaiSps/",
     DsSanPham : "ThuongHieux/GetDsSanPham/",
     KichCoSanPham : "KichCoSps/",
-    dsKichCoSp : "KichCoSps/DsKichCo/"
+    dsKichCoSp : "KichCoSps/DsKichCo/",
+    uploadHinhanh : "upload/",
+    dsHinhAnhSanPham :"HinhAnhs/HinhAnhSanPham/",
+    hinhAnh :"HinhAnhs/",
   }
 };
 

@@ -1,0 +1,29 @@
+<div class="modal-header">
+  <h4 class="modal-title">{{my_modal_title}}</h4>
+  <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+  <div>
+    <input type="file" #file placeholder="Choose file" (change)="uploadFile(file.files)" style="display:none;">
+    <button type="button" class="btn btn-success" (click)="file.click()">Thêm hình ảnh</button>
+  </div>
+  <div>
+    <span class="upload" *ngIf="progress > 0">
+      {{progress}}%
+    </span>
+    <span class="upload" *ngIf="message">
+      {{message}}
+    </span>
+  </div>
+  
+  <div class="row image" style="margin-bottom:15px;">
+    <div class="col-4 p-2" *ngFor="let ha of dsHinhAnh">
+      <div class="delete-image" (click)="deleteHinhAnh(ha.tenHinhAnh)">
+        <span class="delete-image-icon"><i class="fa fa-times" aria-hidden="true"></i></span>
+      </div>
+      <img [src]="createImgPath(ha.linkHinhAnh)" alt="" style="width: 150px; height: 150px;">
+    </div>
+  </div>
+</div>

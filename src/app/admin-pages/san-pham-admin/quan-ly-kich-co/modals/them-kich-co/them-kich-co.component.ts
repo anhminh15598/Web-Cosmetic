@@ -40,6 +40,7 @@ export class ThemKichCoComponent implements OnInit {
         }),
       })
       .subscribe((data) => {
+        console.log(typeof   kichCoSP);
         console.log("work");
         this.activeModal.close('Close click');
       }),
