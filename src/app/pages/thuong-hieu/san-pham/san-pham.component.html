@@ -1,10 +1,26 @@
 <div class="small-container single-product">
   <div class="row">
     <div class="col-lg-6 col-sm-12">
-      <img src="../../../../assets/img/sp1.png" width="100%" />
+      <img
+        style="
+          box-shadow: 0px 8px 20px 0px rgba(0, 0, 0, 0.1);
+          cursor: zoom-in;
+        "
+        src="../../../../assets/img/sp1.png"
+        (click)="open(0)"
+        width="100%"
+      />
       <div class="small-img-row">
         <div class="small-img-col" *ngFor="let image of hinhAnh; let i = index">
-          <img [src]="image.thumb" (click)="open(i)" width="100%" />
+          <img
+            style="
+              box-shadow: 0px 8px 20px 0px rgba(0, 0, 0, 0.1);
+              cursor: zoom-in;
+            "
+            [src]="image.thumb"
+            (click)="open(i)"
+            width="100%"
+          />
         </div>
       </div>
     </div>
@@ -80,23 +96,27 @@
     </div>
   </div>
 </div>
-<div class="small-container">
+<div class="small-container sanPhamCungLoai">
   <div class="row row-2">
     <h2>Sản phẩm cùng loại</h2>
     <p id="view-more"><a [routerLink]="['../../']"> View More</a></p>
   </div>
-  <div class="row">
-    <div class="col-4" *ngFor="let locSp of locdsSanPhamLoc">
-      <img
-        routerLinkActive="router-link-active"
-        src="../../../assets/img/sp1.png"
-        alt=""
-      />
-      <h4>
-        {{ locSp.tenSp }}
-      </h4>
-
-      <p>$50.00</p>
+  <div class="row rowSanPham">
+    <div
+      class="col-4 sanPham"
+      *ngFor="let locSp of locdsSanPhamLoc | slice: 0:4; let i = index"
+    >
+      <div>
+        <img
+          routerLinkActive="router-link-active"
+          src="../../../assets/img/sp1.png"
+          alt=""
+        />
+        <h4>
+          {{ locSp.tenSp }}
+        </h4>
+        <p>$50.00</p>
+      </div>
     </div>
   </div>
 </div>

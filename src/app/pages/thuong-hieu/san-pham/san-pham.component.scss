@@ -45,7 +45,7 @@
   padding-right: 25px;
 }
 .col-4 {
-  flex-basis: 25%;
+  flex-basis: 30%;
   padding: 10px;
   min-width: 250px;
   margin-bottom: 50px;
@@ -317,5 +317,14 @@ input:focus {
   }
   .small-img-col img {
     height: 90px;
+  }
+}
+
+.sanPhamCungLoai {
+  .rowSanPham {
+    .sanPham {
+      height: 360px;
+      box-shadow: 0px 8px 20px 0px rgba(0, 0, 0, 0.1);
+    }
   }
 }
