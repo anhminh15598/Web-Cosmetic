@@ -65,7 +65,7 @@ export class HinhAnhSanPhamComponent implements OnInit {
         }
       );
   }
-  xoaHinhAnh(idHA,link,ten){
+  xoaHinhAnh(idHA,link,ten){ 
     this.http
       .post(environment.apiUrl + environment.apiList.hinhAnh, {
         headers: new HttpHeaders({
