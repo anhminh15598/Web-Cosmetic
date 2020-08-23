@@ -47,6 +47,7 @@ export class ThuongHieuComponent implements OnInit {
     var _dsThuongHieu = [];
     var _dsLoaiSP = [];
     var _dsSanpham = [];
+
     this.http
       .get(environment.apiUrl + environment.apiList.DsThuongHieu + id, {
         headers: new HttpHeaders({
@@ -56,6 +57,7 @@ export class ThuongHieuComponent implements OnInit {
       .subscribe(
         (data) => {
           _dsThuongHieu.push(data);
+
           _dsThuongHieu.forEach((th) => {
             th.loaiSps.forEach((lsp) => {
               lsp.sanPhams.forEach((sp) => {
