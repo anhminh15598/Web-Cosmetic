@@ -1,330 +1,412 @@
+@import url("https://fonts.googleapis.com/css?family=Pontano+Sans");
 @import url("https://fonts.googleapis.com/css2?family=Sriracha&display=swap");
 
-.row {
-  display: flex;
-  // align-items: center;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  span {
-    a {
-      text-decoration: none;
-      color: #085aa0;
-    }
-    a:hover {
-      color: #4b87bd;
-    }
-  }
-  .chiTietSp {
-    line-height: normal;
-    h3 {
-      color: #085aa0;
-    }
-  }
-}
-.col-10 {
-  flex-basis: 10%;
-}
-.col-sm-12 {
-  padding: 0 30px 30px 30px;
-}
+$white: #fff;
+$black: #333;
+$lightergray: #d5d5d5;
+$lightgray: #f0f3f1;
+$gray: #e3dddd;
+$text: #888;
+$button: #3e3e3f;
+$button-hover: #565657;
 
-.col-2 {
-  flex-basis: 50%;
-  min-width: 300px;
-  max-width: 100%;
-}
-.col-2 img {
-  max-width: 100%;
-  padding: 50px 0;
-}
-.small-container {
-  font-family: "Sriracha", cursive;
-  max-width: 1080px;
-  margin: auto;
-  padding-left: 25px;
-  padding-right: 25px;
-}
-.col-4 {
-  flex-basis: 30%;
-  padding: 10px;
-  min-width: 250px;
-  margin-bottom: 50px;
-  transition: transform 0.5s;
-}
-.col-4 img {
-  width: 100%;
-  height: 250px;
-}
-.btn {
-  display: inline-block;
-  background-color: #085aa0;
-  color: #fff;
-  padding: 8px 30px;
-  margin: 30px 0;
-  border-radius: 30px;
-  transition: background 0.5s;
-}
-.btn:hover {
-  background: #053c6d;
-}
-p {
-  text-align: justify;
-}
-.title {
-  text-align: center;
-  margin: 20px auto;
-  position: relative;
-  line-height: 60px;
-  color: #555;
-}
-.title::after {
-  content: "";
-  background-color: #085aa0;
-  width: 80px;
-  height: 5px;
-  border-radius: 5px;
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-}
-h4 {
-  color: #555;
-  font-weight: normal;
-}
-.col-4 p {
-  font-size: 14px;
-}
-.rating .fa {
-  color: #085aa0;
-}
-.col-4:hover {
-  transform: translateY(-5px);
-}
-.row-2 {
-  justify-content: space-between;
-  margin: 50px auto 10px;
-}
-#view-more {
-  margin-top: 1rem;
-}
-select {
-  border: 1px solid #085aa0;
-  padding: 5px;
-}
-select:focus {
-  outline: none;
-}
-.page-btn {
-  margin: 0 auto 80px;
-}
-.page-btn span {
-  display: inline-block;
-  border: 1px solid #085aa0;
-  margin-left: 10px;
-  width: 40px;
-  height: 40px;
-  text-align: center;
-  line-height: 40px;
-  cursor: pointer;
-}
-.page-btn span:hover {
-  background: #085aa0;
-  color: #fff;
-}
-.single-product {
-  margin-top: 120px;
-}
-.single-product .col-2 img {
+ul {
   padding: 0;
+  margin: 0;
+  list-style: none;
+  li {
+    margin: 0 1.75rem 0 0;
+  }
 }
-.single-product .col-2 {
-  padding: 20px;
+
+a {
+  color: $text;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  &:hover {
+    color: $black;
+  }
+  &.active {
+    color: $black;
+  }
 }
-.single-product h4 {
-  //   margin: 20px;
-  margin: 20px 0;
-  font-size: 22px;
-  font-weight: bold;
+
+h1,
+h2,
+h3,
+h4 {
+  color: $black;
+  font-weight: normal;
+  margin: 0 0 1rem 0;
 }
-.single-product select {
+
+h1 {
+  font-size: 2.5rem;
+}
+
+h2 {
+  font-size: 2.125rem;
+  margin: 0;
+}
+
+h3 {
+  font-size: 2rem;
+}
+
+h4 {
+  font-size: 1.5rem;
+  margin: 1rem 0 0.5rem 0;
+}
+
+section {
   display: block;
-  padding: 10px;
-  margin-top: 20px;
 }
-.single-product input {
-  width: 50px;
-  height: 40px;
-  padding-left: 10px;
-  font-size: 20px;
-  margin-right: 10px;
-  border: 1px solid #085aa0;
+
+img {
+  max-width: 100%;
+  height: auto;
+  object-fit: cover;
 }
-input:focus {
-  outline: none;
+main {
+  font-family: "Sriracha", cursive;
 }
-.single-product .fa-indent {
-  color: #085aa0;
-  margin-left: 10px;
-}
-.small-img-row {
+
+.flex-nav ul {
+  position: absolute;
+  z-index: 1;
+  list-style: none;
+  margin: 0;
+  padding: 0;
   display: flex;
-  justify-content: space-between;
+  flex-wrap: wrap;
+  flex-direction: column;
+  display: none;
+  width: 100%;
+  left: 0;
+  padding: 1rem;
+  background: $white;
+  text-align: center;
+  &.active {
+    display: flex;
+  }
+  li {
+    margin: 0.5rem 0;
+  }
 }
-.small-img-col {
-  flex-basis: 24%;
-  cursor: pointer;
+
+.toggle-nav {
+  display: flex;
+  justify-content: flex-end;
+  font-size: 1.125rem;
+  line-height: 1.7;
+  margin: 1rem 0;
+  i {
+    font-size: 1.5rem;
+    line-height: 1.4;
+    margin: 0 0 0 0.5rem;
+  }
 }
-.small-img-col img {
-  padding-top: 5px !important ;
-  height: 125px;
+
+.price {
+  margin: 0;
 }
-.kichCo {
-  .select-box {
-    position: relative;
-    display: block;
-    width: 100%;
-    margin: 0;
-    font-size: 18px;
-    color: #60666d;
-    top: 0;
 
-    @media (min-width: 768px) {
-      width: 70%;
+.breadcrumb-list {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0;
+  margin: 1rem 0 0 0;
+  list-style: none;
+  li {
+    font-size: 0.85rem;
+    letter-spacing: 0.125rem;
+    text-transform: uppercase;
+  }
+}
+
+.breadcrumb-item {
+  &.active {
+    color: $black;
+  }
+  + .breadcrumb-item {
+    &::before {
+      content: "/";
+      display: inline-block;
+      padding: 0 0.5rem;
+      color: $lightergray;
     }
+  }
+}
 
-    @media (min-width: 992px) {
-      width: 50%;
-    }
-
-    @media (min-width: 1200px) {
-      width: 30%;
-    }
-
-    &__current {
+.description {
+  border-top: 0.0625rem solid $gray;
+  margin: 2rem 0;
+  padding: 1rem 0 0 0;
+  .kichCo {
+    .select-box {
       position: relative;
-      box-shadow: 0 10px 20px 0px rgba(0, 100, 225, 0.1);
-      cursor: pointer;
-      outline: none;
+      display: block;
+      width: 150px;
+      margin: 0;
+      font-size: 18px;
+      color: #60666d;
+      top: 0;
 
-      &:focus {
-        & + .select-box__list {
-          opacity: 1;
+      &__current {
+        position: relative;
+        box-shadow: 0 10px 20px 0px rgba(0, 100, 225, 0.1);
+        cursor: pointer;
+        outline: none;
 
-          // We have to set "animation-name: none;" to make the list visible (read below how it works)
+        &:focus {
+          & + .select-box__list {
+            padding-top: 10px;
+            width: 178px;
+            opacity: 1;
+            z-index: 4;
+            // We have to set "animation-name: none;" to make the list visible (read below how it works)
 
-          animation-name: none;
+            animation-name: none;
 
-          .select-box__option {
-            cursor: pointer;
+            .select-box__option {
+              cursor: pointer;
+            }
+          }
+
+          .select-box__icon {
+            transform: translateY(-50%) rotate(180deg);
           }
         }
+      }
 
-        .select-box__icon {
-          transform: translateY(-50%) rotate(180deg);
+      &__icon {
+        position: absolute;
+        top: 50%;
+        right: 15px;
+        transform: translateY(-50%);
+        width: 20px;
+        opacity: 0.3;
+        transition: 0.2s ease;
+      }
+
+      &__value {
+        display: flex;
+      }
+
+      &__input {
+        display: none;
+
+        &:checked + .select-box__input-text {
+          display: block;
+        }
+      }
+
+      &__input-text {
+        display: none;
+        width: 100%;
+        margin: 0;
+        padding: 15px;
+        background-color: #fff;
+      }
+
+      &__list {
+        position: absolute;
+        width: 100%;
+        padding: 0;
+        list-style: none;
+        opacity: 0;
+        // We need to use animation with delay.
+        // Otherwise the click event will not have time to run on label, because this element disapears immediately when .select-box__current element loses the focus.
+        // This delay will not be noticed because we set "opacity" to "0".
+        // We also use "animation-fill-mode: forwards" to make the list stay hidden.
+
+        animation-name: HideList;
+        animation-duration: 0.5s;
+        animation-delay: 0.5s;
+        animation-fill-mode: forwards;
+        animation-timing-function: step-start;
+        // box-shadow: 0 15px 30px -10px transparentize(#000, 0.9);
+      }
+
+      &__option {
+        display: block;
+        padding: 15px;
+        color: #085aa0;
+        background-color: #f4fcfa;
+
+        &:hover,
+        &:focus {
+          color: white;
+          background-color: #6eb6bf;
         }
       }
     }
 
-    &__icon {
-      position: absolute;
-      top: 50%;
-      right: 15px;
-      transform: translateY(-50%);
-      width: 20px;
-      opacity: 0.3;
-      transition: 0.2s ease;
-    }
-
-    &__value {
-      display: flex;
-    }
-
-    &__input {
-      display: none;
-
-      &:checked + .select-box__input-text {
-        display: block;
+    @keyframes HideList {
+      from {
+        transform: scaleY(1);
       }
-    }
-
-    &__input-text {
-      display: none;
-      width: 100%;
-      margin: 0;
-      padding: 15px;
-      background-color: #fff;
-    }
-
-    &__list {
-      position: absolute;
-      width: 100%;
-      padding: 0;
-      list-style: none;
-      opacity: 0;
-      // We need to use animation with delay.
-      // Otherwise the click event will not have time to run on label, because this element disapears immediately when .select-box__current element loses the focus.
-      // This delay will not be noticed because we set "opacity" to "0".
-      // We also use "animation-fill-mode: forwards" to make the list stay hidden.
-
-      animation-name: HideList;
-      animation-duration: 0.5s;
-      animation-delay: 0.5s;
-      animation-fill-mode: forwards;
-      animation-timing-function: step-start;
-      // box-shadow: 0 15px 30px -10px transparentize(#000, 0.9);
-    }
-
-    &__option {
-      display: block;
-      padding: 15px;
-      color: #085aa0;
-      background-color: #f4fcfa;
-
-      &:hover,
-      &:focus {
-        color: white;
-        background-color: #6eb6bf;
+      to {
+        transform: scaleY(0);
       }
-    }
-  }
-
-  @keyframes HideList {
-    from {
-      transform: scaleY(1);
-    }
-    to {
-      transform: scaleY(0);
     }
   }
 }
 
-// media query for less than 600 screen size
-@media only screen and (max-width: 600px) {
-  .row {
-    text-align: center;
+.add-to-cart {
+  position: relative;
+  display: inline-block;
+  background: $button;
+  color: $white;
+  border: none;
+  border-radius: 0;
+  padding: 1.25rem 2.5rem;
+  font-size: 1rem;
+  text-transform: uppercase;
+  cursor: pointer;
+  transform: translateZ(0);
+  transition: color 0.3s ease;
+  letter-spacing: 0.0625rem;
+  &:hover {
+    &::before {
+      transform: scaleX(1);
+    }
   }
-  .col-2 .col-4 {
-    flex-basis: 100%;
-    min-width: 320px;
-  }
-  .single-product .row {
-    text-align: left;
-  }
-  .single-product .col-2 {
-    padding: 20px 0;
-    line-height: 22px;
-  }
-  .small-img-col img {
-    height: 90px;
+  &::before {
+    position: absolute;
+    content: "";
+    z-index: -1;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: $button-hover;
+    transform: scaleX(0);
+    transform-origin: 0 50%;
+    transition: transform 0.3s ease-out;
   }
 }
 
-.sanPhamCungLoai {
-  .rowSanPham {
-    .sanPham {
-      height: 360px;
+.container {
+  margin: auto;
+  padding: 0 1rem;
+  max-width: 75rem;
+  width: 100%;
+  .related-products {
+    .itemSp:hover {
       box-shadow: 0px 8px 20px 0px rgba(0, 0, 0, 0.1);
     }
+  }
+}
+
+.row {
+  > [class*="column-"] {
+    padding: 1rem;
+  }
+  &.menu,
+  &.product {
+    border-bottom: 0.0625rem solid $gray;
+  }
+  &.menu {
+    > [class*="column-"] {
+      padding: 0.5rem 1rem 0.5rem 1rem;
+    }
+  }
+  &.product {
+    padding: 0 0 1.5rem 0;
+  }
+  &.second-nav {
+    > [class*="column-"] {
+      padding: 0.5rem 1rem;
+    }
+  }
+}
+
+footer {
+  padding: 1rem 0;
+  text-align: center;
+}
+
+.product-image {
+  cursor: zoom-in;
+  display: none;
+}
+
+.image-list {
+  li {
+    margin: 0;
+  }
+}
+
+@media (min-width: 0) {
+  .product-image img,
+  .image-list img {
+    width: 100%;
+  }
+
+  .product-image {
+    display: block;
+    img {
+      height: 52vh;
+      &.active {
+        display: block;
+        margin: 0 0 0.75rem 0;
+      }
+    }
+  }
+
+  .image-list {
+    display: flex;
+    overflow: hidden;
+    li {
+      margin: 0 0.75rem 0 0;
+      flex-basis: 100%;
+      &:nth-child(3) {
+        margin: 0;
+      }
+    }
+    img {
+      height: 10rem;
+      width: 100%;
+      transition: opacity 0.3s ease;
+      cursor: pointer;
+      &:hover {
+        opacity: 0.7;
+      }
+    }
+  }
+
+  nav ul {
+    justify-content: flex-end;
+  }
+
+  .toggle-nav {
+    display: none;
+  }
+
+  .flex-nav {
+    display: block;
+    ul {
+      display: flex;
+      flex-direction: row;
+      position: relative;
+      justify-content: flex-end;
+      li {
+        font-size: 1.125rem;
+        margin: 0 1.5rem 0 0;
+        &:nth-child(4) {
+          margin: 0;
+        }
+      }
+    }
+  }
+}
+
+@keyframes fadeImg {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
   }
 }

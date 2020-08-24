@@ -4,8 +4,10 @@
 
 export const environment = {
   production: false,
-  apiUrl : "https://localhost:44380/api/",
-  Url:"https://localhost:44380/",
+  // apiUrl : "https://localhost:44380/api/",
+  // Url:"https://localhost:44380/",
+  apiUrl : "https://localhost:5001/api/",
+  Url:"https://localhost:5001/",
   // apiUrl : "https://api.usbeauty.vn/api/",
   // Url:"https://api.usbeauty.vn/",
   apiList : {

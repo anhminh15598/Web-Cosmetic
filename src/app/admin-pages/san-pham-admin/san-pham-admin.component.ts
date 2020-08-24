@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { HttpHeaders, HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { ErrorService } from 'src/service/error.service';
@@ -84,21 +84,25 @@ export class SanPhamAdminComponent implements OnInit {
   }
 
   onClickSubmit(formThemsp) {
-    formThemsp.idLoaiSp = parseInt(formThemsp.idLoaiSp);
-    console.log(formThemsp);
-    this.themLoaiSanPham(formThemsp);
+    if (confirm('Thêm mới')) {
+      formThemsp.idLoaiSp = parseInt(formThemsp.idLoaiSp);
+      console.log(formThemsp);
+      this.themLoaiSanPham(formThemsp);
+      window.location.reload();
+    } else {
+    }
   }
 
-  moHinhAnhSanPham(id,tenSp){
+  moHinhAnhSanPham(id, tenSp) {
     const modalRef = this.modalService.open(HinhAnhSanPhamComponent);
-    modalRef.componentInstance.my_modal_title = 'Hình ảnh Sản Phẩm '+tenSp;
+    modalRef.componentInstance.my_modal_title = 'Hình ảnh Sản Phẩm ' + tenSp;
     modalRef.componentInstance.tenSp = tenSp;
     modalRef.componentInstance.idTH = this.id;
     modalRef.componentInstance.id = id;
   }
-  
-  moKichCo(id){
-    this.router.navigate(['/admin/quan-ly-kich-co',id]);
+
+  moKichCo(id) {
+    this.router.navigate(['/admin/quan-ly-kich-co', id]);
   }
   moSuaSp(id, tenSp) {
     const modalRef = this.modalService.open(SuaSanPhamComponent);

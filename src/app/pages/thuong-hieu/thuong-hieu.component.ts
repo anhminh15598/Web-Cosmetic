@@ -15,7 +15,6 @@ import { ErrorService } from 'src/service/error.service';
 })
 export class ThuongHieuComponent implements OnInit {
   searchText = '';
-
   filterargs = {};
   values = '';
   onKey(event: any) {
@@ -35,6 +34,11 @@ export class ThuongHieuComponent implements OnInit {
     public http: HttpClient,
     public errorService: ErrorService
   ) {}
+
+
+  createImgPath = (serverPath: string) => {
+    return environment.Url+`${serverPath}`;
+  }
 
   ngOnInit() {
     this.sub = this.route.params.subscribe((param) => {

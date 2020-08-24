@@ -1,122 +1,120 @@
-<div class="small-container single-product">
-  <div class="row">
-    <div class="col-lg-6 col-sm-12">
-      <img
-        style="
-          box-shadow: 0px 8px 20px 0px rgba(0, 0, 0, 0.1);
-          cursor: zoom-in;
-        "
-        src="../../../../assets/img/sp1.png"
-        (click)="open(0)"
-        width="100%"
-      />
-      <div class="small-img-row">
-        <div class="small-img-col" *ngFor="let image of hinhAnh; let i = index">
-          <img
-            style="
-              box-shadow: 0px 8px 20px 0px rgba(0, 0, 0, 0.1);
-              cursor: zoom-in;
-            "
-            [src]="image.thumb"
-            (click)="open(i)"
-            width="100%"
-          />
-        </div>
+<main>
+  <div class="container">
+    <div class="row second-nav pl-3">
+      <div class="col-xs-12 my-3">
+        <nav>
+          <ol class="breadcrumb-list">
+            <li class="breadcrumb-item">
+              <a [routerLink]="['/']">Trang chủ</a>
+            </li>
+            <li class="breadcrumb-item">
+              <a [routerLink]="['../../']">{{ thuongHieu.tenThuongHieu }}</a>
+            </li>
+            <li class="breadcrumb-item">
+              <a [routerLink]="['../../']">{{ loaiSp.tenLoaiSp }}</a>
+            </li>
+            <li class="breadcrumb-item active">
+              <a>{{ sanPham.tenSp }}</a>
+            </li>
+          </ol>
+        </nav>
       </div>
     </div>
-    <div class="col-lg-6 col-sm-12">
-      <span><a [routerLink]="['/']">Trang chủ</a></span> /
-      <span
-        ><a [routerLink]="['../../']">{{ thuongHieu.tenThuongHieu }}</a></span
-      >
-      /
-      <span
-        ><a [routerLink]="['../../']">{{ loaiSp.tenLoaiSp }}</a></span
-      >
-
-      <h1 class="my-4">{{ sanPham.tenSp }}</h1>
-
-      <div class="kichCo">
-        <div class="select-box">
-          <div class="select-box__current" tabindex="1">
-            <div
-              class="select-box__value"
-              *ngFor="let kc of kichCosp; let i = index"
-            >
-              <input
-                class="select-box__input"
-                type="radio"
-                id="{{ i }}"
-                value="{{ i + 1 }}"
-                (change)="onKey(kc.giaSp)"
-                name="Ben"
-                checked="checked"
-              />
-              <p class="select-box__input-text">{{ kc.tenKichCo }}</p>
-            </div>
-            <img
-              class="select-box__icon"
-              src="http://cdn.onlinewebfonts.com/svg/img_295694.svg"
-              alt="Arrow Icon"
-              aria-hidden="true"
-            />
+    <div class="row product">
+      <div class="col-xs-12 col-md-7">
+        <div class="product-gallery">
+          <div class="product-image">
+            <img class="active" [src]="srcSp" (click)="open(hinhAnhThui)" />
           </div>
-          <ul class="select-box__list">
-            <li *ngFor="let kc of kichCosp; let i = index">
-              <label
-                class="select-box__option"
-                for="{{ i }}"
-                aria-hidden="aria-hidden"
-                >{{ kc.tenKichCo }}</label
-              >
+          <ul class="image-list pb-3">
+            <li
+              class="image-item"
+              *ngFor="let image of hinhAnh | slice: 0:3; let i = index"
+            >
+              <img
+                [src]="createImgPath(image.thumb)"
+                (click)="clickDoiHinh(image.thumb); clickLayIndex(i)"
+                width="100%"
+              />
             </li>
           </ul>
         </div>
       </div>
-      <h4 class="my-4">Giá sản phẩm: {{ giaSp }}</h4>
-      <!-- <input type="number" value="1" />
-      <a href="" class="btn"
-        ><i class="fa fa-shopping-cart" aria-hidden="true"></i> Add To Cash</a
-      > -->
-      <div class="chiTietSp">
-        <h3>Chi tiết sản phẩm:</h3>
-        <p class="mt-2">
-          Lorem Ipsum is simply dummy text of the printing and typesetting
-          industry. Lorem Ipsum has been the industry's standard dummy text ever
-          since the 1500s, when an unknown printer took a galley of type and
-          scrambled it to make a type specimen book. It has survived not only
-          five centuries, but also the leap into electronic typesetting,
-          remaining essentially unchanged. It was popularised in the 1960s with
-          the release of Letraset sheets containing Lorem Ipsum passages, and
-          more recently with desktop publishing software like Aldus PageMaker
-          including versions of Lorem Ipsum.
-          {{ sanPham.moTa }}
-        </p>
+      <div class="sanPham col-xs-12 col-md-5">
+        <h1>{{ sanPham.tenSp }}</h1>
+        <div class="description">
+          <div class="kichCo">
+            <div class="select-box">
+              <div class="select-box__current" tabindex="1">
+                <div
+                  class="select-box__value"
+                  *ngFor="let kc of kichCosp; let i = index"
+                >
+                  <input
+                    class="select-box__input"
+                    type="radio"
+                    id="{{ i }}"
+                    value="{{ i + 1 }}"
+                    (change)="onKey(kc.giaSp)"
+                    name="Ben"
+                    checked="checked"
+                  />
+                  <p class="select-box__input-text">{{ kc.tenKichCo }}</p>
+                </div>
+                <img
+                  class="select-box__icon"
+                  src="http://cdn.onlinewebfonts.com/svg/img_295694.svg"
+                  alt="Arrow Icon"
+                  aria-hidden="true"
+                />
+              </div>
+              <ul class="select-box__list">
+                <li *ngFor="let kc of kichCosp; let i = index">
+                  <label
+                    class="select-box__option"
+                    for="{{ i }}"
+                    aria-hidden="aria-hidden"
+                    >{{ kc.tenKichCo }}</label
+                  >
+                </li>
+              </ul>
+            </div>
+          </div>
+          <h5 class="my-3">Giá sản phẩm: {{ giaSp }}</h5>
+          <h2>Mô tả</h2>
+          <p>{{ sanPham.moTa }}</p>
+        </div>
+        <!-- <div class="description"></div> -->
+        <!-- <button class="add-to-cart">Add To Cart</button> -->
+      </div>
+    </div>
+    <div class="related-products">
+      <div class="">
+        <div class="col-xs-12 pt-3">
+          <h3>Bạn có thể thích</h3>
+        </div>
+      </div>
+      <div class="row">
+        <div
+          (click)="resetHinhAnh(locSp.id)"
+          [routerLink]="['../' + locSp.id]"
+          class="col-lg-3 col-md-4 col-sm-6 py-3 itemSp"
+          *ngFor="let locSp of locdsSanPhamLoc | slice: 0:6; let i = index"
+        >
+          <div>
+            <img
+              style="height: 300px; width: 100%;"
+              *ngFor="let item of locSp.hinhAnhs | slice: 0:1"
+              [src]="createImgPath(item.linkHinhAnh)"
+              alt=""
+            />
+            <h4>
+              {{ locSp.tenSp }}
+            </h4>
+            <p>dsd</p>
+          </div>
+        </div>
       </div>
     </div>
   </div>
-</div>
-<div class="small-container sanPhamCungLoai">
-  <div class="row row-2">
-    <h2>Sản phẩm cùng loại</h2>
-    <p id="view-more"><a [routerLink]="['../../']"> View More</a></p>
-  </div>
-  <div class="row rowSanPham">
-    <div
-      class="col-4 sanPham"
-      *ngFor="let locSp of locdsSanPhamLoc | slice: 0:4; let i = index"
-    >
-      <div>
-        <img
-          routerLinkActive="router-link-active"
-          src="../../../assets/img/sp1.png"
-          alt=""
-        />
-        <h4>
-          {{ locSp.tenSp }}
-        </h4>
-        <p>$50.00</p>
-      </div>
-    </div>
-  </div>
-</div>
+</main>
