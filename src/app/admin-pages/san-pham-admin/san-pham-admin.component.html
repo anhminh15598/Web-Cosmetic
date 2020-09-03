@@ -15,7 +15,7 @@
   <div class="sanPham_danhSach">
     <div class="table-responsive">
       <table class="table">
-        <thead> 
+        <thead>
           <tr>
             <th scope="col">STT</th>
             <th scope="col">Tên SP</th>
@@ -23,23 +23,49 @@
             <th scope="col">Loại sản phẩm</th>
             <th scope="col">Mô tả</th>
             <th scope="col">Lợi ích</th>
-            <th scope="col" class="m-auto" style="text-align: center;">Tùy chọn</th>
+            <th scope="col" class="m-auto" style="text-align: center;">
+              Tùy chọn
+            </th>
           </tr>
         </thead>
         <tbody>
-          <ng-container *ngFor="let item of dsLoaiSP;let j = index">
+          <ng-container *ngFor="let item of dsLoaiSP; let j = index">
             <tr *ngFor="let sp of item.sanPhams; let i = index">
-              <th scope="row">{{ i }}</th>
+              <th scope="row">{{ j }}</th>
               <td>{{ sp.tenSp }}</td>
               <td>{{ thuongHieu }}</td>
               <td>{{ item.tenLoaiSp }}</td>
               <td>{{ sp.moTa }}</td>
               <td>{{ sp.loiIch }}</td>
               <td>
-                <button type="button" class="btn btn-warning mr-2" (click)="moKichCo(sp.id)">Kích cỡ/ giá</button>
-                <button type="button" class="btn btn-info mr-2" (click)="moHinhAnhSanPham(sp.id,sp.tenSp)">Hình ảnh</button>
-                <button type="button" class="btn btn-primary mr-2" (click)="moSuaSp(sp.id,sp.tenSp)">Sửa</button>
-                <button type="button" class="btn btn-danger" (click)="moXoaSp(sp.id,sp.tenSp)">Xóa</button>
+                <button
+                  type="button"
+                  class="btn btn-warning mr-2"
+                  (click)="moKichCo(sp.id)"
+                >
+                  Kích cỡ/ giá
+                </button>
+                <button
+                  type="button"
+                  class="btn btn-info mr-2"
+                  (click)="moHinhAnhSanPham(sp.id, sp.tenSp)"
+                >
+                  Hình ảnh
+                </button>
+                <button
+                  type="button"
+                  class="btn btn-primary mr-2"
+                  (click)="moSuaSp(sp.id, sp.tenSp)"
+                >
+                  Sửa
+                </button>
+                <button
+                  type="button"
+                  class="btn btn-danger"
+                  (click)="moXoaSp(sp.id, sp.tenSp)"
+                >
+                  Xóa
+                </button>
               </td>
             </tr>
           </ng-container>
@@ -49,95 +75,110 @@
   </div>
 </div>
 <div
-class="modal fade"
-id="exampleModalCenter"
-tabindex="-1"
-role="dialog"
-aria-labelledby="exampleModalCenterTitle"
-aria-hidden="true"
+  class="modal fade"
+  id="exampleModalCenter"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="exampleModalCenterTitle"
+  aria-hidden="true"
 >
-
-<!-- modal -->
-<div class="modal-dialog modal-dialog-centered" role="document">
-  <div class="modal-content">
-    <div class="modal-header">
-      <h5 class="modal-title" id="exampleModalLongTitle">
-        Thêm sản phẩm
-      </h5>
-      <button
-        type="button"
-        class="close"
-        data-dismiss="modal"
-        aria-label="Close"
-      >
-        <span aria-hidden="true">&times;</span>
-      </button>
-    </div>
-    <div class="modal-body">
-      <form  [formGroup]="formThemSp" (ngSubmit)="onClickSubmit(formThemSp.value)">
-        <div class="form-group">
-          <label for="">Tên sản phẩm</label>
-          <input
-            type="text"
-            class="form-control"
-            id=""
-            aria-describedby="helpId"
-            placeholder=""
-            formControlName="tenSp"
-          />
-        </div>
-        <div class="form-group">
-          <label for="">Thương hiệu</label>
-          <div class="input-group mb-3">
-            <input type="text" class="form-control" disabled [value]="thuongHieu">
+  <!-- modal -->
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">
+          Thêm sản phẩm
+        </h5>
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form
+          [formGroup]="formThemSp"
+          (ngSubmit)="onClickSubmit(formThemSp.value)"
+        >
+          <div class="form-group">
+            <label for="">Tên sản phẩm</label>
+            <input
+              type="text"
+              class="form-control"
+              id=""
+              aria-describedby="helpId"
+              placeholder=""
+              formControlName="tenSp"
+            />
           </div>
-        </div>
-        <div class="form-group">
-          <label for="">Loại sản phẩm</label>
-          <div class="input-group mb-3">
+          <div class="form-group">
+            <label for="">Thương hiệu</label>
             <div class="input-group mb-3">
-              <select class="custom-select" formControlName="idLoaiSp" id="inputGroupSelect01">
-                <option *ngFor="let item of dsLoaiSP" [value]="item.id">{{ item.tenLoaiSp }}</option>
-              </select>
+              <input
+                type="text"
+                class="form-control"
+                disabled
+                [value]="thuongHieu"
+              />
             </div>
           </div>
-        </div>
-        <div class="form-group">
-          <label for="">Mô tả</label>
-          <input
-            type="text"
-            class="form-control"
-            name=""
-            id=""
-            aria-describedby="helpId"
-            placeholder=""
-            formControlName="moTa"
-          />
-        </div>
-        <div class="form-group">
-          <label for="">Lợi ích</label>
-          <input
-            type="text"
-            class="form-control"
-            name=""
-            id=""
-            aria-describedby="helpId"
-            placeholder=""
-            formControlName="loiIch"
-          />
-        </div>
-        <div class="right">
-          <button
-          type="button"
-          class="btn btn-secondary"
-          data-dismiss="modal"
-          >
-            Hủy
-          </button>
-          <button type="submit" class="btn btn-primary ml-2">Thêm</button>
-        </div>
-      </form>
+          <div class="form-group">
+            <label for="">Loại sản phẩm</label>
+            <div class="input-group mb-3">
+              <div class="input-group mb-3">
+                <select
+                  class="custom-select"
+                  formControlName="idLoaiSp"
+                  id="inputGroupSelect01"
+                >
+                  <option *ngFor="let item of dsLoaiSP" [value]="item.id">{{
+                    item.tenLoaiSp
+                  }}</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="">Mô tả</label>
+            <input
+              type="text"
+              class="form-control"
+              name=""
+              id=""
+              aria-describedby="helpId"
+              placeholder=""
+              formControlName="moTa"
+            />
+          </div>
+          <div class="form-group">
+            <label for="">Lợi ích</label>
+            <input
+              type="text"
+              class="form-control"
+              name=""
+              id=""
+              aria-describedby="helpId"
+              placeholder=""
+              formControlName="loiIch"
+            />
+          </div>
+          <div class="right">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-dismiss="modal"
+            >
+              Hủy
+            </button>
+            <button type="submit" class="btn btn-primary ml-2">
+              Thêm
+            </button>
+          </div>
+        </form>
+      </div>
     </div>
   </div>
 </div>
-</div>  
