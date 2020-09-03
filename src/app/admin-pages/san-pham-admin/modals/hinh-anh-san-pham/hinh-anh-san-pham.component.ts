@@ -38,6 +38,7 @@ export class HinhAnhSanPhamComponent implements OnInit {
         else if (event.type === HttpEventType.Response) {
           this.message = 'Upload success.';
           this.link = event.body;
+          console.log(event.body);
           this.themHinhAnh(this.id,this.link.dbPath,fileToUpload.name);
         }
       });
@@ -65,9 +66,9 @@ export class HinhAnhSanPhamComponent implements OnInit {
         }
       );
   }
-  xoaHinhAnh(idHA,link,ten){ 
+  xoaHinhAnh(idHA){ 
     this.http
-      .post(environment.apiUrl + environment.apiList.hinhAnh, {
+      .delete(environment.apiUrl + environment.apiList.hinhAnh + idHA, {
         headers: new HttpHeaders({
           'Content-Type': 'application/json',
         }),
@@ -102,10 +103,10 @@ export class HinhAnhSanPhamComponent implements OnInit {
   createImgPath = (serverPath: string) => {
     return environment.Url+`${serverPath}`;
   }
-  deleteHinhAnh(tenHA){
+  deleteHinhAnh(tenHA,id){
     var result = confirm("Bạn có muốn xóa hình ảnh '"+tenHA+"' này không?");
     if(result)  {
-      alert("OK Next lesson!");
+      this.xoaHinhAnh(id);
     } 
   }
 }
