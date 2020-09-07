@@ -1,7 +1,17 @@
 <app-header></app-header>
-<div class="margintop"></div>
-<!-- <button (click)="login()" class="btn btn-lg btn-primary btn-block">
-  Login
-</button> -->
-<router-outlet> </router-outlet>
-<app-footer></app-footer>
+<div class="margintop">
+  <div id="fb-root">
+    <div
+      class="fb-customerchat"
+      attribution="setup_tool"
+      page_id="116501503500338"
+      theme_color="#0084ff"
+      logged_in_greeting="Xin chào!"
+      logged_out_greeting="Xin chào!"
+    >
+      <button (click)="loginWithFacebook()">Login FB</button>
+    </div>
+  </div>
+  <router-outlet> </router-outlet>
+  <app-footer></app-footer>
+</div>

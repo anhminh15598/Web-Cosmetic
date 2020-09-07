@@ -1,12 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {
-  FacebookService,
-  LoginResponse,
-  LoginOptions,
-  UIResponse,
-  UIParams,
-  FBVideoComponent,
-} from 'ngx-facebook';
+import { FacebookService, InitParams, LoginResponse } from 'ngx-facebook';
 
 @Component({
   selector: 'app-layout',
@@ -14,27 +7,24 @@ import {
   styleUrls: ['./layout.component.scss'],
 })
 export class LayoutComponent implements OnInit {
-  constructor(private fb: FacebookService) {
-    console.log('Initializing Facebook');
-    fb.init({
+  constructor(private facebookService: FacebookService) {}
+  ngOnInit(): void {
+    this.initFacebookService();
+  }
+  private initFacebookService(): void {
+    const initParams: InitParams = {
       appId: '759325634893052',
-      xfbml: true,
       cookie: true,
-      version: 'v2.8',
-    });
+      xfbml: true,
+      version: 'v8.0',
+    };
+    this.facebookService.init(initParams);
   }
 
-  login() {
-    this.fb
+  loginWithFacebook(): void {
+    this.facebookService
       .login()
-      .then((res: LoginResponse) => {
-        console.log('Logged in', res);
-      })
-      .catch(this.handleError);
+      .then((response: LoginResponse) => console.log(response))
+      .catch((error: any) => console.error(error));
   }
-
-  private handleError(error) {
-    console.error('Error processing action', error);
-  }
-  ngOnInit(): void {}
 }

@@ -197,6 +197,7 @@ main {
         display: none;
 
         &:checked + .select-box__input-text {
+          height: 57px;
           display: block;
         }
       }
@@ -204,6 +205,7 @@ main {
       &__input-text {
         display: none;
         width: 100%;
+        height: 57px;
         margin: 0;
         padding: 15px;
         background-color: #fff;
@@ -213,6 +215,8 @@ main {
         position: absolute;
         width: 100%;
         padding: 0;
+        height: 57px;
+
         list-style: none;
         opacity: 0;
         // We need to use animation with delay.
@@ -294,7 +298,8 @@ main {
   width: 100%;
   .related-products {
     .itemSp:hover {
-      box-shadow: 0px 8px 20px 0px rgba(0, 0, 0, 0.1);
+      box-shadow: 0px 8px 20px 0px #a2c2da;
+      border-radius: 5px;
     }
   }
 }
@@ -353,6 +358,10 @@ footer {
         margin: 0 0 0.75rem 0;
       }
     }
+  }
+
+  .choseImg {
+    border: 1px solid black;
   }
 
   .image-list {

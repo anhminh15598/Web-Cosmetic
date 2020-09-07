@@ -11,17 +11,6 @@ export class AppComponent implements OnInit {
   constructor(private auth: AuthenticationService) {}
 
   ngOnInit(): void {
-    // this.initFacebookService();
     this.auth.initUser();
   }
-  // private initFacebookService(): void {
-  //   const initParams: InitParams = {
-  //     appId: '107302417759540',
-  //     status: true,
-  //     cookie: true,
-  //     xfbml: true,
-  //     version: 'v3.2',
-  //   };
-  //   this.facebookService.init(initParams);
-  // }
 }

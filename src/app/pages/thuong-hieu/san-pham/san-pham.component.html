@@ -85,10 +85,10 @@
           <p>{{ sanPham.moTa }}</p>
         </div>
         <!-- <div class="description"></div> -->
-        <!-- <button class="add-to-cart">Add To Cart</button> -->
+        <button class="add-to-cart">Liên hệ</button>
       </div>
     </div>
-    <div class="related-products">
+    <div class="related-products pb-3">
       <div class="">
         <div class="col-xs-12 pt-3">
           <h3>Bạn có thể thích</h3>
@@ -98,20 +98,19 @@
         <div
           (click)="resetHinhAnh(locSp.id)"
           [routerLink]="['../' + locSp.id]"
-          class="col-lg-3 col-md-4 col-sm-6 py-3 itemSp"
+          class="col-lg-3 col-md-4 col-sm-6 col-12 py-3 itemSp"
           *ngFor="let locSp of locdsSanPhamLoc | slice: 0:6; let i = index"
         >
           <div>
             <img
-              style="height: 300px; width: 100%;"
+              style="height: 280px; width: 100%; border-radius: 5px;"
               *ngFor="let item of locSp.hinhAnhs | slice: 0:1"
               [src]="createImgPath(item.linkHinhAnh)"
-              alt=""
             />
             <h4>
               {{ locSp.tenSp }}
             </h4>
-            <p>dsd</p>
+            <p>Giá từ: {{ locSp.kichCoSps[0].giaSp | number: "1.0" }} ₫</p>
           </div>
         </div>
       </div>

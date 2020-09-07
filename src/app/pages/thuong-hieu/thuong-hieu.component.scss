@@ -253,13 +253,17 @@
 //   transition: transform 0.5s;
 // }
 .thongTinSanPham {
-  height: 400px;
+  height: 350px;
   cursor: pointer;
   // box-shadow: 0px 8px 20px 0px rgba(0, 0, 0, 0.1);
+  img {
+    border-radius: 5px 5px;
+  }
 }
 
 .thongTinSanPham:hover {
-  box-shadow: 0px 8px 20px 0px rgba(0, 0, 0, 0.4);
+  box-shadow: 0px 8px 20px 0px rgb(162, 194, 218);
+  border-radius: 5px;
 }
 
 .col-4 img {

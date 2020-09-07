@@ -35,10 +35,9 @@ export class ThuongHieuComponent implements OnInit {
     public errorService: ErrorService
   ) {}
 
-
   createImgPath = (serverPath: string) => {
-    return environment.Url+`${serverPath}`;
-  }
+    return environment.Url + `${serverPath}`;
+  };
 
   ngOnInit() {
     this.sub = this.route.params.subscribe((param) => {
@@ -61,11 +60,11 @@ export class ThuongHieuComponent implements OnInit {
       .subscribe(
         (data) => {
           _dsThuongHieu.push(data);
-
           _dsThuongHieu.forEach((th) => {
             th.loaiSps.forEach((lsp) => {
               lsp.sanPhams.forEach((sp) => {
                 _dsSanpham.push(sp);
+                sp.kichCoSps.forEach((kcsp) => {});
               });
             });
           });
