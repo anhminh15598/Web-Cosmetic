@@ -30,7 +30,7 @@ export class SanPhamComponent implements OnInit {
   kiemTraHinhAnh1: boolean;
 
   resetHinhAnh(id) {
-    this.getSanPham(id);
+    // this.getSanPham(id);
     this.hinhAnh = [];
   }
 
@@ -69,10 +69,11 @@ export class SanPhamComponent implements OnInit {
   }
 
   onKey(event) {
-    this.giaSp = event?.toLocaleString('it-IT', {
-      style: 'currency',
-      currency: 'VND',
-    });
+    this.giaSp = event;
+    // this.giaSp = event?.toLocaleString('it-IT', {
+    //   style: 'currency',
+    //   currency: 'USD',
+    // });
   }
 
   getSanPham(id) {
@@ -102,11 +103,13 @@ export class SanPhamComponent implements OnInit {
                   sp.hinhAnhs.forEach((ha) => {
                     _albums.push({ hinhAnh: ha.linkHinhAnh });
                   });
+                  sp.kichCoSps.forEach((element) => {
+                    console.log('element', element);
+
+                    _kichCoSp.push(element);
+                    _dsGiaSP.push(element.giaSp);
+                  });
                 }
-                sp.kichCoSps.forEach((element) => {
-                  _kichCoSp.push(element);
-                  _dsGiaSP.push(element.giaSp);
-                });
               });
             });
           });
@@ -119,13 +122,14 @@ export class SanPhamComponent implements OnInit {
             return a - b;
           });
 
-          this.giaSp = this.dsGiaSp[this.dsGiaSp.length - 1]?.toLocaleString(
-            'it-IT',
-            {
-              style: 'currency',
-              currency: 'VND',
-            }
-          );
+          this.giaSp = this.dsGiaSp[this.dsGiaSp.length - 1];
+          // this.giaSp = this.dsGiaSp[this.dsGiaSp.length - 1]?.toLocaleString(
+          //   'it-IT',
+          //   {
+          //     style: 'currency',
+          //     currency: 'VND',
+          //   }
+          // );
           console.log('thuongHieu', this.thuongHieu);
           console.log('loaiSp', this.loaiSp);
           console.log('sanPham', this.sanPham);
@@ -147,7 +151,7 @@ export class SanPhamComponent implements OnInit {
               thumb: thumb,
             };
             this.hinhAnh.push(album);
-            console.log('hinhanh', this.hinhAnh);
+            console.log('hinhanh2', this.hinhAnh);
           }
 
           if (this.hinhAnh.length > 1) {
@@ -180,7 +184,7 @@ export class SanPhamComponent implements OnInit {
 
                     if (lth.loaiSps[i].id === this.loaiSp.id) {
                       this.locdsSanPhamLoc = lth.loaiSps[i].sanPhams;
-                      // console.log('locdsSanPhamLoc', this.locdsSanPhamLoc);
+                      console.log('locdsSanPhamLoc', this.locdsSanPhamLoc);
                     }
                   }
                 });

@@ -30,6 +30,7 @@ export class XoaSanPhamComponent implements OnInit {
       .subscribe((data) => {
         console.log('work');
         this.activeModal.close('Close click');
+        window.location.reload();
       }),
       (error) => {
         this.errorService.showError(error);

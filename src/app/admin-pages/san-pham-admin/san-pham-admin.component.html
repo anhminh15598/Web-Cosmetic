@@ -1,8 +1,6 @@
 <div class="sanPham">
   <div class="sanPham_chucNang">
-    <h3>
-      Danh Sách Sản Phẩm
-    </h3>
+    <h3>Danh Sách Sản Phẩm</h3>
     <button
       type="button"
       class="btn btn-success"
@@ -13,17 +11,17 @@
     </button>
   </div>
   <div class="sanPham_danhSach">
-    <div class="table-responsive">
-      <table class="table">
+    <div class="">
+      <table class="table table-sm">
         <thead>
           <tr>
-            <th scope="col">STT</th>
-            <th scope="col">Tên SP</th>
-            <th scope="col">Thương hiệu</th>
-            <th scope="col">Loại sản phẩm</th>
-            <th scope="col">Mô tả</th>
-            <th scope="col">Lợi ích</th>
-            <th scope="col" class="m-auto" style="text-align: center;">
+            <th class="th-1" scope="col ">STT</th>
+            <th class="th-2" scope="col">Tên SP</th>
+            <th class="th-3" scope="col">Thương hiệu</th>
+            <th class="th-4" scope="col">Loại sản phẩm</th>
+            <th class="th-5" scope="col">Mô tả</th>
+            <th class="th-6" scope="col">Lợi ích</th>
+            <th scope="col" class="m-auto th-7" style="text-align: center">
               Tùy chọn
             </th>
           </tr>
@@ -31,7 +29,7 @@
         <tbody>
           <ng-container *ngFor="let item of dsLoaiSP; let j = index">
             <tr *ngFor="let sp of item.sanPhams; let i = index">
-              <th scope="row">{{ j }}</th>
+              <td scope="row">{{ j }}</td>
               <td>{{ sp.tenSp }}</td>
               <td>{{ thuongHieu }}</td>
               <td>{{ item.tenLoaiSp }}</td>
@@ -55,7 +53,7 @@
                 <button
                   type="button"
                   class="btn btn-primary mr-2"
-                  (click)="moSuaSp(sp.id, sp.tenSp)"
+                  (click)="moSuaSp(sp.id, sp.tenSp, dsLoaiSP, item.id)"
                 >
                   Sửa
                 </button>
@@ -86,9 +84,7 @@
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLongTitle">
-          Thêm sản phẩm
-        </h5>
+        <h5 class="modal-title" id="exampleModalLongTitle">Thêm sản phẩm</h5>
         <button
           type="button"
           class="close"
@@ -134,16 +130,16 @@
                   formControlName="idLoaiSp"
                   id="inputGroupSelect01"
                 >
-                  <option *ngFor="let item of dsLoaiSP" [value]="item.id">{{
-                    item.tenLoaiSp
-                  }}</option>
+                  <option *ngFor="let item of dsLoaiSP" [value]="item.id">
+                    {{ item.tenLoaiSp }}
+                  </option>
                 </select>
               </div>
             </div>
           </div>
           <div class="form-group">
             <label for="">Mô tả</label>
-            <input
+            <textarea
               type="text"
               class="form-control"
               name=""
@@ -151,7 +147,7 @@
               aria-describedby="helpId"
               placeholder=""
               formControlName="moTa"
-            />
+            ></textarea>
           </div>
           <div class="form-group">
             <label for="">Lợi ích</label>
@@ -173,9 +169,7 @@
             >
               Hủy
             </button>
-            <button type="submit" class="btn btn-primary ml-2">
-              Thêm
-            </button>
+            <button type="submit" class="btn btn-primary ml-2">Thêm</button>
           </div>
         </form>
       </div>

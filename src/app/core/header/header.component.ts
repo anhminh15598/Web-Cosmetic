@@ -14,14 +14,16 @@ import { ErrorService } from 'src/service/error.service';
   styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent implements OnInit {
-  constructor(private router: Router,
-    public http : HttpClient,
-    public errorService: ErrorService,)
-    {}
-    x = false;
-    thuongHieux:any = [];
-    getThuongHieu(){
-      this.http.get(environment.apiUrl + environment.apiList.ThuongHieu,{
+  constructor(
+    private router: Router,
+    public http: HttpClient,
+    public errorService: ErrorService
+  ) {}
+  x = false;
+  thuongHieux: any = [];
+  getThuongHieu() {
+    this.http
+      .get(environment.apiUrl + environment.apiList.ThuongHieu, {
         headers: new HttpHeaders({
           'Content-Type': 'application/json',
         }),
@@ -34,7 +36,7 @@ export class HeaderComponent implements OnInit {
           this.errorService.showError(error);
         }
       );
-    }
+  }
 
   ngOnInit(): void {
     this.getThuongHieu();

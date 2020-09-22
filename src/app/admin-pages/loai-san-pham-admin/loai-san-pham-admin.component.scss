@@ -1,5 +1,18 @@
-.header-table{
-    display: flex;
-    justify-content: space-between;
-    padding: 30px;
+.header-table {
+  display: flex;
+  justify-content: space-between;
+  padding: 30px;
+}
+.back {
+  height: 27px;
+  width: 70px;
+  background-color: #d0d0d0;
+  p {
+    margin: 5px;
+    font-weight: bold;
+  }
+}
+.back:hover {
+  background-color: #fff;
+  cursor: pointer;
 }

@@ -6,7 +6,7 @@ import { ErrorService } from 'src/service/error.service';
 @Component({
   selector: 'app-hinh-anh-san-pham',
   templateUrl: './hinh-anh-san-pham.component.html',
-  styleUrls: ['./hinh-anh-san-pham.component.scss']
+  styleUrls: ['./hinh-anh-san-pham.component.scss'],
 })
 export class HinhAnhSanPhamComponent implements OnInit {
   @Input() my_modal_title;
@@ -14,44 +14,65 @@ export class HinhAnhSanPhamComponent implements OnInit {
   @Input() tenSp;
   @Input() id;
   @Output() public onUploadFinished = new EventEmitter();
-  link:any;
-  dsHinhAnh:any = [];
+  link: any;
+  dsHinhAnh: any = [];
   public progress: number;
   public message: string;
 
-  constructor(public activeModal: NgbActiveModal,private http: HttpClient,public errorService: ErrorService,) { }
+  constructor(
+    public activeModal: NgbActiveModal,
+    private http: HttpClient,
+    public errorService: ErrorService
+  ) {}
 
   ngOnInit() {
     this.laydsHinhAnhSP(this.id);
   }
+
   public uploadFile = (files) => {
+    const randomNumber: string =
+      'sp-' + (Math.random() * 0xfffff * 10000000000).toString(16);
+    let regExPattern = /\.(gif|jpe?g|tiff?|png|webp|bmp)/;
     if (files.length === 0) {
       return;
     }
     let fileToUpload = <File>files[0];
     const formData = new FormData();
-    formData.append('file', fileToUpload, fileToUpload.name);
-    this.http.post(environment.apiUrl+environment.apiList.uploadHinhanh, formData, {reportProgress: true, observe: 'events'})
-      .subscribe(event => {
+    formData.append(
+      'file',
+      fileToUpload,
+      randomNumber + fileToUpload.name.match(regExPattern)[0]
+    );
+
+    this.http
+      .post(environment.apiUrl + environment.apiList.uploadHinhanh, formData, {
+        reportProgress: true,
+        observe: 'events',
+      })
+      .subscribe((event) => {
         if (event.type === HttpEventType.UploadProgress)
-          this.progress = Math.round(100 * event.loaded / event.total);
+          this.progress = Math.round((100 * event.loaded) / event.total);
         else if (event.type === HttpEventType.Response) {
           this.message = 'Upload success.';
           this.link = event.body;
           console.log(event.body);
-          this.themHinhAnh(this.id,this.link.dbPath,fileToUpload.name);
+          this.themHinhAnh(
+            this.id,
+            this.link.dbPath,
+            randomNumber + fileToUpload.name.match(regExPattern)[0]
+          );
         }
       });
-  }
-  themHinhAnh(idSP,link,ten){
+  };
+  themHinhAnh(idSP, link, ten) {
     var thongtin = {
-      idSanPham : parseInt(idSP),
-      linkHinhAnh : link,
-      tenHinhAnh : ten,
-    }
+      idSanPham: parseInt(idSP),
+      linkHinhAnh: link,
+      tenHinhAnh: ten,
+    };
     console.log(thongtin);
     this.http
-      .post(environment.apiUrl + environment.apiList.hinhAnh,thongtin, {
+      .post(environment.apiUrl + environment.apiList.hinhAnh, thongtin, {
         headers: new HttpHeaders({
           'Content-Type': 'application/json',
         }),
@@ -59,14 +80,14 @@ export class HinhAnhSanPhamComponent implements OnInit {
       .subscribe(
         (data) => {
           this.laydsHinhAnhSP(this.id);
-          console.log("work");
+          console.log('work');
         },
         (error) => {
           this.errorService.showError(error);
         }
       );
   }
-  xoaHinhAnh(idHA){ 
+  xoaHinhAnh(idHA) {
     this.http
       .delete(environment.apiUrl + environment.apiList.hinhAnh + idHA, {
         headers: new HttpHeaders({
@@ -76,14 +97,15 @@ export class HinhAnhSanPhamComponent implements OnInit {
       .subscribe(
         (data) => {
           this.laydsHinhAnhSP(this.id);
-          console.log("work");
+          console.log('work');
         },
         (error) => {
           this.errorService.showError(error);
         }
       );
   }
-  laydsHinhAnhSP(id){
+  laydsHinhAnhSP(id) {
+    console.log(id + 'há');
     this.http
       .get(environment.apiUrl + environment.apiList.dsHinhAnhSanPham + id, {
         headers: new HttpHeaders({
@@ -101,12 +123,12 @@ export class HinhAnhSanPhamComponent implements OnInit {
       );
   }
   createImgPath = (serverPath: string) => {
-    return environment.Url+`${serverPath}`;
-  }
-  deleteHinhAnh(tenHA,id){
-    var result = confirm("Bạn có muốn xóa hình ảnh '"+tenHA+"' này không?");
-    if(result)  {
+    return environment.Url + `${serverPath}`;
+  };
+  deleteHinhAnh(tenHA, id) {
+    var result = confirm("Bạn có muốn xóa hình ảnh '" + tenHA + "' này không?");
+    if (result) {
       this.xoaHinhAnh(id);
-    } 
+    }
   }
 }

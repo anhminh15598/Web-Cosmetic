@@ -15,7 +15,6 @@ import { HomeComponent } from './pages/home/home.component';
 import { QuanLyKichCoComponent } from './admin-pages/san-pham-admin/quan-ly-kich-co/quan-ly-kich-co.component';
 import { QuanLyKichCoModule } from './admin-pages/san-pham-admin/quan-ly-kich-co/quan-ly-kich-co.module';
 
-
 const routes: Routes = [
   {
     path: '',

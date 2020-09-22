@@ -1,13 +1,21 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
-import { FormBuilder, FormGroup, Validators, FormControl, ValidatorFn, AbstractControl, ValidationErrors } from '@angular/forms';
+import {
+  FormBuilder,
+  FormGroup,
+  Validators,
+  FormControl,
+  ValidatorFn,
+  AbstractControl,
+  ValidationErrors,
+} from '@angular/forms';
 import { environment } from 'src/environments/environment';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { ErrorService } from 'src/service/error.service';
 @Component({
   selector: 'app-sua-san-pham',
   templateUrl: './sua-san-pham.component.html',
-  styleUrls: ['./sua-san-pham.component.scss']
+  styleUrls: ['./sua-san-pham.component.scss'],
 })
 export class SuaSanPhamComponent implements OnInit {
   @Input() my_modal_title;
@@ -15,24 +23,34 @@ export class SuaSanPhamComponent implements OnInit {
   @Input() tenSp;
   @Input() id;
   @Input() idTH;
-  loaiSanPham:any;
-  suaSanPhamForm:any;
-  dsloaiSP:any = [];
-  sanPham:any = [];
-  constructor(public activeModal: NgbActiveModal,private formBuider: FormBuilder,
-    public http: HttpClient,public errorService: ErrorService,) { }
+  @Input() tenLoaiSp;
+  @Input() idLoaiSp;
+  idLoaiSanPham: any;
+  loaiSanPham: any;
+  suaSanPhamForm: any;
+  dsloaiSP: any = [];
+  sanPham: any = [];
+  constructor(
+    public activeModal: NgbActiveModal,
+    private formBuider: FormBuilder,
+    public http: HttpClient,
+    public errorService: ErrorService
+  ) {}
 
   ngOnInit() {
+    this.idLoaiSanPham = this.idLoaiSp;
+    console.log(this.idLoaiSanPham);
+    this.dsloaiSP = this.tenLoaiSp;
+    console.log('log', this.dsloaiSP);
     this.laySanPham(this.id);
-    this.layDsLoaiSp(this.idTH);
     this.suaSanPhamForm = new FormGroup({
-      tenSp : new FormControl(),
-      idLoaiSp :  new FormControl(),
-      loiIch : new FormControl(),
-      moTa : new FormControl(),
-    })
+      tenSp: new FormControl(),
+      idLoaiSp: new FormControl(),
+      loiIch: new FormControl(),
+      moTa: new FormControl(),
+    });
   }
-  laySanPham(id){
+  laySanPham(id) {
     var _SP = [];
     this.http
       .get(environment.apiUrl + environment.apiList.Sanphams + id, {
@@ -43,10 +61,10 @@ export class SuaSanPhamComponent implements OnInit {
       .subscribe(
         (data) => {
           _SP.push(data);
-          _SP.forEach(element => {
+          _SP.forEach((element) => {
             this.sanPham = element;
           });
-          
+
           console.log(this.sanPham);
         },
         (error) => {
@@ -54,24 +72,24 @@ export class SuaSanPhamComponent implements OnInit {
         }
       );
   }
-  layDsLoaiSp(id){
-    this.http
-      .get(environment.apiUrl + environment.apiList.DsLoaiSanPham + id, {
-        headers: new HttpHeaders({
-          'Content-Type': 'application/json',
-        }),
-      })
-      .subscribe(
-        (data) => {
-          this.dsloaiSP = data;
-          console.log(this.dsloaiSP);
-        },
-        (error) => {
-          this.errorService.showError(error);
-        }
-      );
-  }
-  suaSanPham(id,SanPham) {
+  // layDsLoaiSp(id) {
+  //   this.http
+  //     .get(environment.apiUrl + environment.apiList.DsLoaiSanPham + id, {
+  //       headers: new HttpHeaders({
+  //         'Content-Type': 'application/json',
+  //       }),
+  //     })
+  //     .subscribe(
+  //       (data) => {
+  //         this.dsloaiSP = data;
+  //         console.log(this.dsloaiSP);
+  //       },
+  //       (error) => {
+  //         this.errorService.showError(error);
+  //       }
+  //     );
+  // }
+  suaSanPham(id, SanPham) {
     console.log(SanPham);
     this.http
       .put(environment.apiUrl + environment.apiList.Sanphams + id, SanPham, {
@@ -80,15 +98,17 @@ export class SuaSanPhamComponent implements OnInit {
         }),
       })
       .subscribe((data) => {
-        console.log("work");
+        console.log('work');
         this.activeModal.close('Close click');
       }),
       (error) => {
         this.errorService.showError(error);
       };
   }
-  onSubmit(id){
-    this.suaSanPhamForm.value.idLoaiSp = parseInt(this.suaSanPhamForm.value.idLoaiSp);
-    this.suaSanPham(id,this.suaSanPhamForm.value);
+  onSubmit(id) {
+    this.suaSanPhamForm.value.idLoaiSp = parseInt(
+      this.suaSanPhamForm.value.idLoaiSp
+    );
+    this.suaSanPham(id, this.suaSanPhamForm.value);
   }
 }

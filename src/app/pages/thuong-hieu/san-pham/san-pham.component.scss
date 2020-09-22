@@ -118,8 +118,8 @@ main {
   margin: 1rem 0 0 0;
   list-style: none;
   li {
-    font-size: 0.85rem;
-    letter-spacing: 0.125rem;
+    font-size: 12px;
+    letter-spacing: 1.5px;
     text-transform: uppercase;
   }
 }
@@ -310,6 +310,7 @@ main {
   }
   &.menu,
   &.product {
+    margin-top: 3%;
     border-bottom: 0.0625rem solid $gray;
   }
   &.menu {
@@ -351,11 +352,14 @@ footer {
 
   .product-image {
     display: block;
+    border-bottom: 0.0625rem solid #e3dddd;
     img {
-      height: 52vh;
+      width: 70%;
+      margin: 0 auto;
+      // height: 52vh;
       &.active {
         display: block;
-        margin: 0 0 0.75rem 0;
+        // margin: 0 0 0.75rem 0;
       }
     }
   }
@@ -365,6 +369,7 @@ footer {
   }
 
   .image-list {
+    margin-top: 2%;
     display: flex;
     overflow: hidden;
     li {
@@ -375,7 +380,7 @@ footer {
       }
     }
     img {
-      height: 10rem;
+      // height: 10rem;
       width: 100%;
       transition: opacity 0.3s ease;
       cursor: pointer;

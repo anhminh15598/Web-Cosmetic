@@ -1,6 +1,8 @@
 <div class="header-table">
-    <h3>Quản Lý Loại Sản Phẩm: {{ tenThuongHieu }} </h3>
-    <button class="btn btn-success" (click)="moThemLsp()">Thêm loại sản phẩm</button>
+  <h3>Quản Lý Loại Sản Phẩm: {{ tenThuongHieu }}</h3>
+  <button class="btn btn-success" (click)="moThemLsp()">
+    Thêm loại sản phẩm
+  </button>
 </div>
 <table class="table">
   <thead>
@@ -13,14 +15,30 @@
   </thead>
   <tbody>
     <tr *ngFor="let lsp of dsloaiSP; let i = index">
-      <th scope="row">{{i+1}}</th>
-      <td>{{lsp.tenThuongHieu}}</td>
-      <td>{{lsp.moTa}}</td>
+      <th scope="row">{{ i + 1 }}</th>
+      <td>{{ lsp.tenThuongHieu }}</td>
+      <td>{{ lsp.moTa }}</td>
       <td>
-        <button class="btn btn-primary mr-2" (click)="moSuaLsp(lsp.id,lsp.tenThuongHieu)">Sửa</button>
-        <button class="btn btn-danger" (click)="moXoaLsp(lsp.id,lsp.tenThuongHieu)">Xóa</button>
+        <button
+          class="btn btn-primary mr-2"
+          (click)="moSuaLsp(lsp.id, lsp.tenThuongHieu)"
+        >
+          Sửa
+        </button>
+        <button
+          class="btn btn-danger"
+          (click)="moXoaLsp(lsp.id, lsp.tenThuongHieu)"
+        >
+          Xóa
+        </button>
       </td>
     </tr>
   </tbody>
 </table>
-
+<pagination-controls
+  class="page-btn"
+  (pageChange)="p = $event"
+  previousLabel=""
+  maxSize="10"
+  nextLabel=""
+></pagination-controls>

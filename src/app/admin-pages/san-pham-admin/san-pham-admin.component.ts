@@ -35,6 +35,7 @@ export class SanPhamAdminComponent implements OnInit {
   dsLoaiSP: any = [];
   loaiSP: any = [];
   id: any;
+  p: any;
   sub: any;
   sanPham: any = [];
   ngOnInit() {
@@ -62,6 +63,7 @@ export class SanPhamAdminComponent implements OnInit {
             });
           });
           this.dsLoaiSP = _loaiSP;
+          console.log('this.dsLoaiSP', this.dsLoaiSP);
         },
         (error) => {
           this.errorService.showError(error);
@@ -88,7 +90,7 @@ export class SanPhamAdminComponent implements OnInit {
       formThemsp.idLoaiSp = parseInt(formThemsp.idLoaiSp);
       console.log(formThemsp);
       this.themLoaiSanPham(formThemsp);
-      window.location.reload();
+      // window.location.reload();
     } else {
     }
   }
@@ -99,17 +101,20 @@ export class SanPhamAdminComponent implements OnInit {
     modalRef.componentInstance.tenSp = tenSp;
     modalRef.componentInstance.idTH = this.id;
     modalRef.componentInstance.id = id;
+    console.log(id + ' hasp');
   }
 
   moKichCo(id) {
     this.router.navigate(['/admin/quan-ly-kich-co', id]);
   }
-  moSuaSp(id, tenSp) {
+  moSuaSp(id, tenSp, tenLoaiSp, idLoaiSp) {
     const modalRef = this.modalService.open(SuaSanPhamComponent);
     modalRef.componentInstance.my_modal_title = 'Sửa Sản Phẩm ' + tenSp;
     modalRef.componentInstance.tenSp = tenSp;
     modalRef.componentInstance.idTH = this.id;
     modalRef.componentInstance.id = id;
+    modalRef.componentInstance.tenLoaiSp = tenLoaiSp;
+    modalRef.componentInstance.idLoaiSp = idLoaiSp;
   }
   moXoaSp(id, tenSp) {
     const modalRef = this.modalService.open(XoaSanPhamComponent);

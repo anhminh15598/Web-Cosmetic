@@ -4,7 +4,10 @@
   color: rgba(8, 89, 160, 0.473);
   font-family: "Karla", sans-serif;
 }
-
+:focus {
+  outline: none;
+  opacity: 1;
+}
 @keyframes enter {
   from {
     opacity: 0;
@@ -230,6 +233,7 @@ a {
   }
   .menu {
     position: absolute;
+    justify-content: center;
     &:after {
       content: "";
       position: absolute;

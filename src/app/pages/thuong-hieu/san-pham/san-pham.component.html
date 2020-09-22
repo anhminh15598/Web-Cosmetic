@@ -29,7 +29,7 @@
           <ul class="image-list pb-3">
             <li
               class="image-item"
-              *ngFor="let image of hinhAnh | slice: 0:3; let i = index"
+              *ngFor="let image of hinhAnh | slice: 0:4; let i = index"
             >
               <img
                 [src]="createImgPath(image.thumb)"
@@ -43,7 +43,7 @@
       <div class="sanPham col-xs-12 col-md-5">
         <h1>{{ sanPham.tenSp }}</h1>
         <div class="description">
-          <div class="kichCo">
+          <div class="kichCo mb-4">
             <div class="select-box">
               <div class="select-box__current" tabindex="1">
                 <div
@@ -80,7 +80,9 @@
               </ul>
             </div>
           </div>
-          <h5 class="my-3">Giá sản phẩm: {{ giaSp }}</h5>
+          <h5 class="my-3">
+            Giá sản phẩm: ${{ giaSp }} (~{{ giaSp * 23000 | number: "1.0" }}₫)
+          </h5>
           <h2>Mô tả</h2>
           <p>{{ sanPham.moTa }}</p>
         </div>
@@ -94,23 +96,33 @@
           <h3>Bạn có thể thích</h3>
         </div>
       </div>
-      <div class="row">
+      <div class="row" style="margin-bottom: 4%">
         <div
+          style="text-align: center"
           (click)="resetHinhAnh(locSp.id)"
           [routerLink]="['../' + locSp.id]"
-          class="col-lg-3 col-md-4 col-sm-6 col-12 py-3 itemSp"
-          *ngFor="let locSp of locdsSanPhamLoc | slice: 0:6; let i = index"
+          class="col-lg-3 col-md-5 col-sm-5 col-8 m-auto py-3 itemSp"
+          *ngFor="let locSp of locdsSanPhamLoc | slice: 0:8; let i = index"
         >
           <div>
             <img
-              style="height: 280px; width: 100%; border-radius: 5px;"
+              style="
+                min-height: 220px;
+                width: 100%;
+                padding: 5%;
+                border-radius: 5px;
+              "
               *ngFor="let item of locSp.hinhAnhs | slice: 0:1"
               [src]="createImgPath(item.linkHinhAnh)"
             />
-            <h4>
+            <h4 style="height: 56px; font-size: 22px">
               {{ locSp.tenSp }}
             </h4>
-            <p>Giá từ: {{ locSp.kichCoSps[0].giaSp | number: "1.0" }} ₫</p>
+          </div>
+          <div>
+            <span *ngIf="locSp.kichCoSps.length > 0"
+              >Giá từ: ${{ locSp.kichCoSps[0].giaSp }}</span
+            >
           </div>
         </div>
       </div>
